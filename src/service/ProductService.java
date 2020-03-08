@@ -105,7 +105,8 @@ public class ProductService implements IproductService {
                 productList.add(new Product(id, name, productType, manufacturer
                         , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
                         describes, image, expirydate, motasp, discount));
-
+                if (productList.size() == 8)
+                    break;
             }
         } catch (SQLException e) {
             e.printStackTrace();

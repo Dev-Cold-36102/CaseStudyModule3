@@ -1219,7 +1219,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </h4>
                                 <div class="w3l-pricehkj">
                                     <h6>${product.getPriceProductIn()}</h6>
-                                    <c:set var="priceSale" value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
+                                    <c:set var="priceSale"
+                                           value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
                                     <p>Save <c:out value="${priceSale}"/>
                                     </p>
                                 </div>
@@ -1231,7 +1232,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="business" value=" "/>
                                             <input type="hidden" name="item_name" value="${product.getProductName()}"/>
                                             <input type="hidden" name="amount" value="${product.getAmountProduct()}"/>
-                                            <input type="hidden" name="discount_amount" value="${product.getDiscount()}"/>
+                                            <input type="hidden" name="discount_amount"
+                                                   value="${product.getDiscount()}"/>
                                             <input type="hidden" name="currency_code" value="USD"/>
                                             <input type="hidden" name="return" value=" "/>
                                             <input type="hidden" name="cancel_return" value=" "/>
