@@ -20,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
+
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -544,9 +545,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p>
                         Dể mua sắm các sản phẩm hãy đăng ký tài khoản để được hưởng các ưu đãi thường xuyên của Shop.
                     </p>
-                    <p>
-                        <c:if test="${requestScope['message']!=null}">${requestScope["message"]}</c:if>
-                    </p>
                     <form action="/dangky" method="post">
                         <div class="styled-input agile-styled-input-top">
                             <input type="text" placeholder="Name" name="name" required="">
@@ -1044,7 +1042,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </h4>
                                     <div class="info-product-price">
                                             <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1056,7 +1054,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1105,7 +1103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1117,7 +1115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1149,13 +1147,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 nhanh</a>
                                         </div>
                                     </div>
+                                    <span class="product-new-top">${product.getDiscount()}%</span>
+
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1167,7 +1167,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                                       value="${product.getPriceProductOut()*(100-product.getDiscount())/100}"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1219,8 +1219,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </h4>
                                 <div class="w3l-pricehkj">
                                     <h6>${product.getPriceProductIn()}</h6>
-                                    <p>Save
-                                        <c:out value="${product.getPriceProductIn()}+1"></c:out>
+                                    <c:set var="priceSale" value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
+                                    <p>Save <c:out value="${priceSale}"/>
                                     </p>
                                 </div>
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1644,6 +1644,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             removalDelay: 300,
             mainClass: 'my-mfp-zoom-in'
         });
+
     });
 </script>
 <!-- Large modal -->
@@ -1656,15 +1657,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/minicart.js"></script>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
+
     paypalm.minicartk.cart.on('checkout', function (evt) {
         var items = this.items(),
             len = items.length,
             total = 0,
             i;
+
         // Count the number of each item in the cart
         for (i = 0; i < len; i++) {
             total += items[i].get('quantity');
         }
+
         if (total < 3) {
             alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
             evt.preventDefault();
@@ -1688,6 +1692,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         });
         $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
     }); //]]>
 </script>
 <!-- //price range (top products) -->
@@ -1718,6 +1723,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
             }
         });
+
     });
 </script>
 <!-- //flexisel (for special offers) -->
@@ -1728,6 +1734,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
+
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
@@ -1751,6 +1758,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
+
             $('html,body').animate({
                 scrollTop: $(this.hash).offset().top
             }, 1000);
@@ -1773,6 +1781,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $().UItoTop({
             easingType: 'easeOutQuart'
         });
+
     });
 </script>
 <!-- //smooth-scrolling-of-move-up -->
