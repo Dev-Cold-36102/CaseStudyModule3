@@ -23,16 +23,11 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        switch (action) {
-            case "search":
-                String nameProductSearch = request.getParameter("Search");
-                break;
-
-        }
+        String productType3 = "đồ dùng cá nhân";
+        List<Product> hotProduct = productService.productListHot(productType3);
+        request.setAttribute("hotProduct", hotProduct);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
+        dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
