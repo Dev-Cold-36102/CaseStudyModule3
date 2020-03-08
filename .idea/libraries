@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="libraryTable">
+    <library name="taglibs-standard-impl-1.2.5">
+      <CLASSES>
+        <root url="jar://D:/taglibs-standard-impl-1.2.5.jar!/" />
+        <root url="jar://D:/taglibs-standard-spec-1.2.5.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+  </component>
+</project>
