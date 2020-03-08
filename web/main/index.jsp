@@ -1022,50 +1022,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- first section (nuts) -->
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Đồ Cho Trẻ</h3>
-                </div>
 
-                <c:forEach items="${productList}" var="product">
-                    <div class="col-md-4 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="${product.getImage()}" alt="images">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
+
+                    <c:forEach items="${productList}" var="product">
+                        <div class="col-md-4 product-men">
+                            <div class="men-pro-item simpleCart_shelfItem">
+                                <div class="men-thumb-item">
+                                    <img src="${product.getImage()}" alt="images">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
+                                        </div>
                                     </div>
+                                    <span class="product-new-top">${product.getDiscount()}%%</span>
                                 </div>
-                                <span class="product-new-top">${product.getDiscount()}%</span>
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="../main/single.jsp">${product.getProductName()}</a>
-                                </h4>
-                                <div class="info-product-price">
-                                        <%--<span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount}/100)</span>--%>
-                                    <del>${product.getPriceProductOut()}</del>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart"/>
-                                            <input type="hidden" name="add" value="1"/>
-                                            <input type="hidden" name="business" value=" "/>
-                                            <input type="hidden" name="item_name"
-                                                   value="${product.getProductName()}"/>
-                                            <input type="hidden" name="amount"
-                                                   value="${product.getPriceProductOut()}*(1-${product.getDiscount}/100)"/>
-                                            <input type="hidden" name="discount_amount" value="1.00"/>
-                                            <input type="hidden" name="currency_code" value="USD"/>
-                                            <input type="hidden" name="return" value=" "/>
-                                            <input type="hidden" name="cancel_return" value=" "/>
-                                            <input type="submit" name="submit" value="Add to cart" class="button"/>
-                                        </fieldset>
-                                    </form>
+                                <div class="item-info-product ">
+                                    <h4>
+                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                    </h4>
+                                    <div class="info-product-price">
+                                            <%--<span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
+                                        <del>${product.getPriceProductOut()}</del>
+                                    </div>
+                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name"
+                                                       value="${product.getProductName()}"/>
+                                                <input type="hidden" name="amount"
+                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                                <input type="hidden" name="discount_amount" value="1.00"/>
+                                                <input type="hidden" name="currency_code" value="USD"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                            </fieldset>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
+                    <div class="clearfix"></div>
+                </div>
 
                 <div class="product-sec1 product-sec2">
                     <div class="col-xs-7 effect-bg">
@@ -1075,7 +1077,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <h3 class="w3l-nut-middle">Nuts & Dry Fruits</h3>
                     <div class="col-xs-5 bg-right-nut">
-                        <img src="../images/nut1.png" alt="">
+                        <img src="images/nut1.png" alt="">
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1093,14 +1095,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <a href="../main/single.jsp" class="link-product-add-cart">xem nhanh</a>
                                         </div>
                                     </div>
-                                    <span class="product-new-top">${product.getDiscount}</span>
+                                    <span class="product-new-top">${product.getDiscount()}%</span>
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1112,7 +1114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}/100)"/>
+                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1127,6 +1129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                     </c:forEach>
+                    <div class="clearfix"></div>
                 </div>
 
 
@@ -1149,7 +1152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1161,7 +1164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}/100)"/>
+                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1176,6 +1179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                     </c:forEach>
+                    <div class="clearfix"></div>
                 </div>
 
             </div>
@@ -1196,48 +1200,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</span>
         </h3>
         <!-- //tittle heading -->
-        <c:forEach items="${hotProduct}" var="product">
-            <div class="content-bottom-in">
-                <ul id="flexiselDemo1">
-                    <li>
-                        <div class="w3l-specilamk">
-                            <div class="speioffer-agile">
-                                <a href="../main/single.jsp">
-                                    <img src="${product.getImage()}" alt="">
-                                </a>
+        <div class="content-bottom-in">
+            <ul id="flexiselDemo1">
+                <c:forEach items="${hotProduct}" var="product">
+                <li>
+                    <div class="w3l-specilamk">
+                        <div class="speioffer-agile">
+                            <a href="../main/single.jsp">
+                                <img src="${product.getImage()}" alt="">
+                            </a>
+                        </div>
+                        <div class="product-name-w3l">
+                            <h4>
+                                <a href="../main/single.jsp">${product.getNameProduct()}</a>
+                            </h4>
+                            <div class="w3l-pricehkj">
+                                <h6>${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</h6>
+                                <p>${product.getPriceProductOut()}*${product.getDiscount()}%/100)</p>
                             </div>
-                            <div class="product-name-w3l">
-                                <h4>
-                                    <a href="../main/single.jsp">${product.getNameProduct()}</a>
-                                </h4>
-                                <div class="w3l-pricehkj">
-                                    <h6>${product.getPriceProductOut()}*(1-${product.getDiscount()}/100)</h6>
-                                    <p>${product.getPriceProductOut()}*${product.getDiscount()}/100)</p>
-                                </div>
-                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart"/>
-                                            <input type="hidden" name="add" value="1"/>
-                                            <input type="hidden" name="business" value=" "/>
-                                            <input type="hidden" name="item_name" value="${product.getName()}"/>
-                                            <input type="hidden" name="amount"
-                                                   value="${product.getPriceProductOut()}*(1-${product.getDiscount()}/100)"/>
-                                            <input type="hidden" name="discount_amount" value="1.00"/>
-                                            <input type="hidden" name="currency_code" value="USD"/>
-                                            <input type="hidden" name="return" value=" "/>
-                                            <input type="hidden" name="cancel_return" value=" "/>
-                                            <input type="submit" name="submit" value="Add to cart"
-                                                   class="button"/>
-                                        </fieldset>
-                                    </form>
-                                </div>
+                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <input type="hidden" name="cmd" value="_cart"/>
+                                        <input type="hidden" name="add" value="1"/>
+                                        <input type="hidden" name="business" value=" "/>
+                                        <input type="hidden" name="item_name" value="${product.getName()}"/>
+                                        <input type="hidden" name="amount"
+                                               value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                        <input type="hidden" name="discount_amount" value="1.00"/>
+                                        <input type="hidden" name="currency_code" value="USD"/>
+                                        <input type="hidden" name="return" value=" "/>
+                                        <input type="hidden" name="cancel_return" value=" "/>
+                                        <input type="submit" name="submit" value="Add to cart"
+                                               class="button"/>
+                                    </fieldset>
+                                </form>
                             </div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </c:forEach>
+                    </div>
+                </li>
+                </c:forEach>
+            </ul>
+        </div>
+
     </div>
 </div>
 

@@ -17,6 +17,7 @@ import java.util.List;
 @WebServlet(name = "IndexServlet", urlPatterns = "/home")
 public class IndexServlet extends HttpServlet {
     private ProductService productService;
+
     public void init() {
         productService = new ProductService();
     }
@@ -28,7 +29,7 @@ public class IndexServlet extends HttpServlet {
         }
         switch (action) {
             case "search":
-                String nameProductSearch=request.getParameter("Search");
+                String nameProductSearch = request.getParameter("Search");
                 break;
 
         }
@@ -36,18 +37,18 @@ public class IndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        System.out.println("index");
-        String productType="đồ cho trẻ";
-        List<Product>productList=productService.productList(productType);
-        request.setAttribute("productList",productList);
-        String productType1="đồ dùng cá nhân";
-        List<Product>personalCare=productService.productList(productType1);
-        request.setAttribute("personalCare",personalCare);
-        String productType2="đồ ăn";
-        List<Product>foodList=productService.productList(productType2);
-        request.setAttribute("foodList",foodList);
-        String productType3="đồ dùng cá nhân";
-        List<Product>hotProduct=productService.productListHot(productType3);
-        request.setAttribute("hotProduct",hotProduct);
+        String productType = "đồ cho trẻ";
+        List<Product> productList = productService.productList(productType);
+        request.setAttribute("productList", productList);
+        String productType1 = "đồ dùng cá nhân";
+        List<Product> personalCare = productService.productList(productType1);
+        request.setAttribute("personalCare", personalCare);
+        String productType2 = "đồ ăn";
+        List<Product> foodList = productService.productList(productType2);
+        request.setAttribute("foodList", foodList);
+        String productType3 = "đồ dùng cá nhân";
+        List<Product> hotProduct = productService.productListHot(productType3);
+        request.setAttribute("hotProduct", hotProduct);
         RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
         dispatcher.forward(request, response);
 
