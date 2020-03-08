@@ -87,6 +87,7 @@ public class ProductService implements IproductService {
             preparedStatement.setString(1, productType);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+
                 int id = Integer.parseInt(String.valueOf(resultSet.getInt("id")));
                 String name = resultSet.getString("productName");
                 String image = resultSet.getString("image");
@@ -104,8 +105,7 @@ public class ProductService implements IproductService {
                 productList.add(new Product(id, name, productType, manufacturer
                         , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
                         describes, image, expirydate, motasp, discount));
-                if (productList.size()==8)
-                    break;
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
