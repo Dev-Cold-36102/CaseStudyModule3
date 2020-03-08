@@ -1,6 +1,7 @@
 package controller;
 
 import model.product.Product;
+import model.user.User;
 import service.ProductService;
 
 import javax.servlet.RequestDispatcher;
@@ -31,7 +32,21 @@ public class IndexServlet extends HttpServlet {
             case "search":
                 String nameProductSearch = request.getParameter("Search");
                 break;
-
+            case "dangky":
+                String userName=request.getParameter("name");
+                String password=request.getParameter("password");
+                String email =request.getParameter("email");
+                if (productService.checkUserName(userName)){
+                    System.out.println("tai khoan da ton tai");
+                    request.setAttribute("message","Tai khoan da ton tai");
+                }else {
+                    User userNew=new User(userName,password,email);
+                    productService.insertUser(userNew);
+                    request.setAttribute("message","Dang ky thanh cong");
+                }
+                RequestDispatcher dispatcher=request.getRequestDispatcher("main/index.jsp");
+                dispatcher.forward(request,response);
+                break;
         }
     }
 
