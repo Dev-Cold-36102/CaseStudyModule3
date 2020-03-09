@@ -10,17 +10,15 @@ import java.util.List;
 public class ProductService implements IproductService {
     private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "12345@Abc";
-    private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values" +
-            "(?, ?,?);";
+    private String jdbcPassword = "hoanglinh";
+    private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values" + "(?, ?,?);";
     private  static final String check_username="select userName from accounts where userName=?;";
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where name = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, password =? where name = ?;";
-    private static final String SELECT_USER_BY_COUNTRY =
-            "select id,uname,email from users where country=?";
-    private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
+    private static final String SELECT_USER_BY_COUNTRY ="select id,uname,email from users where country=?";
+    private static final String SELECT_PRODUCT_BY_TYPE = "select * from products where productType=?;";
 
     Connection getConnection() {
         Connection connection = null;
@@ -80,7 +78,7 @@ public class ProductService implements IproductService {
                 int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut"))) ;
                 String describes = resultSet.getString("describes");
                 String expirydate = resultSet.getString("hansudung");
-                String motasp = resultSet.getString("mota");
+                String motasp = resultSet.getString("motasp");
 //                String motasp = "motasp";
                 System.out.println(expirydate);
                 int discount =Integer.parseInt(String.valueOf(resultSet.getInt("sale"))) ;
@@ -122,7 +120,7 @@ public class ProductService implements IproductService {
                 int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut"))) ;
                 String describes = resultSet.getString("describes");
                 String expirydate = resultSet.getString("hansudung");
-                String motasp = resultSet.getString("mota");
+                String motasp = resultSet.getString("motasp");
 //                String motasp = "motasp";
                 System.out.println(expirydate);
                 int discount =Integer.parseInt(String.valueOf(resultSet.getInt("sale"))) ;
