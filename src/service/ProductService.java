@@ -12,7 +12,7 @@ public class ProductService implements IproductService {
     private String jdbcUsername = "root";
     private String jdbcPassword = "12345@Abc";
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values" +
-            "(?, ?,?);";
+            "(?,?,?);";
     private  static final String check_username="select userName from accounts where userName=?;";
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
@@ -70,26 +70,26 @@ public class ProductService implements IproductService {
             ResultSet resultSet = preparedStatement.executeQuery();
 //            int count=0;
             while (resultSet.next()) {
-                int id =Integer.parseInt(String.valueOf(resultSet.getInt("id"))) ;
+                int id = Integer.parseInt(String.valueOf(resultSet.getInt("id")));
                 String name = resultSet.getString("productName");
                 String image = resultSet.getString("image");
                 String manufacturer = resultSet.getString("hangsx");
                 String placeOfProduct = resultSet.getString("xuatxu");
-                int amountProduct =Integer.parseInt(String.valueOf(resultSet.getInt("amount"))) ;
-                int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn"))) ;
-                int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut"))) ;
+                int amountProduct = Integer.parseInt(String.valueOf(resultSet.getInt("amount")));
+                int priceProductIn = Integer.parseInt(String.valueOf(resultSet.getInt("priceIn")));
+                int priceProductOut = Integer.parseInt(String.valueOf(resultSet.getInt("priceOut")));
                 String describes = resultSet.getString("describes");
                 String expirydate = resultSet.getString("hansudung");
                 String motasp = resultSet.getString("mota");
 //                String motasp = "motasp";
                 System.out.println(expirydate);
-                int discount =Integer.parseInt(String.valueOf(resultSet.getInt("sale"))) ;
+                int discount = Integer.parseInt(String.valueOf(resultSet.getInt("sale")));
                 productList.add(new Product(id, name, productType, manufacturer
                         , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
                         describes, image, expirydate, motasp, discount));
-                System.out.println(id+" "+name+" "+image+" "+manufacturer+" "+priceProductIn+" "+describes);
+                System.out.println(id + " " + name + " " + image + " " + manufacturer + " " + priceProductIn + " " + describes);
 
-                if (productList.size()>2)
+                if (productList.size() > 2)
                     break;
             }
         } catch (SQLException e) {
@@ -97,7 +97,6 @@ public class ProductService implements IproductService {
         }
 //        System.out.println("product list");
         System.out.println(productList.size());
-
 
 
         return productList;
@@ -112,25 +111,25 @@ public class ProductService implements IproductService {
             preparedStatement.setString(1, productType);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                int id =Integer.parseInt(String.valueOf(resultSet.getInt("id"))) ;
+
+                int id = Integer.parseInt(String.valueOf(resultSet.getInt("id")));
                 String name = resultSet.getString("productName");
                 String image = resultSet.getString("image");
                 String manufacturer = resultSet.getString("hangsx");
                 String placeOfProduct = resultSet.getString("xuatxu");
-                int amountProduct =Integer.parseInt(String.valueOf(resultSet.getInt("amount"))) ;
-                int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn"))) ;
-                int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut"))) ;
+                int amountProduct = Integer.parseInt(String.valueOf(resultSet.getInt("amount")));
+                int priceProductIn = Integer.parseInt(String.valueOf(resultSet.getInt("priceIn")));
+                int priceProductOut = Integer.parseInt(String.valueOf(resultSet.getInt("priceOut")));
                 String describes = resultSet.getString("describes");
                 String expirydate = resultSet.getString("hansudung");
                 String motasp = resultSet.getString("mota");
 //                String motasp = "motasp";
                 System.out.println(expirydate);
-                int discount =Integer.parseInt(String.valueOf(resultSet.getInt("sale"))) ;
+                int discount = Integer.parseInt(String.valueOf(resultSet.getInt("sale")));
                 productList.add(new Product(id, name, productType, manufacturer
                         , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
                         describes, image, expirydate, motasp, discount));
-                if (productList.size()>2)
-                    break;
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
