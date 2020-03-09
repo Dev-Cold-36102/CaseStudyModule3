@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static javax.swing.text.html.HTML.Tag.HEAD;
-
 @WebServlet(name = "IndexServlet", urlPatterns = "/home")
 public class IndexServlet extends HttpServlet {
     private ProductService productService;
@@ -27,8 +25,7 @@ public class IndexServlet extends HttpServlet {
         String productType3 = "đồ dùng cá nhân";
         List<Product> hotProduct = productService.productListHot(productType3);
         request.setAttribute("hotProduct", hotProduct);
-        String action;
-        action = request.getParameter("action");
+        String action = request.getParameter("action");
         if (action == null) {
             action = "";
         }
@@ -36,7 +33,6 @@ public class IndexServlet extends HttpServlet {
             case "search":
                 String nameProductSearch = request.getParameter("Search");
                 break;
-
             case "signup":
                 System.out.println("sign up");
                 String userName = request.getParameter("name");
