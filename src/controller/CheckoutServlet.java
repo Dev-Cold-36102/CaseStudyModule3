@@ -12,9 +12,7 @@ import java.io.IOException;
 public class CheckoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("main/checkout.jsp");
-
         dispatcher.forward(request,response);
-
 
     }
 
