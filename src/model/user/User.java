@@ -23,14 +23,15 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public User(String userName,String password, String email) {
-        this.userName=userName;
+    public User(String userName, String password, String email) {
+        this.userName = userName;
         this.password = password;
         this.email = email;
     }
 
+
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
     public void setUserName(String userName) {
@@ -85,3 +86,5 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 }
+
+

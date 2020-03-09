@@ -1,9 +1,4 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -501,7 +496,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Đăng Ký </h3>
+                    <h3 class="agileinfo_sign">Đăng Nhập</h3>
                     <p>
                         Đăng Nhập ngay, để bắt đầu mua sắm. Nếu bạn chưa có tài khoản!
                         <a href="#" data-toggle="modal" data-target="#myModal2">
@@ -514,7 +509,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" required="">
                         </div>
-                        <input type="submit" value="Đăng Ký">
+                        <input type="submit" value="Đăng Nhập">
                     </form>
                     <div class="clearfix"></div>
                 </div>
@@ -545,9 +540,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         Dể mua sắm các sản phẩm hãy đăng ký tài khoản để được hưởng các ưu đãi thường xuyên của Shop.
                     </p>
                     <p>
-                        <c:if test="${requestScope['message']!=null}">${requestScope["message"]}</c:if>
+
+                        <c:if test='${requestScope["message"] != null}'>
+                            <span style="color: red" class="message">${requestScope["message"]}</span>
+                        </c:if>
                     </p>
-                    <form action="/dangky" method="post">
+                    <form action="/home?action=signup" method="post">
+
                         <div class="styled-input agile-styled-input-top">
                             <input type="text" placeholder="Name" name="name" required="">
                         </div>
@@ -582,12 +581,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <form action="/search" method="post">
                 <select id="agileinfo-nav_search" name="searchByTypeProduct" required="">
                     <option value="">Danh Mục Sản Phẩm</option>
-                    <option value="Đồ Nội Thất">Đồ Nội Thất</option>
+                    <option value="đồ nội thất">Đồ Nội Thất</option>
                     <option value="Dụng Cụ Gia Đình">Dụng Cụ Gia Đình</option>
-                    <option value="Đồ Ăn & Đồ Uống">Đồ Ăn & Đồ Uống</option>
+                    <option value="đồ ăn">Đồ Ăn & Đồ Uống</option>
                     <option value="Quà Tặng">Quà Tặng</option>
-                    <option value="Đồ cho trẻ">Đồ cho trẻ</option>
-                    <option value="Đồ Dùng Cá Nhân">Đồ Dùng Cá Nhân</option>
+                    <option value="đồ cho trẻ">Đồ cho trẻ</option>
+                    <option value="đồ dùng cá nhân">Đồ Dùng Cá Nhân</option>
                     <option value="Bánh ,Kẹo">Bánh ,Kẹo</option>
                 </select>
             </form>
@@ -913,55 +912,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                 </ul>
             </div>
-            <!-- //reviews -->
-            <!-- cuisine -->
-            <div class="left-side">
-                <h3 class="agileits-sear-head">Ẩm Thực</h3>
-                <ul>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Mỹ</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">PHáp</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Hy Lạp</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Tung của</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Nhật Bản</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Italian</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Mexican</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Thai</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Indian</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span"> Tây Ban Nha </span>
-                    </li>
-                </ul>
-            </div>
-            <!-- //cuisine -->
-            <!-- deals -->
             <div class="deal-leftmk left-side">
                 <h3 class="agileits-sear-head">Ưu Đãi Đặc Biệt</h3>
                 <div class="special-sec1">
@@ -1024,8 +974,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- first section (nuts) -->
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Đồ Cho Trẻ</h3>
-
-
                     <c:forEach items="${productList}" var="product">
                         <div class="col-md-4 product-men">
                             <div class="men-pro-item simpleCart_shelfItem">
@@ -1044,7 +992,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </h4>
                                     <div class="info-product-price">
                                             <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1056,7 +1004,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1105,7 +1053,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1117,7 +1065,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1155,7 +1103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -1167,7 +1115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="item_name"
                                                        value="${product.getProductName()}"/>
                                                 <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)"/>
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
                                                 <input type="hidden" name="discount_amount" value="1.00"/>
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
@@ -1219,9 +1167,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </h4>
                                 <div class="w3l-pricehkj">
                                     <h6>${product.getPriceProductIn()}</h6>
-                                    <p>Save
-                                        <c:out value="${product.getPriceProductIn()}+1"></c:out>
-                                    </p>
+                                    <c:set var="priceSale"
+                                           value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
+                                    <p>Save <c:out value="${priceSale}"/>
+
                                 </div>
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
                                     <form action="#" method="post">
@@ -1231,7 +1180,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="business" value=" "/>
                                             <input type="hidden" name="item_name" value="${product.getProductName()}"/>
                                             <input type="hidden" name="amount" value="${product.getAmountProduct()}"/>
-                                            <input type="hidden" name="discount_amount" value="${product.getDiscount()}"/>
+                                            <input type="hidden" name="discount_amount"
+                                                   value="${product.getDiscount()}"/>
                                             <input type="hidden" name="currency_code" value="USD"/>
                                             <input type="hidden" name="return" value=" "/>
                                             <input type="hidden" name="cancel_return" value=" "/>

@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "IndexServlet", urlPatterns = "/home")
@@ -24,6 +22,10 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String productType3 = "đồ dùng cá nhân";
+        List<Product> hotProduct = productService.productListHot(productType3);
+        request.setAttribute("hotProduct", hotProduct);
+
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -32,22 +34,25 @@ public class IndexServlet extends HttpServlet {
             case "search":
                 String nameProductSearch = request.getParameter("Search");
                 break;
-            case "dangky":
-                String userName=request.getParameter("name");
-                String password=request.getParameter("password");
-                String email =request.getParameter("email");
-                if (productService.checkUserName(userName)){
+            case "signup":
+                System.out.println("sign up");
+                String userName = request.getParameter("name");
+                String password = request.getParameter("password");
+                String email = request.getParameter("email");
+                System.out.println(userName + " " + password + " " + email);
+                if (productService.checkUserName(userName)) {
                     System.out.println("tai khoan da ton tai");
-                    request.setAttribute("message","Tai khoan da ton tai");
-                }else {
-                    User userNew=new User(userName,password,email);
+                    request.setAttribute("message", "Tai khoan da ton tai");
+                } else {
+                    User userNew = new User(userName, password, email);
                     productService.insertUser(userNew);
-                    request.setAttribute("message","Dang ky thanh cong");
+                    request.setAttribute("message", "Dang ky thanh cong");
                 }
-                RequestDispatcher dispatcher=request.getRequestDispatcher("main/index.jsp");
-                dispatcher.forward(request,response);
+
                 break;
         }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
+        dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

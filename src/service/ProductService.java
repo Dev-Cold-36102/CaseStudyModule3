@@ -11,20 +11,25 @@ public class ProductService implements IproductService {
     private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb";
     private String jdbcUsername = "root";
     private String jdbcPassword = "hoanglinh";
-    private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values" + "(?, ?,?);";
+
+
+
     private  static final String check_username="select userName from accounts where userName=?;";
+
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where name = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, password =? where name = ?;";
-    private static final String SELECT_USER_BY_COUNTRY ="select id,uname,email from users where country=?";
-    private static final String SELECT_PRODUCT_BY_TYPE = "select * from products where productType=?;";
-
+    private static final String SELECT_USER_BY_COUNTRY =
+            "select id,uname,email from users where country=?";
+    private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
+    private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
+    private static final String Search_Product_By_Name="select id,productType,hangsx,xuatxu,amount,sale,priceIn,mota,image,priceOut,describes,hansudung from products where productName=?;";
     Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+            connection = DriverManager.getConnection(jdbcURL,jdbcUsername,jdbcPassword);
             System.out.println("connected!");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -48,16 +53,6 @@ public class ProductService implements IproductService {
         }
         return isCheckUserName;
     }
-    public void insertUser(User user){
-        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL)){
-            preparedStatement.setString(1,user.getUserName());
-            preparedStatement.setString(2,user.getPassword());
-            preparedStatement.setString(3,user.getEmail());
-            preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public List<Product> productList(String productType) {
         List<Product> productList = new ArrayList<>();
@@ -78,7 +73,7 @@ public class ProductService implements IproductService {
                 int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut"))) ;
                 String describes = resultSet.getString("describes");
                 String expirydate = resultSet.getString("hansudung");
-                String motasp = resultSet.getString("motasp");
+                String motasp = resultSet.getString("mota");
 //                String motasp = "motasp";
                 System.out.println(expirydate);
                 int discount =Integer.parseInt(String.valueOf(resultSet.getInt("sale"))) ;
@@ -120,14 +115,15 @@ public class ProductService implements IproductService {
                 int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut"))) ;
                 String describes = resultSet.getString("describes");
                 String expirydate = resultSet.getString("hansudung");
-                String motasp = resultSet.getString("motasp");
+                String motasp = resultSet.getString("mota");
 //                String motasp = "motasp";
                 System.out.println(expirydate);
                 int discount =Integer.parseInt(String.valueOf(resultSet.getInt("sale"))) ;
                 productList.add(new Product(id, name, productType, manufacturer
                         , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
                         describes, image, expirydate, motasp, discount));
-                if (productList.size()>2)
+
+                if (productList.size() == 8)
                     break;
             }
         } catch (SQLException e) {
@@ -137,4 +133,60 @@ public class ProductService implements IproductService {
         return productList;
 
     }
+    public void insertUser(User user){
+        try(Connection connection=getConnection();
+            PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);)
+        {
+            preparedStatement.setString(1,user.getUserName());
+            preparedStatement.setString(2,user.getPassword());
+            preparedStatement.setString(3,user.getEmail());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public List<Product> productList1(String productType){
+        List<Product> list=new ArrayList<>();
+        try(Connection connection=getConnection();
+        PreparedStatement ps=connection.prepareStatement(SELECT_PRODUCT_BY_TYPE);){
+            ps.setString(1,productType);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                int id=rs.getInt("id");
+                String name =rs.getString("productName");
+                String image = rs.getString("image");
+                String manufacturer = rs.getString("hangsx");
+                String placeOfProduct = rs.getString("xuatxu");
+                int amountProduct =rs.getInt("amount") ;
+                int priceProductIn =rs.getInt("priceIn") ;
+                int priceProductOut =rs.getInt("priceOut") ;
+                String describes = rs.getString("describes");
+                String expirydate = rs.getString("hansudung");
+                String motasp = rs.getString("mota");
+                int sale=rs.getInt("sale");
+                list.add(new Product(id, name, productType, manufacturer
+                        , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
+                        describes, image, expirydate, motasp,sale));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+//    public List<Product> listSearch(String name){
+//
+//
+//     List<Product> list=new ArrayList<>();
+//     try (Connection connection=getConnection();
+//          PreparedStatement ps=connection.prepareStatement(Search_Product_By_Name)){
+//         ps.setString(1,%name%);
+//
+//     } catch (SQLException e) {
+//         e.printStackTrace();
+//     }
+//
+//
+//    }
+
 }

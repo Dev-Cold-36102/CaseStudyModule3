@@ -581,12 +581,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <form action="/search" method="post">
                 <select id="agileinfo-nav_search" name="searchByTypeProduct" required="">
                     <option value="">Danh Mục Sản Phẩm</option>
-                    <option value="đồ nội thất">Đồ Nội Thất</option>
+                    <option value="Đồ Nội Thất">Đồ Nội Thất</option>
                     <option value="Dụng Cụ Gia Đình">Dụng Cụ Gia Đình</option>
-                    <option value="đồ ăn">Đồ Ăn & Đồ Uống</option>
+                    <option value="Đồ Ăn & Đồ Uống">Đồ Ăn & Đồ Uống</option>
                     <option value="Quà Tặng">Quà Tặng</option>
-                    <option value="đồ cho trẻ">Đồ cho trẻ</option>
-                    <option value="đồ dùng cá nhân">Đồ Dùng Cá Nhân</option>
+                    <option value="Đồ cho trẻ">Đồ cho trẻ</option>
+                    <option value="Đồ Dùng Cá Nhân">Đồ Dùng Cá Nhân</option>
                     <option value="Bánh ,Kẹo">Bánh ,Kẹo</option>
                 </select>
             </form>
@@ -912,6 +912,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                 </ul>
             </div>
+            <!-- //reviews -->
+            <!-- cuisine -->
+            <div class="left-side">
+                <h3 class="agileits-sear-head">Ẩm Thực</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Mỹ</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">PHáp</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Hy Lạp</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Tung của</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Nhật Bản</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Italian</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Mexican</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Thai</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Indian</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span"> Tây Ban Nha </span>
+                    </li>
+                </ul>
+            </div>
+            <!-- //cuisine -->
+            <!-- deals -->
             <div class="deal-leftmk left-side">
                 <h3 class="agileits-sear-head">Ưu Đãi Đặc Biệt</h3>
                 <div class="special-sec1">

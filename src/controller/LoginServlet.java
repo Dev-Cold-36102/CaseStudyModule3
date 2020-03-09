@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("linh ham");
         }else {
             if (!name.equals("")&&!password.equals("")){
-//                if (name.equals())
+
             }
         }
 
