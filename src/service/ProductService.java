@@ -1,6 +1,7 @@
 package service;
 
 import model.product.Product;
+import model.user.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,8 +11,6 @@ public class ProductService implements IproductService {
     private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb";
     private String jdbcUsername = "root";
     private String jdbcPassword = "Mattroicuatoi.36102";
-    private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, password) VALUES " +
-            " (?, ?, ?);";
 
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
@@ -19,6 +18,8 @@ public class ProductService implements IproductService {
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, password =? where name = ?;";
     private static final String SELECT_USER_BY_COUNTRY =
             "select id,uname,email from users where country=?";
+    private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
+    private  static final String check_username="select email from accounts where userName=?;";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
 
     Connection getConnection() {
@@ -115,4 +116,29 @@ public class ProductService implements IproductService {
         return productList;
 
     }
+    public boolean checkUserName(String userName){
+        boolean isCheckUserName=false;
+        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(check_username)){
+            preparedStatement.setString(1,userName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                isCheckUserName=true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(isCheckUserName);
+        return isCheckUserName;
+    }
+    public void insertUser(User user){
+        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);){
+            preparedStatement.setString(1,user.getUserName());
+            preparedStatement.setString(2,user.getPassword());
+            preparedStatement.setString(3,user.getEmail());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

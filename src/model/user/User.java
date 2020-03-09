@@ -23,10 +23,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public User(String password, String email, int idAccountType) {
+    public User(String userName,String password, String email) {
+        this.userName=userName;
         this.password = password;
         this.email = email;
-        this.idAccountType = idAccountType;
+
     }
 
     public String getUserName() {

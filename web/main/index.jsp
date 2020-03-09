@@ -502,7 +502,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Đăng Ký </h3>
+                    <h3 class="agileinfo_sign">Đăng Nhập</h3>
                     <p>
                         Đăng Nhập ngay, để bắt đầu mua sắm. Nếu bạn chưa có tài khoản!
                         <a href="#" data-toggle="modal" data-target="#myModal2">
@@ -515,7 +515,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" required="">
                         </div>
-                        <input type="submit" value="Đăng Ký">
+                        <input type="submit" value="Đăng Nhập">
                     </form>
                     <div class="clearfix"></div>
                 </div>
@@ -545,7 +545,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p>
                         Dể mua sắm các sản phẩm hãy đăng ký tài khoản để được hưởng các ưu đãi thường xuyên của Shop.
                     </p>
-                    <form action="/dangky" method="post">
+                    <p>
+                        <c:if test='${requestScope["message"] != null}'>
+                            <span style="color: red" class="message">${requestScope["message"]}</span>
+                        </c:if>
+                    </p>
+                    <form action="/home?action=signup" method="post">
                         <div class="styled-input agile-styled-input-top">
                             <input type="text" placeholder="Name" name="name" required="">
                         </div>
@@ -1022,8 +1027,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- first section (nuts) -->
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Đồ Cho Trẻ</h3>
-
-
                     <c:forEach items="${productList}" var="product">
                         <div class="col-md-4 product-men">
                             <div class="men-pro-item simpleCart_shelfItem">
