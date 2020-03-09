@@ -22,10 +22,13 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
         String productType3 = "đồ dùng cá nhân";
         List<Product> hotProduct = productService.productListHot(productType3);
         request.setAttribute("hotProduct", hotProduct);
 
+=======
+>>>>>>> fc8a57f93bc0616d5f6e891eceeb08530fbc9b49
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -34,6 +37,7 @@ public class IndexServlet extends HttpServlet {
             case "search":
                 String nameProductSearch = request.getParameter("Search");
                 break;
+<<<<<<< HEAD
             case "signup":
                 System.out.println("sign up");
                 String userName = request.getParameter("name");
@@ -53,6 +57,24 @@ public class IndexServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
         dispatcher.forward(request, response);
+=======
+            case "dangky":
+                String userName=request.getParameter("name");
+                String password=request.getParameter("password");
+                String email =request.getParameter("email");
+                if (productService.checkUserName(userName)){
+                    System.out.println("tai khoan da ton tai");
+                    request.setAttribute("message","Tai khoan da ton tai");
+                }else {
+                    User userNew=new User(userName,password,email);
+                    productService.insertUser(userNew);
+                    request.setAttribute("message","Dang ky thanh cong");
+                }
+                RequestDispatcher dispatcher=request.getRequestDispatcher("main/index.jsp");
+                dispatcher.forward(request,response);
+                break;
+        }
+>>>>>>> fc8a57f93bc0616d5f6e891eceeb08530fbc9b49
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
