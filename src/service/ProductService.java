@@ -23,6 +23,7 @@ public class ProductService implements IproductService {
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, password =? where name = ?;";
     private static final String SELECT_USER_BY_COUNTRY =
             "select id,uname,email from users where country=?";
+    private static final String SELECT_PRODUCT_ADD_TO_CART="select productName,image,priceIn,priceOut from products where productName=?";
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
 
@@ -96,6 +97,25 @@ public class ProductService implements IproductService {
 
         return productList;
 
+    }
+
+    public Product addProductToCart( String productName) {
+        Product product=null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_ADD_TO_CART)) {
+            preparedStatement.setString(1, productName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("productName");
+                String image = resultSet.getString("image");
+                int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn")));
+                int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut")));
+                product=new Product(name,priceProductIn,priceProductOut,image);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
     }
 
     public List<Product> productListHot(String productType) {

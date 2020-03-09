@@ -39,6 +39,10 @@
 .flex-direction-nav {
 display:none;
 }
+img{
+  max-height: 160px;
+  max-width: 160px;
+}
 .flex-pauseplay span {
   text-transform: capitalize;
 }

@@ -13,6 +13,10 @@
     border-top-color: #ff5c61;
     border: 1px solid #ff7076;
 }
+img{
+	max-height: 160px;
+	max-width: 160px;
+}
 .creditly-wrapper label {
     display: inline-block;
     margin-bottom: 10px;

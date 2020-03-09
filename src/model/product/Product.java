@@ -18,10 +18,17 @@ public class Product {
     public Product() {
     }
 
+    public Product(String productName, int priceProductIn, int priceProductOut, String image) {
+        this.productName = productName;
+        this.priceProductIn = priceProductIn;
+        this.priceProductOut = priceProductOut;
+        this.image = image;
+    }
+
     public Product(int id, String productName, String productType,
                    String manufacturer, String placeOfProduct, int amountProduct,
                    int priceProductIn, int priceProductOut, String describes,
-                   String image, String expirydate, String motasp,int discount) {
+                   String image, String expirydate, String motasp, int discount) {
         this.id = id;
         this.productName = productName;
         this.productType = productType;

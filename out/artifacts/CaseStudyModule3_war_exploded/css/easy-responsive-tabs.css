@@ -14,6 +14,10 @@ ul.resp-tabs-list, p {
     cursor: pointer;
     float: left;
 }
+img{
+    max-height: 160px;
+    max-width: 160px;
+}
 .resp-tabs-list li:nth-child(4) {
     margin: 0;
 }
