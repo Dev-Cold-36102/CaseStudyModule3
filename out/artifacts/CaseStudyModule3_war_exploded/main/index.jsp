@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- top-header -->
 <div class="header-most-top">
-    <p>Bằng Óc CHó Offer Zone Top Deals & Discounts</p>
+    <p> Offer Zone Top Deals & Discounts</p>
 </div>
 <!-- //top-header -->
 <!-- header-bot-->
@@ -67,11 +67,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal1">
+                    <a href="../main/login.jsp">
                         <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng Nhập </a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal2">
+                    <a href="../main/signup.jsp">
                         <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Ký </a>
                 </li>
             </ul>
@@ -577,20 +577,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- navigation -->
 <div class="ban-top">
     <div class="container">
-        <div class="agileits-navi_search">
-            <form action="/search" method="post">
-                <select id="agileinfo-nav_search" name="searchByTypeProduct" required="">
-                    <option value="">Danh Mục Sản Phẩm</option>
-                    <option value="đồ nội thất">Đồ Nội Thất</option>
-                    <option value="Dụng Cụ Gia Đình">Dụng Cụ Gia Đình</option>
-                    <option value="đồ ăn">Đồ Ăn & Đồ Uống</option>
-                    <option value="Quà Tặng">Quà Tặng</option>
-                    <option value="đồ cho trẻ">Đồ cho trẻ</option>
-                    <option value="đồ dùng cá nhân">Đồ Dùng Cá Nhân</option>
-                    <option value="Bánh ,Kẹo">Bánh ,Kẹo</option>
-                </select>
-            </form>
-        </div>
         <div class="top_nav_left">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -613,8 +599,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            <li class="">
-                                <a class="nav-stylehead" href="about.jsp">About Us</a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">Đồ dùng gia đình
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <div class="agile_inner_drop_nav_info">
+                                        <div class="col-sm-4 multi-gd-img">
+                                            <form action="/search1" method="post">
+                                                <ul class="multi-column-dropdown">
+                                                    <li name="">
+                                                        <a href="search1?donoithat">Đồ Nội Thất</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search1?docanhan">Đồ Dùng Cá Nhân</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search1?quatang">Quà Tặng</a>
+                                                    </li>
+                                                </ul>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm-4 multi-gd-img">
+
+                                        </div>
+                                        <div class="col-sm-4 multi-gd-img">
+                                            <img src="../imagesp/noithat.jpeg" style="width: 300px;height: 300px" alt="">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
@@ -664,9 +680,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </li>
                                                     <li>
                                                         <a href="/search" name="=sua">Sữa</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/search" name="quanao">Quần áo</a>
                                                     </li>
                                                 </ul>
 

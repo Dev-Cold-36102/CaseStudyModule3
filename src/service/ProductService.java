@@ -11,11 +11,6 @@ public class ProductService implements IproductService {
     private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb";
     private String jdbcUsername = "root";
     private String jdbcPassword = "hoanglinh";
-
-
-
-    private  static final String check_username="select userName from accounts where userName=?;";
-
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where name = ?;";
@@ -23,13 +18,15 @@ public class ProductService implements IproductService {
     private static final String SELECT_USER_BY_COUNTRY =
             "select id,uname,email from users where country=?";
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
+    private  static final String check_username="select id,userName,pass,email from accounts where userName=?;";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
-    private static final String Search_Product_By_Name="select id,productType,hangsx,xuatxu,amount,sale,priceIn,mota,image,priceOut,describes,hansudung from products where productName=?;";
+    private static final String check_userName_pass="select userName,pass from accounts where userName=?;";
+    private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
     Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(jdbcURL,jdbcUsername,jdbcPassword);
+            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
             System.out.println("connected!");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -39,19 +36,6 @@ public class ProductService implements IproductService {
             e.printStackTrace();
         }
         return connection;
-    }
-    public boolean checkUserName(String userName){
-        boolean isCheckUserName=false;
-        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(check_username)){
-            preparedStatement.setString(1,userName);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                isCheckUserName=true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return isCheckUserName;
     }
 
     public List<Product> productList(String productType) {
@@ -122,7 +106,6 @@ public class ProductService implements IproductService {
                 productList.add(new Product(id, name, productType, manufacturer
                         , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
                         describes, image, expirydate, motasp, discount));
-
                 if (productList.size() == 8)
                     break;
             }
@@ -133,60 +116,60 @@ public class ProductService implements IproductService {
         return productList;
 
     }
+    public boolean checkUserName(String userName){
+        boolean isCheckUserName=false;
+        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(check_username)){
+            preparedStatement.setString(1,userName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                isCheckUserName=true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(isCheckUserName);
+        return isCheckUserName;
+    }
+    public boolean checkEmail(String email){
+        boolean isCheckEmail=false;
+        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(check_email)){
+            preparedStatement.setString(1,email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                isCheckEmail=true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(isCheckEmail);
+        return isCheckEmail;
+    }
+    public User getUserName_Pass(String userName){
+        User UserName=null;
+        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(check_userName_pass)) {
+            preparedStatement.setString(1,userName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id=resultSet.getInt("id");
+                String pass = resultSet.getString("pass");
+                String email=resultSet.getString("email");
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return UserName;
+    }
     public void insertUser(User user){
-        try(Connection connection=getConnection();
-            PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);)
-        {
+        try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);){
             preparedStatement.setString(1,user.getUserName());
             preparedStatement.setString(2,user.getPassword());
             preparedStatement.setString(3,user.getEmail());
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public List<Product> productList1(String productType){
-        List<Product> list=new ArrayList<>();
-        try(Connection connection=getConnection();
-        PreparedStatement ps=connection.prepareStatement(SELECT_PRODUCT_BY_TYPE);){
-            ps.setString(1,productType);
-            ResultSet rs=ps.executeQuery();
-            while (rs.next()){
-                int id=rs.getInt("id");
-                String name =rs.getString("productName");
-                String image = rs.getString("image");
-                String manufacturer = rs.getString("hangsx");
-                String placeOfProduct = rs.getString("xuatxu");
-                int amountProduct =rs.getInt("amount") ;
-                int priceProductIn =rs.getInt("priceIn") ;
-                int priceProductOut =rs.getInt("priceOut") ;
-                String describes = rs.getString("describes");
-                String expirydate = rs.getString("hansudung");
-                String motasp = rs.getString("mota");
-                int sale=rs.getInt("sale");
-                list.add(new Product(id, name, productType, manufacturer
-                        , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
-                        describes, image, expirydate, motasp,sale));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-//    public List<Product> listSearch(String name){
-//
-//
-//     List<Product> list=new ArrayList<>();
-//     try (Connection connection=getConnection();
-//          PreparedStatement ps=connection.prepareStatement(Search_Product_By_Name)){
-//         ps.setString(1,%name%);
-//
-//     } catch (SQLException e) {
-//         e.printStackTrace();
-//     }
-//
-//
-//    }
 
 }
