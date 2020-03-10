@@ -1034,7 +1034,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
                                         </div>
                                     </div>
-                                    <span class="product-new-top">${product.getDiscount()}%%</span>
+                                    <span class="product-new-top">${product.getDiscount()}</span>
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
@@ -1131,8 +1131,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </c:forEach>
                     <div class="clearfix"></div>
                 </div>
-
-
                 <div class="product-sec1">
                     <h3 class="heading-tittle">FOOD</h3>
                     <c:forEach items="${foodList}" var="product">
@@ -1142,8 +1140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">xem
-                                                nhanh</a>
+                                            <a href="../main/single.jsp" class="link-product-add-cart">xem nhanh</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1179,14 +1176,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                     </c:forEach>
+                </div>
                     <div class="clearfix"></div>
                 </div>
-
-            </div>
         </div>
-        <!-- //product right -->
-    </div>
-</div>
+
 <!-- //top products -->
 <!-- special offers -->
 <div class="featured-section" id="projects">
@@ -1242,11 +1236,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </c:forEach>
             </ul>
         </div>
-
+    </div>
     </div>
 </div>
-
-
+</div>
 <div class="footer-top">
     <div class="container-fluid">
         <div class="col-xs-8 agile-leftmk">
