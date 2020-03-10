@@ -18,6 +18,7 @@ public class ProductService implements IproductService {
     private static final String SELECT_USER_BY_COUNTRY =
             "select id,uname,email from users where country=?";
     private static final String SELECT_PRODUCT_ADD_TO_CART="select productName,image,priceIn,priceOut,sale from products where productName=?";
+    private static final String SELECT_ALLINFO_PRODUCT="select productName,mota,image,priceIn,priceOut,sale from products where productName=?";
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
     private  static final String check_username="select id,userName,pass,email from accounts where userName=?;";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
@@ -82,10 +83,10 @@ public class ProductService implements IproductService {
 
     }
 
-    public Product addProductToCart( String productName) {
+    public Product selectProduct( String productName) {
         Product product=null;
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_ADD_TO_CART)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALLINFO_PRODUCT)) {
             preparedStatement.setString(1, productName);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -94,13 +95,15 @@ public class ProductService implements IproductService {
                 int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn")));
                 int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut")));
                 int discount =resultSet.getInt("sale");
-                product=new Product(name,priceProductIn,priceProductOut,image,1,discount);
+                String describe=resultSet.getString("mota");
+                product=new Product(name,priceProductIn,priceProductOut,image,1,discount,describe);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return product;
     }
+
 
     public List<Product> productListHot(String productType) {
         List<Product> productList = new ArrayList<>();

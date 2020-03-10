@@ -778,7 +778,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<ul class="w3_short">
 					<li>
-						<a href="sanphamtrongshop.jsp"
+						<a href="viewsingle.jsp"
 						   Cashew Nuts, 100g>Home</a>
 						<i>|</i>
 					</li>

@@ -23,7 +23,7 @@ public class AddToCartServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameProductAdd = request.getParameter("name");
-        Product product = productService.addProductToCart(nameProductAdd);
+        Product product = productService.selectProduct(nameProductAdd);
         boolean isProductExsit =false;
         for (int i = 0; i <listAddToCart.size() ; i++) {
             if (listAddToCart.get(i).getProductName().equals(nameProductAdd)){

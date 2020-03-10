@@ -978,7 +978,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Lay's Potato Chips</h3>
-                        <a href="../main/single.jsp">$18.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$18.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -988,7 +988,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Bingo Mad Angles</h3>
-                        <a href="../main/single.jsp">$9.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$9.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -998,7 +998,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Tata Salt</h3>
-                        <a href="../main/single.jsp">$15.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$15.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1008,7 +1008,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Gujarat Dry Fruit</h3>
-                        <a href="../main/single.jsp">$525.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$525.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1018,7 +1018,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Cadbury Dairy Milk</h3>
-                        <a href="../main/single.jsp">$149.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$149.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1042,14 +1042,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="images">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
+                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">Xem Ngay</a>
                                         </div>
                                     </div>
                                     <span class="product-new-top">${product.getDiscount()}%</span>
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
                                         <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
@@ -1092,14 +1092,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">xem nhanh</a>
+                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">xem nhanh</a>
                                         </div>
                                     </div>
                                     <span class="product-new-top">${product.getDiscount()}%</span>
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
                                         <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
@@ -1112,8 +1112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                    class="button"/>
 
                                         </form>
-
-                                        </form>
+                                        
                                     </div>
 
                                 </div>
@@ -1133,7 +1132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">xem
+                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">xem
                                                 nhanh</a>
                                         </div>
                                     </div>
@@ -1142,7 +1141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
                                         <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
@@ -1187,7 +1186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <div class="w3l-specilamk">
                             <div class="speioffer-agile">
-                                <a href="single.html">
+                                <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt="">
                                 </a>
                             </div>
@@ -1195,7 +1194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <div class="product-name-w3l">
                                 <h4>
-                                    <a href="single.html">${product.getProductName()}</a>
+                                    <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                 </h4>
                                 <div class="w3l-pricehkj">
                                     <h6>${product.getPriceProductIn()} VND</h6>

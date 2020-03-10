@@ -827,7 +827,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <%--                            <td class="invert">${slNo}</td>--%>
                             <td class="invert-image">
-                                <a href="sanphamtronggio.jsp">
+                                <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt=" " class="img-responsive">
                                 </a>
                             </td>
