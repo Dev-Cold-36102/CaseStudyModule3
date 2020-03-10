@@ -610,13 +610,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <form action="/search1" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
-                                                        <a href="search1?donoithat">Đồ Nội Thất</a>
+                                                        <a href="/search1?action=donoithat">Đồ Nội Thất</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search1?docanhan">Đồ Dùng Cá Nhân</a>
+                                                        <a href="/search1?action=docanhan">Đồ Dùng Cá Nhân</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search1?quatang">Quà Tặng</a>
+                                                        <a href="/search1?action=quatang">Quà Tặng</a>
                                                     </li>
                                                 </ul>
                                                 </select>

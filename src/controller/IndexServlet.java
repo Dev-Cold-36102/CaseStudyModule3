@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "IndexServlet", urlPatterns = "/home")
 public class IndexServlet extends HttpServlet {
     private ProductService productService;
+  protected static List<Product> listAddToCart=new ArrayList<>();
 
     public void init() {
         productService = new ProductService();
@@ -36,10 +38,6 @@ public class IndexServlet extends HttpServlet {
                 break;
             case "signup":
                 System.out.println("sign up");
-
-
-
-
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
         dispatcher.forward(request, response);

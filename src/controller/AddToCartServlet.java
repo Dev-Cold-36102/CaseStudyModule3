@@ -1,5 +1,6 @@
 package controller;
 
+import com.sun.deploy.security.DeploySigningCertStore;
 import model.product.Product;
 import service.ProductService;
 
@@ -10,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 import static controller.IndexServlet.listAddToCart;
+
 
 @WebServlet(name = "AddToCartServlet", urlPatterns = "/addtocart")
 public class AddToCartServlet extends HttpServlet {
