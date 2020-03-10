@@ -1,16 +1,17 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: bmv
+  Date: 09/03/2020
+  Time: 21:42
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="vi">
 
 <head>
-    <title>hoàng ăn cứt | Checkout :: w3layouts</title>
+    <title>Web bán hàng tiện lơi</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,7 +21,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
-
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- top-header -->
 <div class="header-most-top">
-    <p>Grocery Offer Zone Top Deals & Discounts</p>
+    <p> Offer Zone Top Deals & Discounts</p>
 </div>
 <!-- //top-header -->
 <!-- header-bot-->
@@ -73,18 +73,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal1">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+                    <a href="../user/indexuser.jsp">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Xin Chào ${user.getUserName()} </a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal2">
-                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                    <a href="/home">
+                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Xuất </a>
                 </li>
             </ul>
             <!-- //header lists -->
             <!-- search -->
             <div class="agileits_search">
-                <form action="#" method="post">
+                <form action="/search" method="post">
                     <input name="Search" type="search" placeholder="How can we help you today?" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">
                         <span class="fa fa-search" aria-hidden="true"> </span>
@@ -95,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="#" method="post" class="last">
+                    <form action="/checkout" method="post" class="last">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="display" value="1">
                         <button class="w3view-cart" type="submit" name="submit" value="">
@@ -502,20 +502,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Sign In </h3>
+                    <h3 class="agileinfo_sign">Đăng Nhập</h3>
                     <p>
-                        Sign In now, Let's start your Grocery Shopping. Don't have an account?
+                        Đăng Nhập ngay, để bắt đầu mua sắm. Nếu bạn chưa có tài khoản!
                         <a href="#" data-toggle="modal" data-target="#myModal2">
-                            Sign Up Now</a>
+                            Nhấn vào đây để đăng ký</a>
                     </p>
-                    <form action="#" method="post">
+                    <form action="/login" method="post">
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="User Name" name="Name" required="">
+                            <input type="text" placeholder="User Name" name="name" required="">
                         </div>
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" required="">
                         </div>
-                        <input type="submit" value="Sign In">
+                        <input type="submit" value="Đăng Nhập">
                     </form>
                     <div class="clearfix"></div>
                 </div>
@@ -541,25 +541,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Sign Up</h3>
+                    <h3 class="agileinfo_sign">Đăng Ký</h3>
                     <p>
-                        Come join the Grocery Shoppy! Let's set up your Account.
+                        Dể mua sắm các sản phẩm hãy đăng ký tài khoản để được hưởng các ưu đãi thường xuyên của Shop.
                     </p>
-                    <form action="#" method="post">
+                    <p>
+
+                        <c:if test='${requestScope["message"] != null}'>
+                            <span style="color: red" class="message">${requestScope["message"]}</span>
+                        </c:if>
+                    </p>
+                    <form action="/home?action=signup" method="post">
+
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="Name" name="Name" required="">
+                            <input type="text" placeholder="Name" name="name" required="">
                         </div>
                         <div class="styled-input">
-                            <input type="email" placeholder="E-mail" name="Email" required="">
+                            <input type="email" placeholder="E-mail" name="email" required="">
                         </div>
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" id="password1" required="">
                         </div>
                         <div class="styled-input">
-                            <input type="password" placeholder="Confirm Password" name="Confirm Password" id="password2"
+                            <input type="password" placeholder="Confirm Password" name="confirmpassword" id="password2"
                                    required="">
                         </div>
-                        <input type="submit" value="Sign Up">
+                        <input type="submit" value="Đăng KÝ">
                     </form>
                     <p>
                         <a href="#">By clicking register, I agree to your terms</a>
@@ -577,20 +584,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="ban-top">
     <div class="container">
         <div class="agileits-navi_search">
-            <form action="#" method="post">
-                <select id="agileinfo-nav_search" name="agileinfo_search" required="">
-                    <option value="">All Categories</option>
-                    <option value="Kitchen">Kitchen</option>
-                    <option value="Household">Household</option>
-                    <option value="Snacks &amp; Beverages">Snacks & Beverages</option>
-                    <option value="Personal Care">Personal Care</option>
-                    <option value="Gift Hampers">Gift Hampers</option>
-                    <option value="Fruits &amp; Vegetables">Fruits & Vegetables</option>
-                    <option value="Baby Care">Baby Care</option>
-                    <option value="Soft Drinks &amp; Juices">Soft Drinks & Juices</option>
-                    <option value="Frozen Food">Frozen Food</option>
-                    <option value="Bread &amp; Bakery">Bread & Bakery</option>
-                    <option value="Sweets">Sweets</option>
+            <form action="/search" method="post">
+                <select id="agileinfo-nav_search" name="searchByTypeProduct" required="">
+                    <option value="">Danh Mục Sản Phẩm</option>
+                    <option value="Đồ Nội Thất">Đồ Nội Thất</option>
+                    <option value="Dụng Cụ Gia Đình">Dụng Cụ Gia Đình</option>
+                    <option value="Đồ Ăn & Đồ Uống">Đồ Ăn & Đồ Uống</option>
+                    <option value="Quà Tặng">Quà Tặng</option>
+                    <option value="Đồ cho trẻ">Đồ cho trẻ</option>
+                    <option value="Đồ Dùng Cá Nhân">Đồ Dùng Cá Nhân</option>
+                    <option value="Bánh ,Kẹo">Bánh ,Kẹo</option>
                 </select>
             </form>
         </div>
@@ -611,7 +614,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav menu__list">
-                            <li>
+                            <li class="active">
                                 <a class="nav-stylehead" href="/home">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
@@ -621,60 +624,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Kitchen
+                                   aria-haspopup="true" aria-expanded="false">Đồ Ăn Uống
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product.jsp">Bakery</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Baking Supplies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Coffee, Tea & Beverages</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Dried Fruits, Nuts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Sweets, Chocolate</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Spices & Masalas</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Jams, Honey & Spreads</a>
-                                                </li>
-                                            </ul>
+                                            <form action="/search" method="post">
+                                                <ul class="multi-column-dropdown">
+                                                    <li name="">
+                                                        <a href="/searchname=banhkeo">Bánh,Kẹo</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search" name="doan">Đồ ăn</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search" name="douong">Đồ Uống</a>
+                                                    </li>
+                                                </ul>
+                                                </select>
+                                            </form>
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
-                                            <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product.jsp">Pickles</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Pasta & Noodles</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Rice, Flour & Pulses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Sauces & Cooking Pastes</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Snack Foods</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Oils, Vinegars</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Meat, Poultry & Seafood</a>
-                                                </li>
-                                            </ul>
+
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
                                             <img src="../images/nav.png" alt="">
@@ -685,67 +657,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Household
+                                   aria-haspopup="true" aria-expanded="false">Đồ Cho Bé
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-6 multi-gd-img">
-                                            <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product2.jsp">Kitchen & Dining</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Detergents</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Utensil Cleaners</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Floor & Other Cleaners</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Disposables, Garbage Bag</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Repellents & Fresheners</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp"> Dishwash</a>
-                                                </li>
-                                            </ul>
+                                            <form action="/search" method="post">
+                                                <ul class="multi-column-dropdown">
+                                                    <li>
+                                                        <a href="/search" name="Bim">Bỉm</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search" name="=sua">Sữa</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search" name="quanao">Quần áo</a>
+                                                    </li>
+                                                </ul>
+
+                                            </form>
                                         </div>
                                         <div class="col-sm-6 multi-gd-img">
-                                            <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product2.jsp">Pet Care</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Cleaning Accessories</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Pooja Needs</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Crackers</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Festive Decoratives</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Plasticware</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Home Care</a>
-                                                </li>
-                                            </ul>
+
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </ul>
                             </li>
                             <li class="">
-                                <a class="nav-stylehead" href="faqs.jsp">Faqs</a>
+                                <a class="nav-stylehead" href="../main/faqs.jsp">Faqs</a>
                             </li>
                             <li class="dropdown">
                                 <a class="nav-stylehead dropdown-toggle" href="#" data-toggle="dropdown">Pages
@@ -753,15 +694,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </a>
                                 <ul class="dropdown-menu agile_short_dropdown">
                                     <li>
-                                        <a href="icons.jsp">Web Icons</a>
+                                        <a href="../main/icons.jsp">Web Icons</a>
                                     </li>
                                     <li>
-                                        <a href="typography.jsp">Typography</a>
+                                        <a href="../main/typography.jsp">Typography</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a class="" href="contact.jsp">Contact</a>
+                            <li class="">
+                                <a class="nav-stylehead" href="../main/contact.jsp">Liên Hệ</a>
                             </li>
                         </ul>
                     </div>
@@ -771,31 +712,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- //navigation -->
-<!-- banner-2 -->
-<div class="page-head_agile_info_w3l">
-
-</div>
-<!-- //banner-2 -->
-<!-- page -->
-<div class="services-breadcrumb">
-    <div class="agile_inner_breadcrumb">
-        <div class="container">
-            <ul class="w3_short">
-                <li>
-                    <a href="/home">Home</a>
-                    <i>|</i>
-                </li>
-                <li>Checkout</li>
-            </ul>
+<!-- banner -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Big
+                        <span>Save</span>
+                    </h3>
+                    <p>Get flat
+                        <span>10%</span> Mặt Hàng Đang Giảm Giá</p>
+                    <a class="button2" href="product.jsp">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item2">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Healthy
+                        <span>Saving</span>
+                    </h3>
+                    <p>Get Upto
+                        <span>30%</span> Off</p>
+                    <a class="button2" href="product.jsp">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item3">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Big
+                        <span>Deal</span>
+                    </h3>
+                    <p>Get Best Offer Upto
+                        <span>20%</span>
+                    </p>
+                    <a class="button2" href="product.jsp">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item4">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Today
+                        <span>Discount</span>
+                    </h3>
+                    <p>Get Now
+                        <span>40%</span> Discount</p>
+                    <a class="button2" href="product.jsp">Shop Now </a>
+                </div>
+            </div>
         </div>
     </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
-<!-- //page -->
-<!-- checkout page -->
-<div class="privacy">
+<!-- //banner -->
+
+<!-- top Products -->
+<div class="ads-grid">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Checkout
+        <h3 class="tittle-w3l">Sản Phẩm Bán Chạy
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -803,114 +795,464 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</span>
         </h3>
         <!-- //tittle heading -->
-        <div class="checkout-right">
-            <h4>Your shopping cart contains:
-                <span>${listAddToCart.size()} Products</span>
-            </h4>
-            <div class="table-responsive">
-                <table class="timetable_sub">
-                    <thead>
-                    <tr>
-                        <th width="100px">SL No.</th>
-                        <th width="210px">Product</th>
-                        <th width="200px">Quality</th>
-                        <th width="200px">Product Name</th>
-
-                        <th>Price</th>
-                        <th width="80px">Remove</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:set var="slNo" value="0"/>
-                    <c:forEach items="${listAddToCart}" var="product">
-                    <tr class="rem1">
-                        <c:set var="slNo" value="${slNo+1}"/>
-                        <td class="invert">${slNo}</td>
-                        <td class="invert-image">
-                            <a href="sanphamtronggio.jsp">
-                                <img src="${product.getImage()}" alt=" " class="img-responsive">
-                            </a>
-                        </td>
-                        <td class="invert">
-                            <div class="quantity">
-                                <div class="quantity-select">
-                                    <div class="entry value-minus">&nbsp;</div>
-                                    <div class="entry value">
-                                        <span>${amountProduct}</span>
-                                    </div>
-                                    <div class="entry value-plus active">&nbsp;</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
-                        <td class="invert">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</td>
-                        <td class="invert">
-                            <div class="rem">
-                                <div class="close1"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    </c:forEach>
-
-
-
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="checkout-left">
-            <div class="address_form_agile">
-                <h4>Add a new Details</h4>
-                <form action="payment.jsp" method="post" class="creditly-card-form agileinfo_form">
-                    <div class="creditly-wrapper wthree, w3_agileits_wrapper">
-                        <div class="information-wrapper">
-                            <div class="first-row">
-                                <div class="controls">
-                                    <input class="billing-address-name" type="text" name="name" placeholder="Full Name"
-                                           required="">
-                                </div>
-                                <div class="w3_agileits_card_number_grids">
-                                    <div class="w3_agileits_card_number_grid_left">
-                                        <div class="controls">
-                                            <input type="text" placeholder="Mobile Number" name="number" required="">
-                                        </div>
-                                    </div>
-                                    <div class="w3_agileits_card_number_grid_right">
-                                        <div class="controls">
-                                            <input type="text" placeholder="Landmark" name="landmark" required="">
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                                <div class="controls">
-                                    <input type="text" placeholder="Town/City" name="city" required="">
-                                </div>
-                                <div class="controls">
-                                    <select class="option-w3ls">
-                                        <option>Select Address type</option>
-                                        <option>Office</option>
-                                        <option>Home</option>
-                                        <option>Commercial</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="submit check_out">Delivery to this Address</button>
-                        </div>
-                    </div>
+        <!-- product left -->
+        <div class="side-bar col-md-3">
+            <div class="search-hotel">
+                <h3 class="agileits-sear-head">Tìm Kiếm..</h3>
+                <form action="/search" method="post">
+                    <input type="search" placeholder="Tên Sản Phẩm..." name="search" required="">
+                    <input type="submit" value=" ">
                 </form>
-                <div class="checkout-right-basket">
-                    <a href="payment.jsp">Make a Payment
-                        <span class="fa fa-hand-o-right" aria-hidden="true"></span>
-                    </a>
+            </div>
+            <!-- price range -->
+            <div class="range">
+                <h3 class="agileits-sear-head">Price range</h3>
+                <ul class="dropdown-menu6">
+                    <li>
+
+                        <div id="slider-range"></div>
+                        <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;"/>
+                    </li>
+                </ul>
+            </div>
+            <!-- //price range -->
+            <!-- food preference -->
+            <div class="left-side">
+                <h3 class="agileits-sear-head">Thực Phẩm</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Ăn Chay</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Không Ăn Chay</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- //food preference -->
+            <!-- discounts -->
+            <div class="left-side">
+                <h3 class="agileits-sear-head">Đang Giảm Giá</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">5% or More</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">10% or More</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">20% or More</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">30% or More</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">50% or More</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">60% or More</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- //discounts -->
+            <!-- reviews -->
+            <div class="customer-rev left-side">
+                <h3 class="agileits-sear-head">Đánh Giá Khách Hàng</h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <span>5.0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <span>4.0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <span>3.5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <span>3.0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <span>2.5</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- //reviews -->
+            <!-- cuisine -->
+            <div class="left-side">
+                <h3 class="agileits-sear-head">Ẩm Thực</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Mỹ</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">PHáp</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Hy Lạp</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Tung của</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Nhật Bản</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Italian</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Mexican</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Thai</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Indian</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span"> Tây Ban Nha </span>
+                    </li>
+                </ul>
+            </div>
+            <!-- //cuisine -->
+            <!-- deals -->
+            <div class="deal-leftmk left-side">
+                <h3 class="agileits-sear-head">Ưu Đãi Đặc Biệt</h3>
+                <div class="special-sec1">
+                    <div class="col-xs-4 img-deals">
+                        <img src="../images/d2.jpg" alt="">
+                    </div>
+                    <div class="col-xs-8 img-deal1">
+                        <h3>Lay's Potato Chips</h3>
+                        <a href="../main/single.jsp">$18.00</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="special-sec1">
+                    <div class="col-xs-4 img-deals">
+                        <img src="../images/d1.jpg" alt="">
+                    </div>
+                    <div class="col-xs-8 img-deal1">
+                        <h3>Bingo Mad Angles</h3>
+                        <a href="../main/single.jsp">$9.00</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="special-sec1">
+                    <div class="col-xs-4 img-deals">
+                        <img src="../images/d4.jpg" alt="">
+                    </div>
+                    <div class="col-xs-8 img-deal1">
+                        <h3>Tata Salt</h3>
+                        <a href="../main/single.jsp">$15.00</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="special-sec1">
+                    <div class="col-xs-4 img-deals">
+                        <img src="../images/d5.jpg" alt="">
+                    </div>
+                    <div class="col-xs-8 img-deal1">
+                        <h3>Gujarat Dry Fruit</h3>
+                        <a href="../main/single.jsp">$525.00</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="special-sec1">
+                    <div class="col-xs-4 img-deals">
+                        <img src="../images/d3.jpg" alt="">
+                    </div>
+                    <div class="col-xs-8 img-deal1">
+                        <h3>Cadbury Dairy Milk</h3>
+                        <a href="../main/single.jsp">$149.00</a>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="clearfix"></div>
+            <!-- //deals -->
+        </div>
+        <!-- //product left -->
+        <!-- product right -->
+        <div class="agileinfo-ads-display col-md-9">
+            <div class="wrapper">
+                <!-- first section (nuts) -->
+                <div class="product-sec1">
+                    <h3 class="heading-tittle">Đồ Cho Trẻ</h3>
+                    <c:forEach items="${productList}" var="product">
+                        <div class="col-md-4 product-men">
+                            <div class="men-pro-item simpleCart_shelfItem">
+                                <div class="men-thumb-item">
+                                    <img src="${product.getImage()}" alt="images">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
+                                        </div>
+                                    </div>
+                                    <span class="product-new-top">${product.getDiscount()}%</span>
+                                </div>
+                                <div class="item-info-product ">
+                                    <h4>
+                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                    </h4>
+                                    <div class="info-product-price">
+                                            <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
+                                        <del>${product.getPriceProductOut()}</del>
+                                    </div>
+                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name"
+                                                       value="${product.getProductName()}"/>
+                                                <input type="hidden" name="amount"
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
+                                                <input type="hidden" name="discount_amount" value="1.00"/>
+                                                <input type="hidden" name="currency_code" value="USD"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="product-sec1 product-sec2">
+                    <div class="col-xs-7 effect-bg">
+                        <h3 class="">Pure Energy</h3>
+                        <h6>Enjoy our all healthy Products</h6>
+                        <p>Get Extra 10% Off</p>
+                    </div>
+                    <h3 class="w3l-nut-middle">Nuts & Dry Fruits</h3>
+                    <div class="col-xs-5 bg-right-nut">
+                        <img src="images/nut1.png" alt="">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //second section (nuts special) -->
+                <!-- third section (oils) -->
+                <div class="product-sec1">
+                    <h3 class="heading-tittle">đồ dùng cá nhân</h3>
+                    <c:forEach items="${personalCare}" var="product">
+                        <div class="col-md-4 product-men">
+                            <div class="men-pro-item simpleCart_shelfItem">
+                                <div class="men-thumb-item">
+                                    <img src="${product.getImage()}" alt="">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="../main/single.jsp" class="link-product-add-cart">xem nhanh</a>
+                                        </div>
+                                    </div>
+                                    <span class="product-new-top">${product.getDiscount()}%</span>
+                                </div>
+                                <div class="item-info-product ">
+                                    <h4>
+                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                    </h4>
+                                    <div class="info-product-price">
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
+                                        <del>${product.getPriceProductOut()}</del>
+                                    </div>
+                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name"
+                                                       value="${product.getProductName()}"/>
+                                                <input type="hidden" name="amount"
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
+                                                <input type="hidden" name="discount_amount" value="1.00"/>
+                                                <input type="hidden" name="currency_code" value="USD"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart"
+                                                       class="button"/>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="product-sec1">
+                    <h3 class="heading-tittle">FOOD</h3>
+                    <c:forEach items="${foodList}" var="product">
+                        <div class="col-md-4 product-men">
+                            <div class="men-pro-item simpleCart_shelfItem">
+                                <div class="men-thumb-item">
+                                    <img src="${product.getImage()}" alt="">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="../main/single.jsp" class="link-product-add-cart">xem
+                                                nhanh</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-info-product ">
+                                    <h4>
+                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                    </h4>
+                                    <div class="info-product-price">
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
+                                        <del>${product.getPriceProductOut()}</del>
+                                    </div>
+                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name"
+                                                       value="${product.getProductName()}"/>
+                                                <input type="hidden" name="amount"
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
+                                                <input type="hidden" name="discount_amount" value="1.00"/>
+                                                <input type="hidden" name="currency_code" value="USD"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart"
+                                                       class="button"/>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+        <!-- //product right -->
+    </div>
+</div>
+<!-- //top products -->
+<!-- special offers -->
+<div class="featured-section" id="projects">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">HOT PRODUCT
+            <span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="content-bottom-in">
+            <ul id="flexiselDemo1">
+                <c:forEach items="${hotProduct}" var="product">
+                    <li>
+                        <div class="w3l-specilamk">
+                            <div class="speioffer-agile">
+                                <a href="single.html">
+                                    <img src="${product.getImage()}" alt="">
+                                </a>
+                            </div>
+                            <div class="product-name-w3l">
+                                <h4>
+                                    <a href="single.html">${product.getProductName()}</a>
+                                </h4>
+                                <div class="w3l-pricehkj">
+                                    <h6>${product.getPriceProductIn()}</h6>
+                                    <c:set var="priceSale"
+                                           value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
+                                    <p>Save <c:out value="${priceSale}"/>
+
+                                </div>
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <input type="hidden" name="cmd" value="_cart"/>
+                                            <input type="hidden" name="add" value="1"/>
+                                            <input type="hidden" name="business" value=" "/>
+                                            <input type="hidden" name="item_name" value="${product.getProductName()}"/>
+                                            <input type="hidden" name="amount" value="${product.getAmountProduct()}"/>
+                                            <input type="hidden" name="discount_amount"
+                                                   value="${product.getDiscount()}"/>
+                                            <input type="hidden" name="currency_code" value="USD"/>
+                                            <input type="hidden" name="return" value=" "/>
+                                            <input type="hidden" name="cancel_return" value=" "/>
+                                            <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
         </div>
     </div>
 </div>
-<!-- //checkout page -->
+<!-- //special offers -->
 <!-- newsletter -->
 <div class="footer-top">
     <div class="container-fluid">
@@ -926,7 +1268,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         <div class="col-xs-4 w3l-rightmk">
-            <img src="../images/tab3.png" alt=" ">
+            <img src="images/tab3.png" alt=" ">
         </div>
         <div class="clearfix"></div>
     </div>
@@ -985,44 +1327,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h3>Categories</h3>
                     <ul>
                         <li>
-                            <a href="product.jsp">Grocery</a>
+                            <a href="product.html">Grocery</a>
                         </li>
                         <li>
-                            <a href="product.jsp">Fruits</a>
+                            <a href="product.html">Fruits</a>
                         </li>
                         <li>
-                            <a href="product.jsp">Soft Drinks</a>
+                            <a href="product.html">Soft Drinks</a>
                         </li>
                         <li>
-                            <a href="product2.jsp">Dishwashers</a>
+                            <a href="product2.html">Dishwashers</a>
                         </li>
                         <li>
-                            <a href="product.jsp">Biscuits & Cookies</a>
+                            <a href="product.html">Biscuits & Cookies</a>
                         </li>
                         <li>
-                            <a href="product2.jsp">Baby Diapers</a>
+                            <a href="product2.html">Baby Diapers</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-xs-6 footer-grids agile-secomk">
                     <ul>
                         <li>
-                            <a href="product.jsp">Snacks & Beverages</a>
+                            <a href="product.html">Snacks & Beverages</a>
                         </li>
                         <li>
-                            <a href="product.jsp">Bread & Bakery</a>
+                            <a href="product.html">Bread & Bakery</a>
                         </li>
                         <li>
-                            <a href="product.jsp">Sweets</a>
+                            <a href="product.html">Sweets</a>
                         </li>
                         <li>
-                            <a href="product.jsp">Chocolates & Biscuits</a>
+                            <a href="product.html">Chocolates & Biscuits</a>
                         </li>
                         <li>
-                            <a href="product2.jsp">Personal Care</a>
+                            <a href="product2.html">Personal Care</a>
                         </li>
                         <li>
-                            <a href="product.jsp">Dried Fruits & Nuts</a>
+                            <a href="product.html">Dried Fruits & Nuts</a>
                         </li>
                     </ul>
                 </div>
@@ -1035,22 +1377,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h3>Quick Links</h3>
                     <ul>
                         <li>
-                            <a href="about.jsp">About Us</a>
+                            <a href="about.html">About Us</a>
                         </li>
                         <li>
-                            <a href="contact.jsp">Contact Us</a>
+                            <a href="contact.html">Contact Us</a>
                         </li>
                         <li>
-                            <a href="help.jsp">Help</a>
+                            <a href="help.html">Help</a>
                         </li>
                         <li>
-                            <a href="faqs.jsp">Faqs</a>
+                            <a href="faqs.html">Faqs</a>
                         </li>
                         <li>
-                            <a href="terms.jsp">Terms of use</a>
+                            <a href="terms.html">Terms of use</a>
                         </li>
                         <li>
-                            <a href="privacy.jsp">Privacy Policy</a>
+                            <a href="privacy.html">Privacy Policy</a>
                         </li>
                     </ul>
                 </div>
@@ -1099,10 +1441,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="agileits_app-devices">
                     <h5>Download the App</h5>
                     <a href="#">
-                        <img src="../images/1.png" alt="">
+                        <img src="images/1.png" alt="">
                     </a>
                     <a href="#">
-                        <img src="../images/2.png" alt="">
+                        <img src="images/2.png" alt="">
                     </a>
                     <div class="clearfix"></div>
                 </div>
@@ -1134,106 +1476,106 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h5>Popular Brands</h5>
                 <ul>
                     <li>
-                        <a href="product.jsp">Aashirvaad</a>
+                        <a href="product.html">Aashirvaad</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Amul</a>
+                        <a href="product.html">Amul</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Bingo</a>
+                        <a href="product.html">Bingo</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Boost</a>
+                        <a href="product.html">Boost</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Durex</a>
+                        <a href="product.html">Durex</a>
                     </li>
                     <li>
-                        <a href="product.jsp"> Maggi</a>
+                        <a href="product.html"> Maggi</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Glucon-D</a>
+                        <a href="product.html">Glucon-D</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Horlicks</a>
+                        <a href="product.html">Horlicks</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Head & Shoulders</a>
+                        <a href="product2.html">Head & Shoulders</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Dove</a>
+                        <a href="product2.html">Dove</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Dettol</a>
+                        <a href="product2.html">Dettol</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Dabur</a>
+                    <li>
+                        <a href="product.html">Tata</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Colgate</a>
+                        <a href="product2.html">Sunfeast</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Coca-Cola</a>
+                        <a href="product2.html">Sunsilk</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Closeup</a>
+                        <a href="product.html">Patanjali</a>
+                        <a href="product2.html">Dabur</a>
                     </li>
                     <li>
-                        <a href="product2.jsp"> Cinthol</a>
+                        <a href="product2.html">Colgate</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Cadbury</a>
+                        <a href="product.html">Coca-Cola</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Bru</a>
+                        <a href="product2.html">Closeup</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Bournvita</a>
+                        <a href="product2.html"> Cinthol</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Tang</a>
+                        <a href="product.html">Cadbury</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Pears</a>
+                        <a href="product.html">Bru</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Oreo</a>
+                        <a href="product.html">Bournvita</a>
                     </li>
                     <li>
-                        <a href="product.jsp"> Taj Mahal</a>
+                        <a href="product.html">Tang</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Sprite</a>
+                        <a href="product.html">Pears</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Thums Up</a>
+                        <a href="product.html">Oreo</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Fair & Lovely</a>
+                        <a href="product.html"> Taj Mahal</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Lakme</a>
+                        <a href="product.html">Sprite</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Tata</a>
+                        <a href="product.html">Thums Up</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Sunfeast</a>
+                        <a href="product2.html">Fair & Lovely</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Sunsilk</a>
+                        <a href="product2.html">Lakme</a>
+                    </li>
                     </li>
                     <li>
-                        <a href="product.jsp">Patanjali</a>
+                        <a href="product.html">MTR</a>
                     </li>
                     <li>
-                        <a href="product.jsp">MTR</a>
+                        <a href="product.html">Kissan</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Kissan</a>
-                    </li>
-                    <li>
-                        <a href="product2.jsp"> Lipton</a>
+                        <a href="product2.html"> Lipton</a>
                     </li>
                 </ul>
             </div>
@@ -1243,31 +1585,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h5>Payment Method</h5>
                 <ul>
                     <li>
-                        <img src="../images/pay2.png" alt="">
+                        <img src="images/pay2.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay5.png" alt="">
+                        <img src="images/pay5.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay1.png" alt="">
+                        <img src="images/pay1.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay4.png" alt="">
+                        <img src="images/pay4.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay6.png" alt="">
+                        <img src="images/pay6.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay3.png" alt="">
+                        <img src="images/pay3.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay7.png" alt="">
+                        <img src="images/pay7.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay8.png" alt="">
+                        <img src="images/pay8.png" alt="">
                     </li>
                     <li>
-                        <img src="../images/pay9.png" alt="">
+                        <img src="images/pay9.png" alt="">
                     </li>
                 </ul>
             </div>
@@ -1289,11 +1631,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- js-files -->
 <!-- jquery -->
-<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
 <!-- //jquery -->
 
 <!-- popup modal (for signin & signup)-->
-<script src="../js/jquery.magnific-popup.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
 <script>
     $(document).ready(function () {
         $('.popup-with-zoom-anim').magnificPopup({
@@ -1307,7 +1649,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             removalDelay: 300,
             mainClass: 'my-mfp-zoom-in'
         });
-
     });
 </script>
 <!-- Large modal -->
@@ -1317,21 +1658,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //popup modal (for signin & signup)-->
 
 <!-- cart-js -->
-<script src="../js/minicart.js"></script>
+<script src="js/minicart.js"></script>
 <script>
-    paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
-
+    paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
     paypalm.minicartk.cart.on('checkout', function (evt) {
         var items = this.items(),
             len = items.length,
             total = 0,
             i;
-
         // Count the number of each item in the cart
         for (i = 0; i < len; i++) {
             total += items[i].get('quantity');
         }
-
         if (total < 3) {
             alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
             evt.preventDefault();
@@ -1340,49 +1678,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- //cart-js -->
 
-<!--quantity-->
+<!-- price range (top products) -->
+<script src="js/jquery-ui.js"></script>
 <script>
-    $('.value-plus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) + 1;
-        divUpd.text(newVal);
-    });
+    //<![CDATA[
+    $(window).load(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 9000,
+            values: [50, 6000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+    }); //]]>
+</script>
+<!-- //price range (top products) -->
 
-    $('.value-minus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) - 1;
-        if (newVal >= 1) divUpd.text(newVal);
-    });
-</script>
-<!--quantity-->
+<!-- flexisel (for special offers) -->
+<script src="js/jquery.flexisel.js"></script>
 <script>
-    $(document).ready(function (c) {
-        $('.close1').on('click', function (c) {
-            $('.rem1').fadeOut('slow', function (c) {
-                $('.rem1').remove();
-            });
+    $(window).load(function () {
+        $("#flexiselDemo1").flexisel({
+            visibleItems: 3,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 2
+                }
+            }
         });
     });
 </script>
-<script>
-    $(document).ready(function (c) {
-        $('.close2').on('click', function (c) {
-            $('.rem2').fadeOut('slow', function (c) {
-                $('.rem2').remove();
-            });
-        });
-    });
-</script>
-<script>
-    $(document).ready(function (c) {
-        $('.close3').on('click', function (c) {
-            $('.rem3').fadeOut('slow', function (c) {
-                $('.rem3').remove();
-            });
-        });
-    });
-</script>
-<!--//quantity-->
+<!-- //flexisel (for special offers) -->
 
 <!-- password-script -->
 <script>
@@ -1390,7 +1733,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
-
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
@@ -1404,17 +1746,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //password-script -->
 
 <!-- smoothscroll -->
-<script src="../js/SmoothScroll.min.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
 <!-- //smoothscroll -->
 
 <!-- start-smooth-scrolling -->
-<script src="../js/move-top.js"></script>
-<script src="../js/easing.js"></script>
+<script src="js/move-top.js"></script>
+<script src="js/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
-
             $('html,body').animate({
                 scrollTop: $(this.hash).offset().top
             }, 1000);
@@ -1437,13 +1778,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $().UItoTop({
             easingType: 'easeOutQuart'
         });
-
     });
 </script>
 <!-- //smooth-scrolling-of-move-up -->
 
 <!-- for bootstrap working -->
-<script src="../js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 
