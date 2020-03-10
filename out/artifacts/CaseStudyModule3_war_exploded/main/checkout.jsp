@@ -824,8 +824,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <c:forEach items="${listAddToCart}" var="product">
                         <c:set var="slNo" value="${slNo+1}"/>
                         <tr class="rem${slNo}">
-
-<%--                            <td class="invert">${slNo}</td>--%>
                             <td class="invert-image">
                                 <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt=" " class="img-responsive">
@@ -853,10 +851,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                         </tr>
                     </c:forEach>
-
-
-
-
                     </tbody>
                 </table>
             </div>

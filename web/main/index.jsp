@@ -1209,9 +1209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <form action="/addtocart?name=${product.getProductName()}" method="post">
                                         <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
                                                class="button"/>
-
                                     </form>
-
                                 </div>
                             </div>
                         </div>
