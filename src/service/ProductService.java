@@ -20,7 +20,7 @@ public class ProductService implements IproductService {
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
     private  static final String check_username="select id,userName,pass,email from accounts where userName=?;";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
-    private static final String check_userName_pass="select userName,pass from accounts where userName=?;";
+    private static final String check_userName_pass="select userName,pass,email from accounts where userName=?;";
     private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
     Connection getConnection() {
         Connection connection = null;
@@ -145,21 +145,19 @@ public class ProductService implements IproductService {
         return isCheckEmail;
     }
     public User getUserName_Pass(String userName){
-        User UserName=null;
+        User user=null;
         try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(check_userName_pass)) {
             preparedStatement.setString(1,userName);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                int id=resultSet.getInt("id");
                 String pass = resultSet.getString("pass");
                 String email=resultSet.getString("email");
-
-
+                user=new User(userName,pass,email);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return UserName;
+        return user;
     }
     public void insertUser(User user){
         try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);){
