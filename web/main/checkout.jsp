@@ -805,19 +805,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- //tittle heading -->
         <div class="checkout-right">
             <h4>Your shopping cart contains:
-                <span>3 Products</span>
+                <span>${listAddToCart.size()} Products</span>
             </h4>
             <div class="table-responsive">
                 <table class="timetable_sub">
                     <thead>
                     <tr>
-                        <th>SL No.</th>
-                        <th>Product</th>
-                        <th>Quality</th>
-                        <th>Product Name</th>
+                        <th width="100px">SL No.</th>
+                        <th width="210px">Product</th>
+                        <th width="200px">Quality</th>
+                        <th width="200px">Product Name</th>
 
                         <th>Price</th>
-                        <th>Remove</th>
+                        <th width="80px">Remove</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -842,8 +842,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </td>
-                        <td class="invert">${product.getProductName()}</td>
-                        <td class="invert"${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</td>
+                        <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
+                        <td class="invert">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</td>
                         <td class="invert">
                             <div class="rem">
                                 <div class="close1"></div>
@@ -851,8 +851,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </td>
                     </tr>
                     </c:forEach>
-
-
 
 
 

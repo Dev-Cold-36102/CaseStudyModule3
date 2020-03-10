@@ -147,10 +147,7 @@ textarea {
 button {
     overflow: visible;
 }
-img{
-    max-height: 160px;
-    max-width: 160px;
-}
+
 button,
 select {
     text-transform: none;
