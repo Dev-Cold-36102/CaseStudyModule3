@@ -14,11 +14,11 @@ public class LoginServlet extends HttpServlet {
         String name=request.getParameter("name");
         String password=request.getParameter("password");
         if (action==null){
-            System.out.println("linh ham");
-        }else {
-            if (!name.equals("")&&!password.equals("")){
-//                if (name.equals())
-            }
+            action="";
+        }
+        switch (action){
+            case "login":
+
         }
 
     }
