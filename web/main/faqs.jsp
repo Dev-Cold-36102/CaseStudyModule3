@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- header-bot-->
 			<div class="col-md-4 logo_agile">
 				<h1>
-					<a href="../main/index.jsp">
+					<a href="/home">
 						<span>G</span>rocery
 						<span>S</span>hoppy
 						<img src="../images/logo2.png" alt=" ">
@@ -610,7 +610,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav menu__list">
 								<li>
-									<a class="nav-stylehead" href="../main/index.jsp">Home
+									<a class="nav-stylehead" href="/home">Home
 										<span class="sr-only">(current)</span>
 									</a>
 								</li>
