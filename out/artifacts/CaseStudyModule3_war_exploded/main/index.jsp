@@ -1056,7 +1056,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <del>${product.getPriceProductOut()} VND</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="/home?action=add&name=${product.getProductName()}" method="post">
+                                        <form action="/addtocart?name=${product.getProductName()}" method="post">
                                             <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
                                                    class="button"/>
 
@@ -1107,7 +1107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
 
-                                        <form action="/home?action=add&name=${product.getProductName()}" method="post">
+                                        <form action="/addtocart?name=${product.getProductName()}" method="post">
                                             <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
                                                    class="button"/>
 
@@ -1149,7 +1149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <del>${product.getPriceProductOut()} VND</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="/home?action=add&name=${product.getProductName()}" method="post">
+                                        <form action="/addtocart?name=${product.getProductName()}" method="post">
                                             <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
                                                    class="button"/>
 
@@ -1207,7 +1207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
 
-                                    <form action="/home?action=add&name=${product.getProductName()}" method="post">
+                                    <form action="/addtocart?name=${product.getProductName()}" method="post">
                                         <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
                                                class="button"/>
 

@@ -65,12 +65,6 @@ public class IndexServlet extends HttpServlet {
             case "checkout":
                 System.out.println("checkout");
                 break;
-            case "add":
-                String nameProductAdd = request.getParameter("name");
-                Product product=productService.addProductToCart(nameProductAdd);
-                listAddToCart.add(product);
-
-                break;
 
 //            default:
 //                System.out.println("add to cart");

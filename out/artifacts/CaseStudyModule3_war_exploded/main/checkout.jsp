@@ -836,7 +836,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="quantity-select">
                                     <div class="entry value-minus">&nbsp;</div>
                                     <div class="entry value">
-                                        <span>1</span>
+                                        <span>${product.getAmountProduct()}</span>
                                     </div>
                                     <div class="entry value-plus active">&nbsp;</div>
                                 </div>

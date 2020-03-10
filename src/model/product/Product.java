@@ -18,11 +18,15 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, int priceProductIn, int priceProductOut, String image) {
+
+
+    public Product(String productName, int priceProductIn, int priceProductOut, String image,int amountProduct,int discount) {
         this.productName = productName;
         this.priceProductIn = priceProductIn;
         this.priceProductOut = priceProductOut;
         this.image = image;
+        this.amountProduct=amountProduct;
+        this.discount=discount;
     }
 
     public Product(int id, String productName, String productType,
