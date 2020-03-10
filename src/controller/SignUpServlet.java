@@ -32,7 +32,6 @@ public class SignUpServlet extends HttpServlet {
                 dispatcher.forward(request,response);
             }else if(productService.checkEmail(email)){
                 request.setAttribute("message","email Đã Tồn Tại, Hãy Dùng email Khác!");
-
                 dispatcher=request.getRequestDispatcher("main/signup.jsp");
                 dispatcher.forward(request,response);
             } else {

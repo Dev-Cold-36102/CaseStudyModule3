@@ -10,17 +10,18 @@ import java.util.List;
 public class ProductService implements IproductService {
     private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "12345@Abc";
+    private String jdbcPassword = "Mattroicuatoi.36102";
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where name = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, password =? where name = ?;";
     private static final String SELECT_USER_BY_COUNTRY =
             "select id,uname,email from users where country=?";
+    private static final String SELECT_PRODUCT_ADD_TO_CART="select productName,image,priceIn,priceOut from products where productName=?";
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
     private  static final String check_username="select id,userName,pass,email from accounts where userName=?;";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
-    private static final String check_userName_pass="select userName,pass,email from accounts where userName=?;";
+    private static final String check_userName_pass="select userName,pass from accounts where userName=?;";
     private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
     Connection getConnection() {
         Connection connection = null;
@@ -79,6 +80,25 @@ public class ProductService implements IproductService {
 
         return productList;
 
+    }
+
+    public Product addProductToCart( String productName) {
+        Product product=null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_ADD_TO_CART)) {
+            preparedStatement.setString(1, productName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("productName");
+                String image = resultSet.getString("image");
+                int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn")));
+                int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut")));
+                product=new Product(name,priceProductIn,priceProductOut,image);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
     }
 
     public List<Product> productListHot(String productType) {
@@ -145,19 +165,21 @@ public class ProductService implements IproductService {
         return isCheckEmail;
     }
     public User getUserName_Pass(String userName){
-        User user=null;
+        User UserName=null;
         try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(check_userName_pass)) {
             preparedStatement.setString(1,userName);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
+                int id=resultSet.getInt("id");
                 String pass = resultSet.getString("pass");
                 String email=resultSet.getString("email");
-                user=new User(userName,pass,email);
+
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return user;
+        return UserName;
     }
     public void insertUser(User user){
         try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);){
