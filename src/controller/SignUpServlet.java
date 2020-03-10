@@ -13,23 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "LoginServlet",urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "SignUpServlet",urlPatterns = "/signup")
+public class SignUpServlet extends HttpServlet {
     private ProductService productService;
     public void init() {
         productService = new ProductService();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name=request.getParameter("userName");
-        String password=request.getParameter("password");
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
         RequestDispatcher dispatcher;
-        System.out.println(name + " " + password );
-        User user=productService.getUserName_Pass(name);
-        String userName=user.getUserName();
-        String pass=user.getPassword();
-        System.out.println(userName+" "+pass);
-        if (name.equals(userName) && password.equals(pass)){
-            request.setAttribute("user",user);
+        System.out.println(userName + " " + password + " " + email);
+            if(productService.checkUserName(userName)){
+                request.setAttribute("message","Tài Khoản Đã Tồn Tại, Hãy Dùng Tài Khoản  Khác!");
+                dispatcher=request.getRequestDispatcher("main/signup.jsp");
+                dispatcher.forward(request,response);
+            }else if(productService.checkEmail(email)){
+                request.setAttribute("message","email Đã Tồn Tại, Hãy Dùng email Khác!");
+
+                dispatcher=request.getRequestDispatcher("main/signup.jsp");
+                dispatcher.forward(request,response);
+            } else {
             String productType3 = "đồ dùng cá nhân";
             List<Product> hotProduct = productService.productListHot(productType3);
             request.setAttribute("hotProduct", hotProduct);
@@ -42,11 +48,9 @@ public class LoginServlet extends HttpServlet {
             String productType2 = "đồ ăn";
             List<Product> foodList = productService.productList(productType2);
             request.setAttribute("foodList", foodList);
-            dispatcher=request.getRequestDispatcher("user/indexuser.jsp");
-            dispatcher.forward(request,response);
-        }else {
-            request.setAttribute("message","Tài Khoản hoặc Mật Khẩu Không Đúng!");
-            dispatcher=request.getRequestDispatcher("main/login.jsp");
+            User user=new User(userName,password,email);
+            productService.insertUser(user);
+            dispatcher=request.getRequestDispatcher("main/index.jsp");
             dispatcher.forward(request,response);
         }
     }
@@ -55,3 +59,4 @@ public class LoginServlet extends HttpServlet {
 
     }
 }
+

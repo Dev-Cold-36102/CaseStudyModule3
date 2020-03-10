@@ -36,28 +36,10 @@ public class IndexServlet extends HttpServlet {
                 break;
             case "signup":
                 System.out.println("sign up");
-                String userName = request.getParameter("name");
-                String password = request.getParameter("password");
-                String email = request.getParameter("email");
-                System.out.println(userName + " " + password + " " + email);
-                if (productService.checkUserName(userName)) {
-                    System.out.println("tai khoan da ton tai");
-                    request.setAttribute("message", "Tai khoan da ton tai");
-                } else {
-                    User userNew = new User(userName, password, email);
-                    productService.insertUser(userNew);
-                    String productType = "đồ cho trẻ";
-                    List<Product> productList = productService.productList(productType);
-                    request.setAttribute("productList", productList);
-                    String productType1 = "đồ dùng cá nhân";
-                    List<Product> personalCare = productService.productList(productType1);
-                    request.setAttribute("personalCare", personalCare);
-                    String productType2 = "đồ ăn";
-                    List<Product> foodList = productService.productList(productType2);
-                    request.setAttribute("foodList", foodList);
-                }
 
-                break;
+
+
+
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
         dispatcher.forward(request, response);

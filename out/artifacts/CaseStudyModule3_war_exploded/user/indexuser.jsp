@@ -1,9 +1,10 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%--
+  Created by IntelliJ IDEA.
+  User: bmv
+  Date: 09/03/2020
+  Time: 21:42
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -72,12 +73,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="../main/login.jsp">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng Nhập </a>
+                    <a href="../user/indexuser.jsp">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Xin Chào ${user.getUserName()} </a>
                 </li>
                 <li>
-                    <a href="../main/signup.jsp">
-                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Ký </a>
+                    <a href="/home">
+                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Xuất </a>
                 </li>
             </ul>
             <!-- //header lists -->

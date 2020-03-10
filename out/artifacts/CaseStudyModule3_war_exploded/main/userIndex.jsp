@@ -40,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- top-header -->
 <div class="header-most-top">
-    <p> Offer Zone Top Deals & Discounts</p>
+    <p>Bằng Óc CHó Offer Zone Top Deals & Discounts</p>
 </div>
 <!-- //top-header -->
 <!-- header-bot-->
@@ -72,12 +72,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="../main/login.jsp">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng Nhập </a>
+<%--                    <a href="#" data-toggle="modal" data-target="#myModal1">--%>
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span>${} </a>
                 </li>
                 <li>
-                    <a href="../main/signup.jsp">
-                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Ký </a>
+                    <a href="/home" data-toggle="modal" data-target="#myModal2">
+                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Xuất </a>
                 </li>
             </ul>
             <!-- //header lists -->
