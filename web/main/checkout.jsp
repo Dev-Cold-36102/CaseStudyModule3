@@ -20,7 +20,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
-
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -811,7 +810,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <table class="timetable_sub">
                     <thead>
                     <tr>
-                        <th width="100px">SL No.</th>
+<%--                        <th width="100px">SL No.</th>--%>
                         <th width="210px">Product</th>
                         <th width="200px">Quality</th>
                         <th width="200px">Product Name</th>
@@ -823,33 +822,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <tbody>
                     <c:set var="slNo" value="0"/>
                     <c:forEach items="${listAddToCart}" var="product">
-                    <tr class="rem1">
                         <c:set var="slNo" value="${slNo+1}"/>
-                        <td class="invert">${slNo}</td>
-                        <td class="invert-image">
-                            <a href="sanphamtronggio.jsp">
-                                <img src="${product.getImage()}" alt=" " class="img-responsive">
-                            </a>
-                        </td>
-                        <td class="invert">
-                            <div class="quantity">
-                                <div class="quantity-select">
-                                    <div class="entry value-minus">&nbsp;</div>
-                                    <div class="entry value">
-                                        <span>${product.getAmountProduct()}</span>
+                        <tr class="rem${slNo}">
+
+<%--                            <td class="invert">${slNo}</td>--%>
+                            <td class="invert-image">
+                                <a href="sanphamtronggio.jsp">
+                                    <img src="${product.getImage()}" alt=" " class="img-responsive">
+                                </a>
+                            </td>
+                            <input type="text" id="amount${product.getProductName()}" value="${product.getAmountProduct()}" class="hidden">
+                            <td class="invert">
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                        <div class="entry value-minus" onclick="reductionMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">&nbsp;</div>
+                                        <div class="entry value">
+                                            <div>${product.getAmountProduct()}</div>
+                                        </div>
+                                        <div class="entry value-plus active" onclick="raiseMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">&nbsp;</div>
                                     </div>
-                                    <div class="entry value-plus active">&nbsp;</div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
-                        <td class="invert">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</td>
-                        <td class="invert">
-                            <div class="rem">
-                                <div class="close1"></div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                            <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
+                            <input id="price${product.getProductName()}" value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}" class="hidden"/>
+                            <td class="invert" id="${product.getProductName()}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))} VND</td>
+                            <td class="invert">
+                                <div class="rem">
+                                    <div class="close${slNo}" onclick=""></div>
+                                </div>
+                            </td>
+                        </tr>
                     </c:forEach>
 
 
@@ -1307,7 +1309,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             removalDelay: 300,
             mainClass: 'my-mfp-zoom-in'
         });
-
     });
 </script>
 <!-- Large modal -->
@@ -1320,18 +1321,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/minicart.js"></script>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
-
     paypalm.minicartk.cart.on('checkout', function (evt) {
         var items = this.items(),
             len = items.length,
             total = 0,
             i;
-
         // Count the number of each item in the cart
         for (i = 0; i < len; i++) {
             total += items[i].get('quantity');
         }
-
         if (total < 3) {
             alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
             evt.preventDefault();
@@ -1347,7 +1345,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             newVal = parseInt(divUpd.text(), 10) + 1;
         divUpd.text(newVal);
     });
-
     $('.value-minus').on('click', function () {
         var divUpd = $(this).parent().find('.value'),
             newVal = parseInt(divUpd.text(), 10) - 1;
@@ -1390,7 +1387,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
-
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
@@ -1414,7 +1410,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
-
             $('html,body').animate({
                 scrollTop: $(this.hash).offset().top
             }, 1000);
@@ -1437,7 +1432,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $().UItoTop({
             easingType: 'easeOutQuart'
         });
-
     });
 </script>
 <!-- //smooth-scrolling-of-move-up -->
@@ -1446,6 +1440,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 <!-- //js-files -->
+<script src="../js/setMoney.js"></script>
+<script>
+
+</script>
+
 
 </body>
 
