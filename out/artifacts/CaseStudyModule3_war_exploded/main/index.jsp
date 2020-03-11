@@ -607,20 +607,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <form action="/search1" method="post">
+
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
-                                                        <a href="search1?donoithat">Đồ Nội Thất</a>
+                                                        <a href="/home?action=donoithat">Đồ Nội Thất</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search1?docanhan">Đồ Dùng Cá Nhân</a>
+                                                        <a href="/home?action=docanhan">Đồ Dùng Cá Nhân</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search1?quatang">Quà Tặng</a>
+                                                        <a href="/home?action=quatang">Quà Tặng</a>
                                                     </li>
                                                 </ul>
                                                 </select>
-                                            </form>
+
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
 
@@ -640,16 +640,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <form action="/search" method="post">
+                                            <form action="/home" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
-                                                        <a href="/searchname=banhkeo">Bánh,Kẹo</a>
+                                                        <a href="/home?action=banhkeo">Bánh,Kẹo</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search" name="doan">Đồ ăn</a>
+                                                        <a href="/home?action=doan">Đồ ăn</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search" name="douong">Đồ Uống</a>
+                                                        <a href="/home?action=douong">Đồ Uống</a>
                                                     </li>
                                                 </ul>
                                                 </select>
@@ -673,13 +673,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-6 multi-gd-img">
-                                            <form action="/search" method="post">
+                                            <form action="/home" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li>
-                                                        <a href="/search" name="Bim">Bỉm</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/search" name="=sua">Sữa</a>
+                                                        <a href="/home?action=bim">Bỉm Và Sữa</a>
                                                     </li>
                                                 </ul>
 

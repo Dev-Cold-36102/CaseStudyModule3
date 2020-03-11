@@ -5,6 +5,12 @@
 <html lang="vi">
 
 <head>
+<%--    <style type="text/css">--%>
+<%--        .info-product-price{--%>
+<%--            width: 450px;--%>
+<%--            height: 30px;--%>
+<%--        }--%>
+<%--    </style>--%>
     <title>Web bán hàng tiện lơi</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -607,16 +613,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <form action="/search1" method="post">
+                                            <form action="/home" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
-                                                        <a href="/search1?action=donoithat">Đồ Nội Thất</a>
+                                                        <a href="/home?action=donoithat">Đồ Nội Thất</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search1?action=docanhan">Đồ Dùng Cá Nhân</a>
+                                                        <a href="/home?action=docanhan">Đồ Dùng Cá Nhân</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search1?action=quatang">Quà Tặng</a>
+                                                        <a href="/home?action=quatang">Quà Tặng</a>
                                                     </li>
                                                 </ul>
                                                 </select>
@@ -640,16 +646,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <form action="/search" method="post">
+                                            <form action="/home" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
-                                                        <a href="/searchname=banhkeo">Bánh,Kẹo</a>
+                                                        <a href="/home?action=banhkeo">Bánh-Kẹo</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search" name="doan">Đồ ăn</a>
+                                                        <a href="/home?action=doan">Đồ ăn</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/search" name="douong">Đồ Uống</a>
+                                                        <a href="/home?action=douong">Đồ Uống</a>
                                                     </li>
                                                 </ul>
                                                 </select>
@@ -673,16 +679,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-6 multi-gd-img">
-                                            <form action="/search" method="post">
+                                            <form action="/home" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li>
-                                                        <a href="/search" name="Bim">Bỉm</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/search" name="=sua">Sữa</a>
+                                                        <a href="/home?action=Bim">Bỉm Và Sữa</a>
                                                     </li>
                                                 </ul>
-
                                             </form>
                                         </div>
                                         <div class="col-sm-6 multi-gd-img">
@@ -737,7 +739,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </h3>
                     <p>Get flat
                         <span>10%</span> Mặt Hàng Đang Giảm Giá</p>
-                    <a class="button2" href="product.jsp">Shop Now </a>
+                    <a class="button2" href="../main/product.jsp">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -749,7 +751,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </h3>
                     <p>Get Upto
                         <span>30%</span> Off</p>
-                    <a class="button2" href="product.jsp">Shop Now </a>
+                    <a class="button2" href="../main/product.jsp">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -762,7 +764,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p>Get Best Offer Upto
                         <span>20%</span>
                     </p>
-                    <a class="button2" href="product.jsp">Shop Now </a>
+                    <a class="button2" href="../main/product.jsp">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -774,7 +776,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </h3>
                     <p>Get Now
                         <span>40%</span> Discount</p>
-                    <a class="button2" href="product.jsp">Shop Now </a>
+                    <a class="button2" href="../main/product.jsp">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -794,7 +796,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="ads-grid">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Sản Phẩm Bán Chạy
+        <h3 class="tittle-w3l">${productType}
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -986,12 +988,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="wrapper">
                 <!-- first section (nuts) -->
                 <div class="product-sec1">
-                    <h3 class="heading-tittle">Đồ Cho Trẻ</h3>
-                    <c:forEach items="${productList}" var="product">
-                        <div class="col-md-4 product-men">
+                    <h3 class="heading-tittle"></h3>
+                    <c:forEach items="${list}" var="product">
+                        <div class="col-md-6 product-men">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
-                                    <img src="${product.getImage()}" alt="images">
+                                    <img width="160px" height="160px" src="${product.getImage()}" alt="images">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
                                             <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
@@ -1000,9 +1002,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <span class="product-new-top">${product.getDiscount()}%</span>
                                 </div>
                                 <div class="item-info-product ">
-                                    <h4>
+                                    <h5>
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
-                                    </h4>
+                                    </h5>
                                     <div class="info-product-price">
                                             <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
                                         <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
@@ -1032,120 +1034,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </c:forEach>
                     <div class="clearfix"></div>
                 </div>
-
-                <div class="product-sec1 product-sec2">
-                    <div class="col-xs-7 effect-bg">
-                        <h3 class="">Pure Energy</h3>
-                        <h6>Enjoy our all healthy Products</h6>
-                        <p>Get Extra 10% Off</p>
-                    </div>
-                    <h3 class="w3l-nut-middle">Nuts & Dry Fruits</h3>
-                    <div class="col-xs-5 bg-right-nut">
-                        <img src="images/nut1.png" alt="">
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <!-- //second section (nuts special) -->
-                <!-- third section (oils) -->
-                <div class="product-sec1">
-                    <h3 class="heading-tittle">đồ dùng cá nhân</h3>
-                    <c:forEach items="${personalCare}" var="product">
-                        <div class="col-md-4 product-men">
-                            <div class="men-pro-item simpleCart_shelfItem">
-                                <div class="men-thumb-item">
-                                    <img src="${product.getImage()}" alt="">
-                                    <div class="men-cart-pro">
-                                        <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">xem nhanh</a>
-                                        </div>
-                                    </div>
-                                    <span class="product-new-top">${product.getDiscount()}%</span>
-                                </div>
-                                <div class="item-info-product ">
-                                    <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
-                                    </h4>
-                                    <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
-                                        <del>${product.getPriceProductOut()}</del>
-                                    </div>
-                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart"/>
-                                                <input type="hidden" name="add" value="1"/>
-                                                <input type="hidden" name="business" value=" "/>
-                                                <input type="hidden" name="item_name"
-                                                       value="${product.getProductName()}"/>
-                                                <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
-                                                <input type="hidden" name="discount_amount" value="1.00"/>
-                                                <input type="hidden" name="currency_code" value="USD"/>
-                                                <input type="hidden" name="return" value=" "/>
-                                                <input type="hidden" name="cancel_return" value=" "/>
-                                                <input type="submit" name="submit" value="Add to cart"
-                                                       class="button"/>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
-                    <div class="clearfix"></div>
-                </div>
-
-
-                <div class="product-sec1">
-                    <h3 class="heading-tittle">FOOD</h3>
-                    <c:forEach items="${foodList}" var="product">
-                        <div class="col-md-4 product-men">
-                            <div class="men-pro-item simpleCart_shelfItem">
-                                <div class="men-thumb-item">
-                                    <img src="${product.getImage()}" alt="">
-                                    <div class="men-cart-pro">
-                                        <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">xem
-                                                nhanh</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item-info-product ">
-                                    <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
-                                    </h4>
-                                    <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
-                                        <del>${product.getPriceProductOut()}</del>
-                                    </div>
-                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart"/>
-                                                <input type="hidden" name="add" value="1"/>
-                                                <input type="hidden" name="business" value=" "/>
-                                                <input type="hidden" name="item_name"
-                                                       value="${product.getProductName()}"/>
-                                                <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
-                                                <input type="hidden" name="discount_amount" value="1.00"/>
-                                                <input type="hidden" name="currency_code" value="USD"/>
-                                                <input type="hidden" name="return" value=" "/>
-                                                <input type="hidden" name="cancel_return" value=" "/>
-                                                <input type="submit" name="submit" value="Add to cart"
-                                                       class="button"/>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
-                    <div class="clearfix"></div>
-                </div>
-
             </div>
         </div>
         <!-- //product right -->
