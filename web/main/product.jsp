@@ -1038,14 +1038,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k1.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Zeeba Basmati Rice</a>
+										<a href="viewsingle.jsp">Zeeba Basmati Rice</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$950.00</span>
@@ -1077,7 +1077,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k2.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1085,7 +1085,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Maiyas Gulab Jamun</a>
+										<a href="viewsingle.jsp">Maiyas Gulab Jamun</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$137.00</span>
@@ -1117,7 +1117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k3.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1125,7 +1125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Lipton Green Tea</a>
+										<a href="viewsingle.jsp">Lipton Green Tea</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$384.00</span>
@@ -1162,14 +1162,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k4.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Organicana Red Chilli</a>
+										<a href="viewsingle.jsp">Organicana Red Chilli</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$70.00</span>
@@ -1201,7 +1201,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k5.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1209,7 +1209,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">MTR Black Pepper</a>
+										<a href="viewsingle.jsp">MTR Black Pepper</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$85.00</span>
@@ -1241,7 +1241,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k6.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1249,7 +1249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Chataka - Elaichi</a>
+										<a href="viewsingle.jsp">Chataka - Elaichi</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$299.99</span>
@@ -1286,14 +1286,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k7.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Narulag, Less Sugar</a>
+										<a href="viewsingle.jsp">Narulag, Less Sugar</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$220.00</span>
@@ -1325,7 +1325,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k8.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1333,7 +1333,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Kellogg's Chocos Fills</a>
+										<a href="viewsingle.jsp">Kellogg's Chocos Fills</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$175.75</span>
@@ -1365,7 +1365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k9.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1373,7 +1373,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Amul's India</a>
+										<a href="viewsingle.jsp">Amul's India</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$134.00</span>
@@ -1410,14 +1410,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k10.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Snickers Chocolates</a>
+										<a href="viewsingle.jsp">Snickers Chocolates</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$140.00</span>
@@ -1449,7 +1449,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k11.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1457,7 +1457,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">Kissan Fruit Jam</a>
+										<a href="viewsingle.jsp">Kissan Fruit Jam</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$123.00</span>
@@ -1489,7 +1489,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="../images/k12.jpg" alt="">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="sanphamtrongshop.jsp" class="link-product-add-cart">Quick View</a>
+											<a href="viewsingle.jsp" class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
 									<span class="product-new-top">New</span>
@@ -1497,7 +1497,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="sanphamtrongshop.jsp">MTR Vegetable Pickle</a>
+										<a href="viewsingle.jsp">MTR Vegetable Pickle</a>
 									</h4>
 									<div class="info-product-price">
 										<span class="item_price">$104.00</span>
@@ -1550,13 +1550,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<div class="w3l-specilamk">
 							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
+								<a href="viewsingle.jsp">
 									<img src="../images/s1.jpg" alt="">
 								</a>
 							</div>
 							<div class="product-name-w3l">
 								<h4>
-									<a href="sanphamtrongshop.jsp">Aashirvaad, 5g</a>
+									<a href="viewsingle.jsp">Aashirvaad, 5g</a>
 								</h4>
 								<div class="w3l-pricehkj">
 									<h6>$220.00</h6>
@@ -1584,13 +1584,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<div class="w3l-specilamk">
 							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
+								<a href="viewsingle.jsp">
 									<img src="../images/s4.jpg" alt="">
 								</a>
 							</div>
 							<div class="product-name-w3l">
 								<h4>
-									<a href="sanphamtrongshop.jsp">Kissan Tomato Ketchup, 950g</a>
+									<a href="viewsingle.jsp">Kissan Tomato Ketchup, 950g</a>
 								</h4>
 								<div class="w3l-pricehkj">
 									<h6>$99.00</h6>
@@ -1618,13 +1618,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<div class="w3l-specilamk">
 							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
+								<a href="viewsingle.jsp">
 									<img src="../images/s2.jpg" alt="">
 								</a>
 							</div>
 							<div class="product-name-w3l">
 								<h4>
-									<a href="sanphamtrongshop.jsp">Madhur Pure Sugar, 1g</a>
+									<a href="viewsingle.jsp">Madhur Pure Sugar, 1g</a>
 								</h4>
 								<div class="w3l-pricehkj">
 									<h6>$69.00</h6>
@@ -1686,13 +1686,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<div class="w3l-specilamk">
 							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
+								<a href="viewsingle.jsp">
 									<img src="../images/s8.jpg" alt="">
 								</a>
 							</div>
 							<div class="product-name-w3l">
 								<h4>
-									<a href="sanphamtrongshop.jsp">Cadbury Choclairs, 655.5g</a>
+									<a href="viewsingle.jsp">Cadbury Choclairs, 655.5g</a>
 								</h4>
 								<div class="w3l-pricehkj">
 									<h6>$160.00</h6>
@@ -1754,13 +1754,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<div class="w3l-specilamk">
 							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
+								<a href="viewsingle.jsp">
 									<img src="../images/s5.jpg" alt="">
 								</a>
 							</div>
 							<div class="product-name-w3l">
 								<h4>
-									<a href="sanphamtrongshop.jsp">Sprite, 2.25L (Pack of 2)</a>
+									<a href="viewsingle.jsp">Sprite, 2.25L (Pack of 2)</a>
 								</h4>
 								<div class="w3l-pricehkj">
 									<h6>$180.00</h6>

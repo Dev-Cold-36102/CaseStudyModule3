@@ -23,16 +23,19 @@ public class AddToCartServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       int count=0;
         String nameProductAdd = request.getParameter("name");
-        Product product = productService.addProductToCart(nameProductAdd);
-        if (listAddToCart.contains(product)) {
-            count++;
-        } else {
-            count=1;
+        Product product = productService.selectProduct(nameProductAdd);
+        boolean isProductExsit =false;
+        for (int i = 0; i <listAddToCart.size() ; i++) {
+            if (listAddToCart.get(i).getProductName().equals(nameProductAdd)){
+                listAddToCart.get(i).setAmountProduct(listAddToCart.get(i).getAmountProduct()+1);
+            isProductExsit=true;
+            }
+        }
+        if (!isProductExsit) {
             listAddToCart.add(product);
         }
-        request.setAttribute("amountProduct",count);
+
 //        System.out.println(listAddToCart.size());
         RequestDispatcher dispatcher = request.getRequestDispatcher("home");
 

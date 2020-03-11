@@ -1,28 +1,43 @@
 package controller;
 
+import model.product.Product;
+import service.ProductService;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "ViewProductServlet", urlPatterns = "/home/viewsingle")
+import static controller.IndexServlet.listAddToCart;
+
+@WebServlet(name = "ViewProductServlet", urlPatterns = "/viewsingle")
 public class ViewProductServlet extends HttpServlet {
+    private ProductService productService;
+
+    public void init() {
+        productService = new ProductService();
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println(request.getParameter("post"));
+
         System.out.println("post");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        switch (action) {
-            case "view":
-                System.out.println("quick view");
-                break;
-        }
+        String productName=request.getParameter("name");
+        Product product = productService.selectProduct(productName);
+        String productType3 = "đồ dùng cá nhân";
+        List<Product> hotProduct = productService.productListHot(productType3);
+        request.setAttribute("hotProduct", hotProduct);
+        request.setAttribute("product",product);
+        RequestDispatcher dispatcher=request.getRequestDispatcher("main/viewsingle.jsp");
+        dispatcher.forward(request,response);
+
+
     }
+
 }
