@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- header-bot-->
         <div class="col-md-4 logo_agile">
             <h1>
-                <a href="/home">
+                <a href="/trangchu">
                     <span>G</span>rocery
                     <span>S</span>hoppy
                     <img src="../images/logo2.png" alt=" ">
@@ -73,11 +73,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="../user/indexuser.jsp">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Xin Chào ${user.getUserName()} </a>
+                    <a href="/trangchu">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Xin Chào ${userName} </a>
                 </li>
                 <li>
-                    <a href="/home">
+                    <a href="/logout">
                         <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Xuất </a>
                 </li>
             </ul>
@@ -615,7 +615,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav menu__list">
                             <li class="active">
-                                <a class="nav-stylehead" href="/home">Home
+                                <a class="nav-stylehead" href="/trangchu">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class LoginServlet extends HttpServlet {
     public void init() {
         productService = new ProductService();
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
         String name=request.getParameter("userName");
         String password=request.getParameter("password");
         RequestDispatcher dispatcher;
@@ -29,7 +30,9 @@ public class LoginServlet extends HttpServlet {
         String pass=user.getPassword();
         System.out.println(userName+" "+pass);
         if (name.equals(userName) && password.equals(pass)){
-            request.setAttribute("user",user);
+//            request.setAttribute("user",user);
+            HttpSession session = request.getSession();
+            session.setAttribute("userName", userName);
             String productType3 = "đồ dùng cá nhân";
             List<Product> hotProduct = productService.productListHot(productType3);
             request.setAttribute("hotProduct", hotProduct);
@@ -54,4 +57,5 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
 }

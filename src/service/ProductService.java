@@ -3,6 +3,7 @@ package service;
 import model.product.Product;
 import model.user.User;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public class ProductService implements IproductService {
     private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "Mattroicuatoi.36102";
+    private String jdbcPassword = "12345@Abc";
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where name = ?;";
@@ -21,7 +22,7 @@ public class ProductService implements IproductService {
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
     private  static final String check_username="select id,userName,pass,email from accounts where userName=?;";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
-    private static final String check_userName_pass="select userName,pass from accounts where userName=?;";
+    private static final String check_userName_pass="select * from accounts where userName=?;";
     private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
     Connection getConnection() {
         Connection connection = null;
@@ -173,8 +174,7 @@ public class ProductService implements IproductService {
                 int id=resultSet.getInt("id");
                 String pass = resultSet.getString("pass");
                 String email=resultSet.getString("email");
-
-
+                UserName=new User(userName,pass,email);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -191,5 +191,6 @@ public class ProductService implements IproductService {
             e.printStackTrace();
         }
     }
+
 
 }

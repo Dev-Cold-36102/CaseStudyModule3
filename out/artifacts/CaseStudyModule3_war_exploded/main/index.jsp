@@ -76,11 +76,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal1">
+                    <a href="../main/login.jsp" >
                         <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng Nhập </a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal2">
+                    <a href="../main/signup.jsp" >
                         <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Ký </a>
                 </li>
             </ul>
@@ -508,7 +508,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h3 class="agileinfo_sign">Đăng Nhập</h3>
                     <p>
                         Đăng Nhập ngay, để bắt đầu mua sắm. Nếu bạn chưa có tài khoản!
-                        <a href="#" data-toggle="modal" data-target="#myModal2">
+                        <a href="../main/signup.jsp" >
                             Nhấn vào đây để đăng ký</a>
                     </p>
                     <form action="/login" method="post">
@@ -554,7 +554,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span style="color: red" class="message">${requestScope["message"]}</span>
                         </c:if>
                     </p>
-                    <form action="/home?action=signup" method="post">
+                    <form action="/signup" method="post">
 
                         <div class="styled-input agile-styled-input-top">
                             <input type="text" placeholder="Name" name="name" required="">
