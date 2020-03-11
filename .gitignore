@@ -1,5 +1,9 @@
 # Default ignored files
 /.idea/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
 .idea
 out
+web.xml
 CaseStudyModule3.iml
