@@ -1477,6 +1477,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- for bootstrap working -->
 <script src="../js/bootstrap.js"></script>
+<script src="../js/AddToCart.js"></script>
+
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 

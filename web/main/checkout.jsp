@@ -1438,6 +1438,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 
 </script>
+<script src="../js/AddToCart.js"></script>
+
 
 
 </body>
