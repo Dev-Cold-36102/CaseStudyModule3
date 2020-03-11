@@ -10,7 +10,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-    <title>hoàng ăn cứt | Checkout :: w3layouts</title>
+    <style>
+        .size{
+            width: 407px;
+            height: 407px;
+        }
+    </style>
+    <title>Grocery Shoppy an Ecommerce Category Bootstrap Responsive Web Template | Single :: w3layouts</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,6 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
+
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -33,6 +40,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--//pop-up-box-->
     <!-- price range -->
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui1.css">
+    <!-- flexslider -->
+    <link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen"/>
     <!-- fonts -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 </head>
@@ -743,7 +752,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                 </ul>
                             </li>
-                            <li class="">
+                            <li>
                                 <a class="nav-stylehead" href="faqs.jsp">Faqs</a>
                             </li>
                             <li class="dropdown">
@@ -784,17 +793,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="/home">Home</a>
                     <i>|</i>
                 </li>
-                <li>Checkout</li>
+                <li>Single Page</li>
             </ul>
         </div>
     </div>
 </div>
 <!-- //page -->
-<!-- checkout page -->
-<div class="privacy">
+<!-- Single Page -->
+<div class="banner-bootom-w3-agileits">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Checkout
+        <h3 class="tittle-w3l">Single Page
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -802,111 +811,135 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</span>
         </h3>
         <!-- //tittle heading -->
-        <div class="checkout-right">
-            <h4>Your shopping cart contains:
-                <span>${listAddToCart.size()} Products</span>
-            </h4>
-            <div class="table-responsive">
-                <table class="timetable_sub">
-                    <thead>
-                    <tr>
-<%--                        <th width="100px">SL No.</th>--%>
-                        <th width="210px">Product</th>
-                        <th width="200px">Quality</th>
-                        <th width="200px">Product Name</th>
-
-                        <th>Price</th>
-                        <th width="80px">Remove</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:set var="slNo" value="0"/>
-                    <c:forEach items="${listAddToCart}" var="product">
-                        <c:set var="slNo" value="${slNo+1}"/>
-                        <tr class="rem${slNo}">
-                            <td class="invert-image">
-                                <a href="/viewsingle?name=${product.getProductName()}">
-                                    <img src="${product.getImage()}" alt=" " class="img-responsive">
-                                </a>
-                            </td>
-                            <input type="text" id="amount${product.getProductName()}" value="${product.getAmountProduct()}" class="hidden">
-                            <td class="invert">
-                                <div class="quantity">
-                                    <div class="quantity-select">
-                                        <div class="entry value-minus" onclick="reductionMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">&nbsp;</div>
-                                        <div class="entry value">
-                                            <div>${product.getAmountProduct()}</div>
-                                        </div>
-                                        <div class="entry value-plus active" onclick="raiseMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">&nbsp;</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
-                            <input id="price${product.getProductName()}" value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}" class="hidden"/>
-                            <td class="invert" id="${product.getProductName()}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))} VND</td>
-                            <td class="invert">
-                                <div class="rem">
-                                    <div class="close${slNo}" onclick=""></div>
-                                </div>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="checkout-left">
-            <div class="address_form_agile">
-                <h4>Add a new Details</h4>
-                <form action="payment.jsp" method="post" class="creditly-card-form agileinfo_form">
-                    <div class="creditly-wrapper wthree, w3_agileits_wrapper">
-                        <div class="information-wrapper">
-                            <div class="first-row">
-                                <div class="controls">
-                                    <input class="billing-address-name" type="text" name="name" placeholder="Full Name"
-                                           required="">
-                                </div>
-                                <div class="w3_agileits_card_number_grids">
-                                    <div class="w3_agileits_card_number_grid_left">
-                                        <div class="controls">
-                                            <input type="text" placeholder="Mobile Number" name="number" required="">
-                                        </div>
-                                    </div>
-                                    <div class="w3_agileits_card_number_grid_right">
-                                        <div class="controls">
-                                            <input type="text" placeholder="Landmark" name="landmark" required="">
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                                <div class="controls">
-                                    <input type="text" placeholder="Town/City" name="city" required="">
-                                </div>
-                                <div class="controls">
-                                    <select class="option-w3ls">
-                                        <option>Select Address type</option>
-                                        <option>Office</option>
-                                        <option>Home</option>
-                                        <option>Commercial</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="submit check_out">Delivery to this Address</button>
-                        </div>
-                    </div>
-                </form>
-                <div class="checkout-right-basket">
-                    <a href="payment.jsp">Make a Payment
-                        <span class="fa fa-hand-o-right" aria-hidden="true"></span>
-                    </a>
+        <div class="col-md-5 single-right-left ">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li class="size" data-thumb="${product.getImage()}">
+                            <div class="thumb-image">
+                                <img style="width: 407px;height: 407px" src="${product.getImage()}" data-imagezoom="true" class="img-responsive" alt=""></div>
+                        </li>
+                        <li class="size" data-thumb="${product.getImage()}">
+                            <div class="thumb-image">
+                                <img style="width: 407px;height: 407px" src="${product.getImage()}" data-imagezoom="true" class="img-responsive" alt=""></div>
+                        </li>
+                        <li class="size" data-thumb="${product.getImage()}">
+                            <div class="thumb-image">
+                                <img style="width: 407px;height: 407px" src="${product.getImage()}" data-imagezoom="true" class="img-responsive" alt=""></div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="clearfix"></div>
         </div>
+        <div class="col-md-7 single-right-left simpleCart_shelfItem">
+            <h3>${product.getProductName()}</h3>
+            <div class="rating1">
+					<span class="starRating">
+						<input id="rating5" type="radio" name="rating" value="5">
+						<label for="rating5">5</label>
+						<input id="rating4" type="radio" name="rating" value="4">
+						<label for="rating4">4</label>
+						<input id="rating3" type="radio" name="rating" value="3" checked="">
+						<label for="rating3">3</label>
+						<input id="rating2" type="radio" name="rating" value="2">
+						<label for="rating2">2</label>
+						<input id="rating1" type="radio" name="rating" value="1">
+						<label for="rating1">1</label>
+					</span>
+            </div>
+            <p>
+                <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
+                <del>${product.getPriceProductOut()} VND</del>
+                <label>Free delivery</label>
+            </p>
+            <div class="single-infoagile">
+                <p>
+					${product.getMotasp()}
+				</p>
+            </div>
+            <div class="product-single-w3l">
+                <p>
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i>This is a
+                    <label>Vegetarian</label> product.</p>
+                <ul>
+                    <li>
+                        Best for Biryani and Pulao.
+                    </li>
+                    <li>
+                        After cooking, Zeeba Basmati rice grains attain an extra ordinary length of upto 2.4 cm/~1 inch.
+                    </li>
+                    <li>
+                        Zeeba Basmati rice adheres to the highest food afety standards as your health is paramount to
+                        us.
+                    </li>
+                    <li>
+                        Contains only the best and purest grade of basmati rice grain of Export quality.
+                    </li>
+                </ul>
+                <p>
+                    <i class="fa fa-refresh" aria-hidden="true"></i>All food products are
+                    <label>non-returnable.</label>
+                </p>
+            </div>
+		</div>
+
+        </div>
+        <div class="clearfix"></div>
     </div>
 </div>
-<!-- //checkout page -->
+<!-- //Single Page -->
+<!-- special offers -->
+<div class="featured-section" id="projects">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">HOT PRODUCT
+            <span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="content-bottom-in">
+            <ul id="flexiselDemo1">
+                <c:forEach items="${hotProduct}" var="product">
+                    <li>
+                        <div class="w3l-specilamk">
+                            <div class="speioffer-agile">
+                                <a href="/viewsingle?name=${product.getProductName()}"">
+                                    <img src="${product.getImage()}" alt="">
+                                </a>
+                            </div>
+                            <span class="product-new-top">${product.getDiscount()}%</span>
+
+                            <div class="product-name-w3l">
+                                <h4>
+                                    <a href="/viewsingle?name=${product.getProductName()}"">${product.getProductName()}</a>
+                                </h4>
+                                <div class="w3l-pricehkj">
+                                    <h6>${product.getPriceProductIn()} VND</h6>
+                                    <c:set var="priceSale"
+                                           value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
+                                    <p>Save
+                                            <c:out value="${priceSale} VND"/>
+								</div>
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+									<form action="/addtocart?name=${product.getProductName()}" method="post">
+                                        <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
+                                               class="button"/>
+									</form>
+								</div>
+                            </div>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>
+    </div>
+</div>s
+<!-- //special offers -->
+
 <!-- newsletter -->
 <div class="footer-top">
     <div class="container-fluid">
@@ -1303,6 +1336,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             removalDelay: 300,
             mainClass: 'my-mfp-zoom-in'
         });
+
     });
 </script>
 <!-- Large modal -->
@@ -1315,15 +1349,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/minicart.js"></script>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
+
     paypalm.minicartk.cart.on('checkout', function (evt) {
         var items = this.items(),
             len = items.length,
             total = 0,
             i;
+
         // Count the number of each item in the cart
         for (i = 0; i < len; i++) {
             total += items[i].get('quantity');
         }
+
         if (total < 3) {
             alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
             evt.preventDefault();
@@ -1332,55 +1369,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- //cart-js -->
 
-<!--quantity-->
-<script>
-    $('.value-plus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) + 1;
-        divUpd.text(newVal);
-    });
-    $('.value-minus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) - 1;
-        if (newVal >= 1) divUpd.text(newVal);
-    });
-</script>
-<!--quantity-->
-<script>
-    $(document).ready(function (c) {
-        $('.close1').on('click', function (c) {
-            $('.rem1').fadeOut('slow', function (c) {
-                $('.rem1').remove();
-            });
-        });
-    });
-</script>
-<script>
-    $(document).ready(function (c) {
-        $('.close2').on('click', function (c) {
-            $('.rem2').fadeOut('slow', function (c) {
-                $('.rem2').remove();
-            });
-        });
-    });
-</script>
-<script>
-    $(document).ready(function (c) {
-        $('.close3').on('click', function (c) {
-            $('.rem3').fadeOut('slow', function (c) {
-                $('.rem3').remove();
-            });
-        });
-    });
-</script>
-<!--//quantity-->
-
 <!-- password-script -->
 <script>
     window.onload = function () {
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
+
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
@@ -1404,6 +1399,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
+
             $('html,body').animate({
                 scrollTop: $(this.hash).offset().top
             }, 1000);
@@ -1426,19 +1422,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $().UItoTop({
             easingType: 'easeOutQuart'
         });
+
     });
 </script>
 <!-- //smooth-scrolling-of-move-up -->
+
+<!-- imagezoom -->
+<script src="../js/imagezoom.js"></script>
+<!-- //imagezoom -->
+
+<!-- FlexSlider -->
+<script src="../js/jquery.flexslider.js"></script>
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+<!-- //FlexSlider-->
+
+<!-- flexisel (for special offers) -->
+<script src="../js/jquery.flexisel.js"></script>
+<script>
+    $(window).load(function () {
+        $("#flexiselDemo1").flexisel({
+            visibleItems: 3,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 2
+                }
+            }
+        });
+
+    });
+</script>
+<!-- //flexisel (for special offers) -->
 
 <!-- for bootstrap working -->
 <script src="../js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 <!-- //js-files -->
-<script src="../js/setMoney.js"></script>
-<script>
-
-</script>
-
 
 </body>
 

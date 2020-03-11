@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="model.product.Product" %>
+<%@ page import="java.util.ArrayList" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -20,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
+
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -974,7 +978,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Lay's Potato Chips</h3>
-                        <a href="../main/single.jsp">$18.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$18.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -984,7 +988,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Bingo Mad Angles</h3>
-                        <a href="../main/single.jsp">$9.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$9.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -994,7 +998,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Tata Salt</h3>
-                        <a href="../main/single.jsp">$15.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$15.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1004,7 +1008,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Gujarat Dry Fruit</h3>
-                        <a href="../main/single.jsp">$525.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$525.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1014,7 +1018,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Cadbury Dairy Milk</h3>
-                        <a href="../main/single.jsp">$149.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$149.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -1028,6 +1032,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- first section (nuts) -->
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Đồ Cho Trẻ</h3>
+                    <%--                    <%--%>
+                    <%--                        List<Product> listCart = new ArrayList<>();--%>
+                    <%--                    %>--%>
                     <c:forEach items="${productList}" var="product">
                         <div class="col-md-4 product-men">
                             <div class="men-pro-item simpleCart_shelfItem">
@@ -1035,36 +1042,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="images">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
+                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">Xem Ngay</a>
                                         </div>
                                     </div>
                                     <span class="product-new-top">${product.getDiscount()}%</span>
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                            <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
-                                        <del>${product.getPriceProductOut()}</del>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
+                                        <del>${product.getPriceProductOut()} VND</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart"/>
-                                                <input type="hidden" name="add" value="1"/>
-                                                <input type="hidden" name="business" value=" "/>
-                                                <input type="hidden" name="item_name"
-                                                       value="${product.getProductName()}"/>
-                                                <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
-                                                <input type="hidden" name="discount_amount" value="1.00"/>
-                                                <input type="hidden" name="currency_code" value="USD"/>
-                                                <input type="hidden" name="return" value=" "/>
-                                                <input type="hidden" name="cancel_return" value=" "/>
-                                                <input type="submit" name="submit" value="Add to cart" class="button"/>
-                                            </fieldset>
+                                        <form action="/addtocart?name=${product.getProductName()}" method="post">
+                                            <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
+                                                   class="button"/>
+
                                         </form>
                                     </div>
                                 </div>
@@ -1097,37 +1092,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">xem nhanh</a>
+                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">xem nhanh</a>
                                         </div>
                                     </div>
                                     <span class="product-new-top">${product.getDiscount()}%</span>
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
-                                        <del>${product.getPriceProductOut()}</del>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
+                                        <del>${product.getPriceProductOut()} VND</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart"/>
-                                                <input type="hidden" name="add" value="1"/>
-                                                <input type="hidden" name="business" value=" "/>
-                                                <input type="hidden" name="item_name"
-                                                       value="${product.getProductName()}"/>
-                                                <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
-                                                <input type="hidden" name="discount_amount" value="1.00"/>
-                                                <input type="hidden" name="currency_code" value="USD"/>
-                                                <input type="hidden" name="return" value=" "/>
-                                                <input type="hidden" name="cancel_return" value=" "/>
-                                                <input type="submit" name="submit" value="Add to cart"
-                                                       class="button"/>
-                                            </fieldset>
+
+                                        <form action="/addtocart?name=${product.getProductName()}" method="post">
+                                            <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
+                                                   class="button"/>
+
                                         </form>
+                                        
                                     </div>
 
                                 </div>
@@ -1147,36 +1132,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">xem
+                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">xem
                                                 nhanh</a>
                                         </div>
                                     </div>
+                                    <span class="product-new-top">${product.getDiscount()}%</span>
+
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
-                                        <del>${product.getPriceProductOut()}</del>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
+                                        <del>${product.getPriceProductOut()} VND</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart"/>
-                                                <input type="hidden" name="add" value="1"/>
-                                                <input type="hidden" name="business" value=" "/>
-                                                <input type="hidden" name="item_name"
-                                                       value="${product.getProductName()}"/>
-                                                <input type="hidden" name="amount"
-                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
-                                                <input type="hidden" name="discount_amount" value="1.00"/>
-                                                <input type="hidden" name="currency_code" value="USD"/>
-                                                <input type="hidden" name="return" value=" "/>
-                                                <input type="hidden" name="cancel_return" value=" "/>
-                                                <input type="submit" name="submit" value="Add to cart"
-                                                       class="button"/>
-                                            </fieldset>
+                                        <form action="/addtocart?name=${product.getProductName()}" method="post">
+                                            <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
+                                                   class="button"/>
+
                                         </form>
                                     </div>
 
@@ -1211,36 +1186,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <div class="w3l-specilamk">
                             <div class="speioffer-agile">
-                                <a href="single.html">
+                                <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt="">
                                 </a>
                             </div>
+                            <span class="product-new-top">${product.getDiscount()}%</span>
+
                             <div class="product-name-w3l">
                                 <h4>
-                                    <a href="single.html">${product.getProductName()}</a>
+                                    <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                 </h4>
                                 <div class="w3l-pricehkj">
-                                    <h6>${product.getPriceProductIn()}</h6>
+                                    <h6>${product.getPriceProductIn()} VND</h6>
                                     <c:set var="priceSale"
                                            value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
-                                    <p>Save <c:out value="${priceSale}"/>
+                                    <p>Save
+                                            <c:out value="${priceSale} VND"/>
 
                                 </div>
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
-                                        <fieldset>
-                                            <input type="hidden" name="cmd" value="_cart"/>
-                                            <input type="hidden" name="add" value="1"/>
-                                            <input type="hidden" name="business" value=" "/>
-                                            <input type="hidden" name="item_name" value="${product.getProductName()}"/>
-                                            <input type="hidden" name="amount" value="${product.getAmountProduct()}"/>
-                                            <input type="hidden" name="discount_amount"
-                                                   value="${product.getDiscount()}"/>
-                                            <input type="hidden" name="currency_code" value="USD"/>
-                                            <input type="hidden" name="return" value=" "/>
-                                            <input type="hidden" name="cancel_return" value=" "/>
-                                            <input type="submit" name="submit" value="Add to cart" class="button"/>
-                                        </fieldset>
+
+                                    <form action="/addtocart?name=${product.getProductName()}" method="post">
+                                        <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
+                                               class="button"/>
                                     </form>
                                 </div>
                             </div>
@@ -1630,11 +1598,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- js-files -->
 <!-- jquery -->
-<script src="js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery-2.1.4.min.js"></script>
 <!-- //jquery -->
 
 <!-- popup modal (for signin & signup)-->
-<script src="js/jquery.magnific-popup.js"></script>
+<script src="../js/jquery.magnific-popup.js"></script>
 <script>
     $(document).ready(function () {
         $('.popup-with-zoom-anim').magnificPopup({
@@ -1657,7 +1625,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //popup modal (for signin & signup)-->
 
 <!-- cart-js -->
-<script src="js/minicart.js"></script>
+<script src="../js/minicart.js"></script>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
     paypalm.minicartk.cart.on('checkout', function (evt) {
@@ -1678,7 +1646,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //cart-js -->
 
 <!-- price range (top products) -->
-<script src="js/jquery-ui.js"></script>
+<script src="../js/jquery-ui.js"></script>
 <script>
     //<![CDATA[
     $(window).load(function () {
@@ -1697,7 +1665,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //price range (top products) -->
 
 <!-- flexisel (for special offers) -->
-<script src="js/jquery.flexisel.js"></script>
+<script src="../js/jquery.flexisel.js"></script>
 <script>
     $(window).load(function () {
         $("#flexiselDemo1").flexisel({
@@ -1732,6 +1700,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
+
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
@@ -1745,12 +1714,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //password-script -->
 
 <!-- smoothscroll -->
-<script src="js/SmoothScroll.min.js"></script>
+<script src="../js/SmoothScroll.min.js"></script>
 <!-- //smoothscroll -->
 
 <!-- start-smooth-scrolling -->
-<script src="js/move-top.js"></script>
-<script src="js/easing.js"></script>
+<script src="../js/move-top.js"></script>
+<script src="../js/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -1782,7 +1751,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //smooth-scrolling-of-move-up -->
 
 <!-- for bootstrap working -->
-<script src="js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/AddToCart.js"></script>
+<%--<script src="../js/Add"></script>--%>
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 
