@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- top-header -->
 <div class="header-most-top">
-    <p>Grocery Offer Zone Top Deals & Discounts</p>
+    <p style="color: red" > -_- WELCOME TO BẰNG ỚT SHOP <3</p>
 </div>
 <!-- //top-header -->
 <!-- header-bot-->
@@ -51,9 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-4 logo_agile">
             <h1>
                 <a href="/home">
-                    <span>G</span>rocery
-                    <span>S</span>hoppy
-                    <img src="../images/logo2.png" alt=" ">
+                    <img style="height: 700px;width: 1000px" src="../imagesp/logo.png" alt=" ">
                 </a>
             </h1>
         </div>
