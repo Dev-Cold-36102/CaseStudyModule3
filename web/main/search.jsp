@@ -1,12 +1,4 @@
-<%@ page import="java.util.List" %>
-<%@ page import="model.product.Product" %>
-<%@ page import="java.util.ArrayList" %>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -43,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- top-header -->
 <div class="header-most-top">
-    <p> Offer Zone Top Deals & Discounts</p>
+    <p>Bằng Óc CHó Offer Zone Top Deals & Discounts</p>
 </div>
 <!-- //top-header -->
 <!-- header-bot-->
@@ -75,11 +67,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="../main/login.jsp" >
+                    <a href="#" data-toggle="modal" data-target="#myModal1">
                         <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng Nhập </a>
                 </li>
                 <li>
-                    <a href="../main/signup.jsp" >
+                    <a href="#" data-toggle="modal" data-target="#myModal2">
                         <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Ký </a>
                 </li>
             </ul>
@@ -507,7 +499,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h3 class="agileinfo_sign">Đăng Nhập</h3>
                     <p>
                         Đăng Nhập ngay, để bắt đầu mua sắm. Nếu bạn chưa có tài khoản!
-                        <a href="../main/signup.jsp" >
+                        <a href="#" data-toggle="modal" data-target="#myModal2">
                             Nhấn vào đây để đăng ký</a>
                     </p>
                     <form action="/login" method="post">
@@ -553,7 +545,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span style="color: red" class="message">${requestScope["message"]}</span>
                         </c:if>
                     </p>
-                    <form action="/signup" method="post">
+                    <form action="/home?action=signup" method="post">
 
                         <div class="styled-input agile-styled-input-top">
                             <input type="text" placeholder="Name" name="name" required="">
@@ -585,6 +577,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- navigation -->
 <div class="ban-top">
     <div class="container">
+        <div class="agileits-navi_search">
+            <form action="/search" method="post">
+                <select id="agileinfo-nav_search" name="searchByTypeProduct" required="">
+                    <option value="">Danh Mục Sản Phẩm</option>
+                    <option value="Đồ Nội Thất">Đồ Nội Thất</option>
+                    <option value="Dụng Cụ Gia Đình">Dụng Cụ Gia Đình</option>
+                    <option value="Đồ Ăn & Đồ Uống">Đồ Ăn & Đồ Uống</option>
+                    <option value="Quà Tặng">Quà Tặng</option>
+                    <option value="Đồ cho trẻ">Đồ cho trẻ</option>
+                    <option value="Đồ Dùng Cá Nhân">Đồ Dùng Cá Nhân</option>
+                    <option value="Bánh ,Kẹo">Bánh ,Kẹo</option>
+                </select>
+            </form>
+        </div>
         <div class="top_nav_left">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -607,38 +613,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Đồ dùng gia đình
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu multi-column columns-3">
-                                    <div class="agile_inner_drop_nav_info">
-                                        <div class="col-sm-4 multi-gd-img">
-
-                                                <ul class="multi-column-dropdown">
-                                                    <li name="">
-                                                        <a href="/home?action=donoithat">Đồ Nội Thất</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/home?action=docanhan">Đồ Dùng Cá Nhân</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/home?action=quatang">Quà Tặng</a>
-                                                    </li>
-                                                </ul>
-                                                </select>
-
-                                        </div>
-                                        <div class="col-sm-4 multi-gd-img">
-
-                                        </div>
-                                        <div class="col-sm-4 multi-gd-img">
-                                            <img src="../imagesp/noithat.jpeg" style="width: 300px;height: 300px" alt="">
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </ul>
+                            <li class="">
+                                <a class="nav-stylehead" href="about.jsp">About Us</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
@@ -648,16 +624,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <form action="/home" method="post">
+                                            <form action="/search" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
-                                                        <a href="/home?action=banhkeo">Bánh,Kẹo</a>
+                                                        <a href="/searchname=banhkeo">Bánh,Kẹo</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/home?action=doan">Đồ ăn</a>
+                                                        <a href="/search" name="doan">Đồ ăn</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/home?action=douong">Đồ Uống</a>
+                                                        <a href="/search" name="douong">Đồ Uống</a>
                                                     </li>
                                                 </ul>
                                                 </select>
@@ -681,10 +657,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-6 multi-gd-img">
-                                            <form action="/home" method="post">
+                                            <form action="/search" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li>
-                                                        <a href="/home?action=bim">Bỉm Và Sữa</a>
+                                                        <a href="/search" name="Bim">Bỉm</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search" name="=sua">Sữa</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search" name="quanao">Quần áo</a>
                                                     </li>
                                                 </ul>
 
@@ -930,6 +912,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                 </ul>
             </div>
+            <!-- //reviews -->
+            <!-- cuisine -->
+            <div class="left-side">
+                <h3 class="agileits-sear-head">Ẩm Thực</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Mỹ</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">PHáp</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Hy Lạp</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Tung của</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Nhật Bản</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Italian</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Mexican</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Thai</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span">Indian</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="checked">
+                        <span class="span"> Tây Ban Nha </span>
+                    </li>
+                </ul>
+            </div>
+            <!-- //cuisine -->
+            <!-- deals -->
             <div class="deal-leftmk left-side">
                 <h3 class="agileits-sear-head">Ưu Đãi Đặc Biệt</h3>
                 <div class="special-sec1">
@@ -1009,14 +1040,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
-                                        <del>${product.getPriceProductOut()} VND</del>
+                                            <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
+                                        <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="/home?action=add&name=${product.getProductName()}" method="post">
-                                            <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
-                                                   class="button"/>
-
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name"
+                                                       value="${product.getProductName()}"/>
+                                                <input type="hidden" name="amount"
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
+                                                <input type="hidden" name="discount_amount" value="1.00"/>
+                                                <input type="hidden" name="currency_code" value="USD"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                            </fieldset>
                                         </form>
                                     </div>
                                 </div>
@@ -1059,17 +1102,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
-                                        <del>${product.getPriceProductOut()} VND</del>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
+                                        <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-
-                                        <form action="/home?action=add&name=${product.getProductName()}" method="post">
-                                            <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
-                                                   class="button"/>
-
-                                        </form>
-
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name"
+                                                       value="${product.getProductName()}"/>
+                                                <input type="hidden" name="amount"
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
+                                                <input type="hidden" name="discount_amount" value="1.00"/>
+                                                <input type="hidden" name="currency_code" value="USD"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart"
+                                                       class="button"/>
+                                            </fieldset>
                                         </form>
                                     </div>
 
@@ -1094,22 +1146,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 nhanh</a>
                                         </div>
                                     </div>
-                                    <span class="product-new-top">${product.getDiscount()}%</span>
-
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)} VND</span>
-                                        <del>${product.getPriceProductOut()} VND</del>
+                                        <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
+                                        <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="/home?action=add&name=${product.getProductName()}" method="post">
-                                            <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
-                                                   class="button"/>
-
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name"
+                                                       value="${product.getProductName()}"/>
+                                                <input type="hidden" name="amount"
+                                                       value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"/>
+                                                <input type="hidden" name="discount_amount" value="1.00"/>
+                                                <input type="hidden" name="currency_code" value="USD"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart"
+                                                       class="button"/>
+                                            </fieldset>
                                         </form>
                                     </div>
 
@@ -1148,28 +1210,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                 </a>
                             </div>
-                            <span class="product-new-top">${product.getDiscount()}%</span>
-
                             <div class="product-name-w3l">
                                 <h4>
                                     <a href="single.html">${product.getProductName()}</a>
                                 </h4>
                                 <div class="w3l-pricehkj">
-                                    <h6>${product.getPriceProductIn()} VND</h6>
+                                    <h6>${product.getPriceProductIn()}</h6>
                                     <c:set var="priceSale"
                                            value="${product.getPriceProductOut()*product.getDiscount()/100}"/>
-                                    <p>Save
-                                            <c:out value="${priceSale} VND"/>
+                                    <p>Save <c:out value="${priceSale}"/>
 
                                 </div>
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-
-                                    <form action="/home?action=add&name=${product.getProductName()}" method="post">
-                                        <input onclick="AddToCart()" type="submit" name="submit" value="Add to cart"
-                                               class="button"/>
-
+                                    <form action="#" method="post">
+                                        <fieldset>
+                                            <input type="hidden" name="cmd" value="_cart"/>
+                                            <input type="hidden" name="add" value="1"/>
+                                            <input type="hidden" name="business" value=" "/>
+                                            <input type="hidden" name="item_name" value="${product.getProductName()}"/>
+                                            <input type="hidden" name="amount" value="${product.getAmountProduct()}"/>
+                                            <input type="hidden" name="discount_amount"
+                                                   value="${product.getDiscount()}"/>
+                                            <input type="hidden" name="currency_code" value="USD"/>
+                                            <input type="hidden" name="return" value=" "/>
+                                            <input type="hidden" name="cancel_return" value=" "/>
+                                            <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                        </fieldset>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
@@ -1585,7 +1652,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //popup modal (for signin & signup)-->
 
 <!-- cart-js -->
-<script src="../js/minicart.js"></script>
+<script src="js/minicart.js"></script>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
     paypalm.minicartk.cart.on('checkout', function (evt) {
@@ -1606,7 +1673,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //cart-js -->
 
 <!-- price range (top products) -->
-<script src="../js/jquery-ui.js"></script>
+<script src="js/jquery-ui.js"></script>
 <script>
     //<![CDATA[
     $(window).load(function () {
@@ -1625,7 +1692,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //price range (top products) -->
 
 <!-- flexisel (for special offers) -->
-<script src="../js/jquery.flexisel.js"></script>
+<script src="js/jquery.flexisel.js"></script>
 <script>
     $(window).load(function () {
         $("#flexiselDemo1").flexisel({
@@ -1660,7 +1727,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
-
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
@@ -1674,12 +1740,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //password-script -->
 
 <!-- smoothscroll -->
-<script src="../js/SmoothScroll.min.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
 <!-- //smoothscroll -->
 
 <!-- start-smooth-scrolling -->
-<script src="../js/move-top.js"></script>
-<script src="../js/easing.js"></script>
+<script src="js/move-top.js"></script>
+<script src="js/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -1711,9 +1777,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //smooth-scrolling-of-move-up -->
 
 <!-- for bootstrap working -->
-<script src="../js/bootstrap.js"></script>
-<script src="../js/AddToCart.js"></script>
-<%--<script src="../js/Add"></script>--%>
+<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 

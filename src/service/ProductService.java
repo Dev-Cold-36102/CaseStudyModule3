@@ -18,11 +18,11 @@ public class ProductService implements IproductService {
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, password =? where name = ?;";
     private static final String SELECT_USER_BY_COUNTRY =
             "select id,uname,email from users where country=?";
-    private static final String SELECT_PRODUCT_ADD_TO_CART="select productName,image,priceIn,priceOut from products where productName=?";
+    private static final String SELECT_PRODUCT_ADD_TO_CART="select productName,image,priceIn,priceOut,sale from products where productName=?";
     private static final String INSERT_USERS_SQL = "insert into accounts (userName,pass,email) values (?,?,?);";
     private  static final String check_username="select id,userName,pass,email from accounts where userName=?;";
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
-    private static final String check_userName_pass="select * from accounts where userName=?;";
+    private static final String check_userName_pass="select id,userName,pass,email from accounts where userName=?;";
     private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
     Connection getConnection() {
         Connection connection = null;
@@ -94,7 +94,8 @@ public class ProductService implements IproductService {
                 String image = resultSet.getString("image");
                 int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn")));
                 int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut")));
-                product=new Product(name,priceProductIn,priceProductOut,image);
+                int discount =resultSet.getInt("sale");
+                product=new Product(name,priceProductIn,priceProductOut,image,1,discount);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -171,10 +172,10 @@ public class ProductService implements IproductService {
             preparedStatement.setString(1,userName);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                int id=resultSet.getInt("id");
                 String pass = resultSet.getString("pass");
                 String email=resultSet.getString("email");
                 UserName=new User(userName,pass,email);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -191,6 +192,31 @@ public class ProductService implements IproductService {
             e.printStackTrace();
         }
     }
-
-
+   public List<Product> list1(String productType){
+        List<Product> list=new ArrayList<>();
+        try(Connection connection=getConnection();
+            PreparedStatement ps=connection.prepareStatement(SELECT_PRODUCT_BY_TYPE);
+        ){
+            ps.setString(1,productType);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                int id=rs.getInt("id");
+                String name=rs.getString("productName");
+                String image=rs.getString("image");
+                String hangsx=rs.getString("hangsx");
+                String xuatxu=rs.getString("xuatxu");
+                String mota=rs.getString("mota");
+                String describes=rs.getString("describes");
+                String hansudung=rs.getString("hansudung");
+                int amount=rs.getInt("amount");
+                int priceIn=rs.getInt("priceIn");
+                int priceOut=rs.getInt("priceOut");
+                int sale=rs.getInt("sale");
+                list.add(new Product(id,name,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+   }
 }

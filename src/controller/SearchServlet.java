@@ -17,7 +17,7 @@ public class SearchServlet extends HttpServlet {
         }
         String nameProductSearch = request.getParameter("Search");
         System.out.println(nameProductSearch);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("main/product.jsp");
+        RequestDispatcher dispatcher=request.getRequestDispatcher("main/search.jsp");
         dispatcher.forward(request,response);
     }
 
@@ -28,7 +28,7 @@ public class SearchServlet extends HttpServlet {
         }
         String nameProductSearch = request.getParameter("Search");
         System.out.println(nameProductSearch);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("main/product.jsp");
+        RequestDispatcher dispatcher=request.getRequestDispatcher("main/search.jsp");
         dispatcher.forward(request,response);
 
     }

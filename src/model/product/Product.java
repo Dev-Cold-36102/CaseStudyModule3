@@ -45,6 +45,16 @@ public class Product {
 
     }
 
+    public Product(String productName, int priceProductIn, int priceProductOut, String image) {
+        this.productName=productName;
+        this.priceProductIn=priceProductIn;
+        this.priceProductOut=priceProductOut;
+        this.image=image;
+    }
+
+    public Product(String name, int priceProductIn, int priceProductOut, String image, int i, int discount) {
+    }
+
     public int getDiscount() {
         return discount;
     }
