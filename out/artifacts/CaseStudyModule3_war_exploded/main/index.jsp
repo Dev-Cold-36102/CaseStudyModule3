@@ -635,7 +635,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
-                                            <img src="../imagesp/noithat.jpeg" style="width: 300px;height: 300px" alt="">
+                                            <img src="../imagesp/noithat.jpeg" style="width: 300px;height: 300px"
+                                                 alt="">
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -723,7 +724,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </nav>
         </div>
     </div>
-</div>
+</div><!-- kets thuc thanh nav-->
+
 <!-- //navigation -->
 <!-- banner -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -1052,7 +1054,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="images">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">Xem Ngay</a>
+                                            <a href="/viewsingle?name=${product.getProductName()}"
+                                               class="link-product-add-cart">Xem Ngay</a>
                                         </div>
                                     </div>
                                     <span class="product-new-top">${product.getDiscount()}%</span>
@@ -1102,7 +1105,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">xem nhanh</a>
+                                            <a href="/viewsingle?name=${product.getProductName()}"
+                                               class="link-product-add-cart">xem nhanh</a>
                                         </div>
                                     </div>
                                     <span class="product-new-top">${product.getDiscount()}%</span>
@@ -1142,7 +1146,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img src="${product.getImage()}" alt="">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">xem
+                                            <a href="/viewsingle?name=${product.getProductName()}"
+                                               class="link-product-add-cart">xem
                                                 nhanh</a>
                                         </div>
                                     </div>

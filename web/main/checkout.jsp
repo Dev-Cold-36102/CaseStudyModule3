@@ -20,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
+
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -83,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- //header lists -->
             <!-- search -->
             <div class="agileits_search">
-                <form action="#" method="post">
+                <form action="/search" method="post">
                     <input name="Search" type="search" placeholder="How can we help you today?" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">
                         <span class="fa fa-search" aria-hidden="true"> </span>
@@ -94,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="#" method="post" class="last">
+                    <form action="/checkout" method="post" class="last">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="display" value="1">
                         <button class="w3view-cart" type="submit" name="submit" value="">
@@ -501,20 +502,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Sign In </h3>
+                    <h3 class="agileinfo_sign">Đăng Nhập</h3>
                     <p>
-                        Sign In now, Let's start your Grocery Shopping. Don't have an account?
+                        Đăng Nhập ngay, để bắt đầu mua sắm. Nếu bạn chưa có tài khoản!
                         <a href="#" data-toggle="modal" data-target="#myModal2">
-                            Sign Up Now</a>
+                            Nhấn vào đây để đăng ký</a>
                     </p>
-                    <form action="#" method="post">
+                    <form action="/login" method="post">
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="User Name" name="Name" required="">
+                            <input type="text" placeholder="User Name" name="name" required="">
                         </div>
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" required="">
                         </div>
-                        <input type="submit" value="Sign In">
+                        <input type="submit" value="Đăng Nhập">
                     </form>
                     <div class="clearfix"></div>
                 </div>
@@ -528,6 +529,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //signin Model -->
 <!-- signup Model -->
 <!-- Modal2 -->
+<
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -540,25 +542,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Sign Up</h3>
+                    <h3 class="agileinfo_sign">Đăng Ký</h3>
                     <p>
-                        Come join the Grocery Shoppy! Let's set up your Account.
+                        Dể mua sắm các sản phẩm hãy đăng ký tài khoản để được hưởng các ưu đãi thường xuyên của Shop.
                     </p>
-                    <form action="#" method="post">
+                    <p>
+
+                        <c:if test='${requestScope["message"] != null}'>
+                            <span style="color: red" class="message">${requestScope["message"]}</span>
+                        </c:if>
+                    </p>
+                    <form action="/home?action=signup" method="post">
+
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="Name" name="Name" required="">
+                            <input type="text" placeholder="Name" name="name" required="">
                         </div>
                         <div class="styled-input">
-                            <input type="email" placeholder="E-mail" name="Email" required="">
+                            <input type="email" placeholder="E-mail" name="email" required="">
                         </div>
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" id="password1" required="">
                         </div>
                         <div class="styled-input">
-                            <input type="password" placeholder="Confirm Password" name="Confirm Password" id="password2"
+                            <input type="password" placeholder="Confirm Password" name="confirmpassword" id="password2"
                                    required="">
                         </div>
-                        <input type="submit" value="Sign Up">
+                        <input type="submit" value="Đăng KÝ">
                     </form>
                     <p>
                         <a href="#">By clicking register, I agree to your terms</a>
@@ -575,24 +584,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- navigation -->
 <div class="ban-top">
     <div class="container">
-        <div class="agileits-navi_search">
-            <form action="#" method="post">
-                <select id="agileinfo-nav_search" name="agileinfo_search" required="">
-                    <option value="">All Categories</option>
-                    <option value="Kitchen">Kitchen</option>
-                    <option value="Household">Household</option>
-                    <option value="Snacks &amp; Beverages">Snacks & Beverages</option>
-                    <option value="Personal Care">Personal Care</option>
-                    <option value="Gift Hampers">Gift Hampers</option>
-                    <option value="Fruits &amp; Vegetables">Fruits & Vegetables</option>
-                    <option value="Baby Care">Baby Care</option>
-                    <option value="Soft Drinks &amp; Juices">Soft Drinks & Juices</option>
-                    <option value="Frozen Food">Frozen Food</option>
-                    <option value="Bread &amp; Bakery">Bread & Bakery</option>
-                    <option value="Sweets">Sweets</option>
-                </select>
-            </form>
-        </div>
         <div class="top_nav_left">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -610,70 +601,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav menu__list">
-                            <li>
+                            <li class="active">
                                 <a class="nav-stylehead" href="/home">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            <li class="">
-                                <a class="nav-stylehead" href="about.jsp">About Us</a>
-                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Kitchen
+                                   aria-haspopup="true" aria-expanded="false">Đồ dùng gia đình
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
+
                                             <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product.jsp">Bakery</a>
+                                                <li name="">
+                                                    <a href="/home?action=donoithat">Đồ Nội Thất</a>
                                                 </li>
                                                 <li>
-                                                    <a href="product.jsp">Baking Supplies</a>
+                                                    <a href="/home?action=docanhan">Đồ Dùng Cá Nhân</a>
                                                 </li>
                                                 <li>
-                                                    <a href="product.jsp">Coffee, Tea & Beverages</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Dried Fruits, Nuts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Sweets, Chocolate</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Spices & Masalas</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Jams, Honey & Spreads</a>
+                                                    <a href="/home?action=quatang">Quà Tặng</a>
                                                 </li>
                                             </ul>
+                                            </select>
+
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
-                                            <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product.jsp">Pickles</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Pasta & Noodles</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Rice, Flour & Pulses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Sauces & Cooking Pastes</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Snack Foods</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Oils, Vinegars</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product.jsp">Meat, Poultry & Seafood</a>
-                                                </li>
-                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-4 multi-gd-img">
+                                            <img src="../imagesp/noithat.jpeg" style="width: 300px;height: 300px"
+                                                 alt="">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">Đồ Ăn Uống
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <div class="agile_inner_drop_nav_info">
+                                        <div class="col-sm-4 multi-gd-img">
+                                            <form action="/home" method="post">
+                                                <ul class="multi-column-dropdown">
+                                                    <li name="">
+                                                        <a href="/home?action=banhkeo">Bánh,Kẹo</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/home?action=doan">Đồ ăn</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/home?action=douong">Đồ Uống</a>
+                                                    </li>
+                                                </ul>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm-4 multi-gd-img">
+
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
                                             <img src="../images/nav.png" alt="">
@@ -684,67 +675,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Household
+                                   aria-haspopup="true" aria-expanded="false">Đồ Cho Bé
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-6 multi-gd-img">
-                                            <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product2.jsp">Kitchen & Dining</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Detergents</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Utensil Cleaners</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Floor & Other Cleaners</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Disposables, Garbage Bag</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Repellents & Fresheners</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp"> Dishwash</a>
-                                                </li>
-                                            </ul>
+                                            <form action="/home" method="post">
+                                                <ul class="multi-column-dropdown">
+                                                    <li>
+                                                        <a href="/home?action=bim">Bỉm Và Sữa</a>
+                                                    </li>
+                                                </ul>
+
+                                            </form>
                                         </div>
                                         <div class="col-sm-6 multi-gd-img">
-                                            <ul class="multi-column-dropdown">
-                                                <li>
-                                                    <a href="product2.jsp">Pet Care</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Cleaning Accessories</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Pooja Needs</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Crackers</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Festive Decoratives</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Plasticware</a>
-                                                </li>
-                                                <li>
-                                                    <a href="product2.jsp">Home Care</a>
-                                                </li>
-                                            </ul>
+
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </ul>
                             </li>
                             <li class="">
-                                <a class="nav-stylehead" href="faqs.jsp">Faqs</a>
+                                <a class="nav-stylehead" href="../main/faqs.jsp">Faqs</a>
                             </li>
                             <li class="dropdown">
                                 <a class="nav-stylehead dropdown-toggle" href="#" data-toggle="dropdown">Pages
@@ -752,15 +706,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </a>
                                 <ul class="dropdown-menu agile_short_dropdown">
                                     <li>
-                                        <a href="icons.jsp">Web Icons</a>
+                                        <a href="../main/icons.jsp">Web Icons</a>
                                     </li>
                                     <li>
-                                        <a href="typography.jsp">Typography</a>
+                                        <a href="../main/typography.jsp">Typography</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a class="" href="contact.jsp">Contact</a>
+                            <li class="">
+                                <a class="nav-stylehead" href="../main/contact.jsp">Liên Hệ</a>
                             </li>
                         </ul>
                     </div>
@@ -804,7 +758,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- //tittle heading -->
         <div class="checkout-right">
             <h4>Your shopping cart contains:
-                <span>${listAddToCart.size()} Products</span>
+                <span id="amountProduct">${listAddToCart.size()} Products</span>
+                <input id="listAddToCart.size" class="hidden" value="${listAddToCart.size()}"/>
+                <%--                <span id="amountProduct"></span>--%>
             </h4>
             <div class="table-responsive">
                 <table class="timetable_sub">
@@ -822,31 +778,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <tbody>
                     <c:set var="slNo" value="0"/>
                     <c:forEach items="${listAddToCart}" var="product">
-                        <c:set var="slNo" value="${slNo+1}"/>
+                        <c:set var="slNo" value="${slNo+1}"/><!--set order -->
                         <tr class="rem${slNo}">
                             <td class="invert-image">
                                 <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt=" " class="img-responsive">
                                 </a>
                             </td>
-                            <input type="text" id="amount${product.getProductName()}" value="${product.getAmountProduct()}" class="hidden">
-                            <td class="invert">
-                                <div class="quantity">
-                                    <div class="quantity-select">
-                                        <div class="entry value-minus" onclick="reductionMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">&nbsp;</div>
-                                        <div class="entry value">
-                                            <div>${product.getAmountProduct()}</div>
-                                        </div>
-                                        <div class="entry value-plus active" onclick="raiseMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">&nbsp;</div>
+<%--                            <input type="text" id="amount${product.getProductName()}"--%>
+<%--                                   value="${product.getAmountProduct()}" class="hidden">--%>
+                            <td>
+                                <div align="center" style="padding-left: 10px">
+                                    <div class="entry value-minus" style="float: left"
+                                         onclick="reductionMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">
+                                        <p>-</p>
+                                    </div>
+                                    <div style="float: left">
+                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')"  style="width: 85px;height: 40px; text-align: center" type="number" max="20" id="amount${product.getProductName()}"
+                                               value="${product.getAmountProduct()}">
+                                    </div>
+                                    <div class="entry value-plus active" style="float: right"
+                                         onclick="raiseMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">
+                                        <p>+</p>
                                     </div>
                                 </div>
                             </td>
                             <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
-                            <input id="price${product.getProductName()}" value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}" class="hidden"/>
-                            <td class="invert" id="${product.getProductName()}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))} VND</td>
+                            <input id="price${product.getProductName()}"
+                                   value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                                   class="hidden"/> <!-- get price-->
+                            <td class="invert"
+                                id="${product.getProductName()}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}
+                                VND
+                            </td>
                             <td class="invert">
                                 <div class="rem">
-                                    <div class="close${slNo}" onclick=""></div>
+                                    <div class="close${slNo}" onclick="setAmountProduct()"></div>
                                 </div>
                             </td>
                         </tr>
@@ -1381,6 +1348,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
+
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
@@ -1435,10 +1403,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 <script src="../js/setMoney.js"></script>
-<script>
-</script>
+<script src="../js/setAmountProduct.js"></script>
 <script src="../js/AddToCart.js"></script>
-
 
 
 </body>

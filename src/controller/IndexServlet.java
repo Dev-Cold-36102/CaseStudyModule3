@@ -25,10 +25,18 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String productType = "đồ cho trẻ";
+        List<Product> productList = productService.productList(productType);
+        request.setAttribute("productList", productList);
+        String productType1 = "đồ dùng cá nhân";
+        List<Product> personalCare = productService.productList(productType1);
+        request.setAttribute("personalCare", personalCare);
+        String productType2 = "đồ ăn";
+        List<Product> foodList = productService.productList(productType2);
+        request.setAttribute("foodList", foodList);
         String productType3 = "đồ dùng cá nhân";
         List<Product> hotProduct = productService.productListHot(productType3);
         request.setAttribute("hotProduct", hotProduct);
-
         String action = request.getParameter("action");
         if (action == null) {
             action = "";

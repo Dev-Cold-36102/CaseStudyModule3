@@ -490,40 +490,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //shop locator (popup) -->
 	<!-- signin Model -->
 	<!-- Modal1 -->
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+	div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body modal-body-sub_agile">
+				<div class="main-mailposi">
+					<span class="fa fa-envelope-o" aria-hidden="true"></span>
 				</div>
-				<div class="modal-body modal-body-sub_agile">
-					<div class="main-mailposi">
-						<span class="fa fa-envelope-o" aria-hidden="true"></span>
-					</div>
-					<div class="modal_body_left modal_body_left1">
-						<h3 class="agileinfo_sign">Sign In </h3>
-						<p>
-							Sign In now, Let's start your Grocery Shopping. Don't have an account?
-							<a href="#" data-toggle="modal" data-target="#myModal2">
-								Sign Up Now</a>
-						</p>
-						<form action="#" method="post">
-							<div class="styled-input agile-styled-input-top">
-								<input type="text" placeholder="User Name" name="Name" required="">
-							</div>
-							<div class="styled-input">
-								<input type="password" placeholder="Password" name="password" required="">
-							</div>
-							<input type="submit" value="Sign In">
-						</form>
-						<div class="clearfix"></div>
-					</div>
+				<div class="modal_body_left modal_body_left1">
+					<h3 class="agileinfo_sign">Đăng Nhập</h3>
+					<p>
+						Đăng Nhập ngay, để bắt đầu mua sắm. Nếu bạn chưa có tài khoản!
+						<a href="#" data-toggle="modal" data-target="#myModal2">
+							Nhấn vào đây để đăng ký</a>
+					</p>
+					<form action="/login" method="post">
+						<div class="styled-input agile-styled-input-top">
+							<input type="text" placeholder="User Name" name="name" required="">
+						</div>
+						<div class="styled-input">
+							<input type="password" placeholder="Password" name="password" required="">
+						</div>
+						<input type="submit" value="Đăng Nhập">
+					</form>
 					<div class="clearfix"></div>
 				</div>
+				<div class="clearfix"></div>
 			</div>
-			<!-- //Modal content-->
 		</div>
+		<!-- //Modal content-->
+	</div>
 	</div>
 	<!-- //Modal1 -->
 	<!-- //signin Model -->
@@ -541,24 +541,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="fa fa-envelope-o" aria-hidden="true"></span>
 					</div>
 					<div class="modal_body_left modal_body_left1">
-						<h3 class="agileinfo_sign">Sign Up</h3>
+						<h3 class="agileinfo_sign">Đăng Ký</h3>
 						<p>
-							Come join the Grocery Shoppy! Let's set up your Account.
+							Dể mua sắm các sản phẩm hãy đăng ký tài khoản để được hưởng các ưu đãi thường xuyên của Shop.
 						</p>
-						<form action="#" method="post">
+						<p>
+
+							<c:if test='${requestScope["message"] != null}'>
+								<span style="color: red" class="message">${requestScope["message"]}</span>
+							</c:if>
+						</p>
+						<form action="/home?action=signup" method="post">
+
 							<div class="styled-input agile-styled-input-top">
-								<input type="text" placeholder="Name" name="Name" required="">
+								<input type="text" placeholder="Name" name="name" required="">
 							</div>
 							<div class="styled-input">
-								<input type="email" placeholder="E-mail" name="Email" required="">
+								<input type="email" placeholder="E-mail" name="email" required="">
 							</div>
 							<div class="styled-input">
 								<input type="password" placeholder="Password" name="password" id="password1" required="">
 							</div>
 							<div class="styled-input">
-								<input type="password" placeholder="Confirm Password" name="Confirm Password" id="password2" required="">
+								<input type="password" placeholder="Confirm Password" name="confirmpassword" id="password2"
+									   required="">
 							</div>
-							<input type="submit" value="Sign Up">
+							<input type="submit" value="Đăng KÝ">
 						</form>
 						<p>
 							<a href="#">By clicking register, I agree to your terms</a>
@@ -575,31 +583,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- navigation -->
 	<div class="ban-top">
 		<div class="container">
-			<div class="agileits-navi_search">
-				<form action="#" method="post">
-					<select id="agileinfo-nav_search" name="agileinfo_search" required="">
-						<option value="">All Categories</option>
-						<option value="Kitchen">Kitchen</option>
-						<option value="Household">Household</option>
-						<option value="Snacks &amp; Beverages">Snacks & Beverages</option>
-						<option value="Personal Care">Personal Care</option>
-						<option value="Gift Hampers">Gift Hampers</option>
-						<option value="Fruits &amp; Vegetables">Fruits & Vegetables</option>
-						<option value="Baby Care">Baby Care</option>
-						<option value="Soft Drinks &amp; Juices">Soft Drinks & Juices</option>
-						<option value="Frozen Food">Frozen Food</option>
-						<option value="Bread &amp; Bakery">Bread & Bakery</option>
-						<option value="Sweets">Sweets</option>
-					</select>
-				</form>
-			</div>
 			<div class="top_nav_left">
 				<nav class="navbar navbar-default">
 					<div class="container-fluid">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-							    aria-expanded="false">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+									data-target="#bs-example-navbar-collapse-1"
+									aria-expanded="false">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
@@ -609,69 +600,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav menu__list">
-								<li>
-									<a class="nav-stylehead" href="../main/index.jsp">Home
+								<li class="active">
+									<a class="nav-stylehead" href="/home">Home
 										<span class="sr-only">(current)</span>
 									</a>
 								</li>
-								<li class="">
-									<a class="nav-stylehead" href="about.jsp">About Us</a>
-								</li>
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kitchen
+									<a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
+									   aria-haspopup="true" aria-expanded="false">Đồ dùng gia đình
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="agile_inner_drop_nav_info">
 											<div class="col-sm-4 multi-gd-img">
+
 												<ul class="multi-column-dropdown">
-													<li>
-														<a href="product.jsp">Bakery</a>
+													<li name="">
+														<a href="/home?action=donoithat">Đồ Nội Thất</a>
 													</li>
 													<li>
-														<a href="product.jsp">Baking Supplies</a>
+														<a href="/home?action=docanhan">Đồ Dùng Cá Nhân</a>
 													</li>
 													<li>
-														<a href="product.jsp">Coffee, Tea & Beverages</a>
-													</li>
-													<li>
-														<a href="product.jsp">Dried Fruits, Nuts</a>
-													</li>
-													<li>
-														<a href="product.jsp">Sweets, Chocolate</a>
-													</li>
-													<li>
-														<a href="product.jsp">Spices & Masalas</a>
-													</li>
-													<li>
-														<a href="product.jsp">Jams, Honey & Spreads</a>
+														<a href="/home?action=quatang">Quà Tặng</a>
 													</li>
 												</ul>
+												</select>
+
 											</div>
 											<div class="col-sm-4 multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<li>
-														<a href="product.jsp">Pickles</a>
-													</li>
-													<li>
-														<a href="product.jsp">Pasta & Noodles</a>
-													</li>
-													<li>
-														<a href="product.jsp">Rice, Flour & Pulses</a>
-													</li>
-													<li>
-														<a href="product.jsp">Sauces & Cooking Pastes</a>
-													</li>
-													<li>
-														<a href="product.jsp">Snack Foods</a>
-													</li>
-													<li>
-														<a href="product.jsp">Oils, Vinegars</a>
-													</li>
-													<li>
-														<a href="product.jsp">Meat, Poultry & Seafood</a>
-													</li>
-												</ul>
+
+											</div>
+											<div class="col-sm-4 multi-gd-img">
+												<img src="../imagesp/noithat.jpeg" style="width: 300px;height: 300px"
+													 alt="">
+											</div>
+											<div class="clearfix"></div>
+										</div>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
+									   aria-haspopup="true" aria-expanded="false">Đồ Ăn Uống
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu multi-column columns-3">
+										<div class="agile_inner_drop_nav_info">
+											<div class="col-sm-4 multi-gd-img">
+												<form action="/home" method="post">
+													<ul class="multi-column-dropdown">
+														<li name="">
+															<a href="/home?action=banhkeo">Bánh,Kẹo</a>
+														</li>
+														<li>
+															<a href="/home?action=doan">Đồ ăn</a>
+														</li>
+														<li>
+															<a href="/home?action=douong">Đồ Uống</a>
+														</li>
+													</ul>
+													</select>
+												</form>
+											</div>
+											<div class="col-sm-4 multi-gd-img">
+
 											</div>
 											<div class="col-sm-4 multi-gd-img">
 												<img src="../images/nav.png" alt="">
@@ -681,67 +673,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</ul>
 								</li>
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Household
+									<a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button"
+									   aria-haspopup="true" aria-expanded="false">Đồ Cho Bé
 										<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="agile_inner_drop_nav_info">
 											<div class="col-sm-6 multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<li>
-														<a href="product2.jsp">Kitchen & Dining</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Detergents</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Utensil Cleaners</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Floor & Other Cleaners</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Disposables, Garbage Bag</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Repellents & Fresheners</a>
-													</li>
-													<li>
-														<a href="product2.jsp"> Dishwash</a>
-													</li>
-												</ul>
+												<form action="/home" method="post">
+													<ul class="multi-column-dropdown">
+														<li>
+															<a href="/home?action=bim">Bỉm Và Sữa</a>
+														</li>
+													</ul>
+
+												</form>
 											</div>
 											<div class="col-sm-6 multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<li>
-														<a href="product2.jsp">Pet Care</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Cleaning Accessories</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Pooja Needs</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Crackers</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Festive Decoratives</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Plasticware</a>
-													</li>
-													<li>
-														<a href="product2.jsp">Home Care</a>
-													</li>
-												</ul>
+
 											</div>
 											<div class="clearfix"></div>
 										</div>
 									</ul>
 								</li>
-								<li>
-									<a class="nav-stylehead" href="faqs.jsp">Faqs</a>
+								<li class="">
+									<a class="nav-stylehead" href="../main/faqs.jsp">Faqs</a>
 								</li>
 								<li class="dropdown">
 									<a class="nav-stylehead dropdown-toggle" href="#" data-toggle="dropdown">Pages
@@ -749,15 +705,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</a>
 									<ul class="dropdown-menu agile_short_dropdown">
 										<li>
-											<a href="icons.jsp">Web Icons</a>
+											<a href="../main/icons.jsp">Web Icons</a>
 										</li>
 										<li>
-											<a href="typography.jsp">Typography</a>
+											<a href="../main/typography.jsp">Typography</a>
 										</li>
 									</ul>
 								</li>
-								<li>
-									<a class="" href="contact.jsp">Contact</a>
+								<li class="">
+									<a class="nav-stylehead" href="../main/contact.jsp">Liên Hệ</a>
 								</li>
 							</ul>
 						</div>
@@ -765,7 +721,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</nav>
 			</div>
 		</div>
-	</div>
+	</div><!-- kets thuc thanh nav-->
 	<!-- //navigation -->
 	<!-- banner-2 -->
 	<div class="page-head_agile_info_w3l">

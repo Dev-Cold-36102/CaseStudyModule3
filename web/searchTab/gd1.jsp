@@ -738,7 +738,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </h3>
                     <p>Get flat
                         <span>10%</span> Mặt Hàng Đang Giảm Giá</p>
-                    <a class="button2" href="../main/product.jsp">Shop Now </a>
+                    <a class="button2" href="/home">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -750,7 +750,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </h3>
                     <p>Get Upto
                         <span>30%</span> Off</p>
-                    <a class="button2" href="../main/product.jsp">Shop Now </a>
+                    <a class="button2" href="/home">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -763,7 +763,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p>Get Best Offer Upto
                         <span>20%</span>
                     </p>
-                    <a class="button2" href="../main/product.jsp">Shop Now </a>
+                    <a class="button2" href="/home">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -775,7 +775,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </h3>
                     <p>Get Now
                         <span>40%</span> Discount</p>
-                    <a class="button2" href="../main/product.jsp">Shop Now </a>
+                    <a class="button2" href="/home">Shop Now </a>
                 </div>
             </div>
         </div>
@@ -934,7 +934,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Lay's Potato Chips</h3>
-                        <a href="../main/single.jsp">$18.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$18.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -944,7 +944,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Bingo Mad Angles</h3>
-                        <a href="../main/single.jsp">$9.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$9.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -954,7 +954,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Tata Salt</h3>
-                        <a href="../main/single.jsp">$15.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$15.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -964,7 +964,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Gujarat Dry Fruit</h3>
-                        <a href="../main/single.jsp">$525.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$525.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -974,7 +974,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-xs-8 img-deal1">
                         <h3>Cadbury Dairy Milk</h3>
-                        <a href="../main/single.jsp">$149.00</a>
+                        <a href="/viewsingle?name=${product.getProductName()}">$149.00</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -995,14 +995,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <img width="160px" height="160px" src="${product.getImage()}" alt="images">
                                     <div class="men-cart-pro">
                                         <div class="inner-men-cart-pro">
-                                            <a href="../main/single.jsp" class="link-product-add-cart">Xem Ngay</a>
+                                            <a href="/viewsingle?name=${product.getProductName()}" class="link-product-add-cart">Xem Ngay</a>
                                         </div>
                                     </div>
                                     <span class="product-new-top">${product.getDiscount()}%</span>
                                 </div>
                                 <div class="item-info-product ">
                                     <h5>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                     </h5>
                                     <div class="info-product-price">
                                             <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
@@ -1010,7 +1010,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form action="#" method="post">
+                                        <form action="/addtocart?name=${product.getProductName()}" method="post">
                                             <fieldset>
                                                 <input type="hidden" name="cmd" value="_cart"/>
                                                 <input type="hidden" name="add" value="1"/>
@@ -1023,7 +1023,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
                                                 <input type="hidden" name="cancel_return" value=" "/>
-                                                <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                                <input type="submit" name="submit" value="Add to cart" class="button" onclick="AddToCart()"/>
                                             </fieldset>
                                         </form>
                                     </div>
@@ -1057,13 +1057,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <div class="w3l-specilamk">
                             <div class="speioffer-agile">
-                                <a href="single.html">
+                                <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt="">
                                 </a>
                             </div>
                             <div class="product-name-w3l">
                                 <h4>
-                                    <a href="single.html">${product.getProductName()}</a>
+                                    <a href="/viewsingle?name=${product.getProductName()}">${product.getProductName()}</a>
                                 </h4>
                                 <div class="w3l-pricehkj">
                                     <h6>${product.getPriceProductIn()}</h6>
@@ -1073,7 +1073,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 </div>
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <form action="#" method="post">
+                                    <form action="/addtocart?name=${product.getProductName()}" method="post">
                                         <fieldset>
                                             <input type="hidden" name="cmd" value="_cart"/>
                                             <input type="hidden" name="add" value="1"/>
@@ -1085,7 +1085,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="hidden" name="currency_code" value="USD"/>
                                             <input type="hidden" name="return" value=" "/>
                                             <input type="hidden" name="cancel_return" value=" "/>
-                                            <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                            <input type="submit" name="submit" value="Add to cart" class="button" onclick="AddToCart()"/>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -1476,11 +1476,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- js-files -->
 <!-- jquery -->
-<script src="js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery-2.1.4.min.js"></script>
 <!-- //jquery -->
 
 <!-- popup modal (for signin & signup)-->
-<script src="js/jquery.magnific-popup.js"></script>
+<script src="../js/jquery.magnific-popup.js"></script>
 <script>
     $(document).ready(function () {
         $('.popup-with-zoom-anim').magnificPopup({
@@ -1503,7 +1503,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //popup modal (for signin & signup)-->
 
 <!-- cart-js -->
-<script src="js/minicart.js"></script>
+<script src="../js/minicart.js"></script>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
     paypalm.minicartk.cart.on('checkout', function (evt) {
@@ -1524,7 +1524,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //cart-js -->
 
 <!-- price range (top products) -->
-<script src="js/jquery-ui.js"></script>
+<script src="../js/jquery-ui.js"></script>
 <script>
     //<![CDATA[
     $(window).load(function () {
@@ -1543,7 +1543,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //price range (top products) -->
 
 <!-- flexisel (for special offers) -->
-<script src="js/jquery.flexisel.js"></script>
+<script src="../js/jquery.flexisel.js"></script>
 <script>
     $(window).load(function () {
         $("#flexiselDemo1").flexisel({
@@ -1591,12 +1591,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //password-script -->
 
 <!-- smoothscroll -->
-<script src="js/SmoothScroll.min.js"></script>
+<script src="../js/SmoothScroll.min.js"></script>
 <!-- //smoothscroll -->
 
 <!-- start-smooth-scrolling -->
-<script src="js/move-top.js"></script>
-<script src="js/easing.js"></script>
+<script src="../js/move-top.js"></script>
+<script src="../js/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -1628,7 +1628,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //smooth-scrolling-of-move-up -->
 
 <!-- for bootstrap working -->
-<script src="js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/AddToCart.js"></script>
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 
