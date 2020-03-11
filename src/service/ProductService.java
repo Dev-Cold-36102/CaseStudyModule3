@@ -194,5 +194,32 @@ public class ProductService implements IproductService {
             e.printStackTrace();
         }
     }
+    public List<Product> list1(String productType){
+        List<Product> list=new ArrayList<>();
+        try(Connection connection=getConnection();
+            PreparedStatement ps=connection.prepareStatement(SELECT_PRODUCT_BY_TYPE);
+        ){
+            ps.setString(1,productType);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                int id=rs.getInt("id");
+                String name=rs.getString("productName");
+                String image=rs.getString("image");
+                String hangsx=rs.getString("hangsx");
+                String xuatxu=rs.getString("xuatxu");
+                String mota=rs.getString("mota");
+                String describes=rs.getString("describes");
+                String hansudung=rs.getString("hansudung");
+                int amount=rs.getInt("amount");
+                int priceIn=rs.getInt("priceIn");
+                int priceOut=rs.getInt("priceOut");
+                int sale=rs.getInt("sale");
+                list.add(new Product(id,name,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 
 }

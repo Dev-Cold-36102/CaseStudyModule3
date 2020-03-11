@@ -1817,10 +1817,10 @@
 //          * @return {number|string}
 //          */
 //         Cart.prototype.discount = function discount(config) {
-//             var result = parseInt(this.settings('discount_amount_cart')) || 0;
+//             var result = parseFloat(this.settings('discount_amount_cart')) || 0;
 //
 //             if (!result) {
-//                 result = (parseInt(this.settings('discount_rate_cart')) || 0) * this.subtotal() / 100;
+//                 result = (parseFloat(this.settings('discount_rate_cart')) || 0) * this.subtotal() / 100;
 //             }
 //
 //             config = config || {};
@@ -1959,7 +1959,7 @@
 //
 //             parent: (typeof document !== 'undefined') ? document.body : null,
 //
-//             action: '/home?action=checkout',
+//             action: '/checkout',
 //
 //             target: '',
 //

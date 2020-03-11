@@ -810,7 +810,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <table class="timetable_sub">
                     <thead>
                     <tr>
-<%--                        <th width="100px">SL No.</th>--%>
+                        <%--                        <th width="100px">SL No.</th>--%>
                         <th width="210px">Product</th>
                         <th width="200px">Quality</th>
                         <th width="200px">Product Name</th>
@@ -1436,7 +1436,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //js-files -->
 <script src="../js/setMoney.js"></script>
 <script>
-
 </script>
 <script src="../js/AddToCart.js"></script>
 
