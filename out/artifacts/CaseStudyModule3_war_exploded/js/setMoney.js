@@ -14,6 +14,8 @@ function setMoney(idPrice, idAmountReal,idAmountHidden, idTotal, action) {
             }
             break;
         case "input":
+            let amountAfter=Number(document.getElementById(idAmountReal).value);
+            amount=amountAfter;
             break;
     }
     if (amount > 20) {
@@ -21,7 +23,7 @@ function setMoney(idPrice, idAmountReal,idAmountHidden, idTotal, action) {
         // document.getElementById(idAmount).value = amount;
     }
     let amountChange=amount-amountBefore;
-     totalBefore+=price*amountChange;
+    totalBefore+=price*amountChange;
     document.getElementById(idAmountReal).value = amount;
     document.getElementById(idAmountHidden).value = amount;
     document.getElementById("total").value = totalBefore;

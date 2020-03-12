@@ -20,7 +20,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
-
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -797,7 +796,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <p>-</p>
                                     </div>
                                     <div style="float: left">
-                                        <input  type="number"
+                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','amount${slNo}','${slNo}','input')"
+                                               style="width: 85px;height: 40px; text-align: center" type="number"
                                                max="20" min="1" id="amount${product.getProductName()}"
                                                value="${product.getAmountProduct()}"/><!--get amount of product-->
                                     </div>
@@ -1362,7 +1362,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
-
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
