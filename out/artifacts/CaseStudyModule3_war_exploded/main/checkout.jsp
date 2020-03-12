@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- top-header -->
 <div class="header-most-top">
-    <p style="color: red" > -_- WELCOME TO BẰNG ỚT SHOP <3</p>
+    <p style="color: red"> -_- WELCOME TO BẰNG ỚT SHOP <3</p>
 </div>
 <!-- //top-header -->
 <!-- header-bot-->
@@ -757,8 +757,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- //tittle heading -->
 
         <div class="checkout-right">
-            <h4>Your shopping cart contains:
-                <span id="amountProduct">${listAddToCart.size()} Products</span>
+            <h4>Giỏ Hàng Có:
+                <span id="amountProduct">${listAddToCart.size()} Sản Phẩm</span>
                 <input id="listAddToCart.size" class="hidden" value="${listAddToCart.size()}"/>
                 <%--                <span id="amountProduct"></span>--%>
             </h4>
@@ -767,38 +767,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <thead>
                     <tr>
                         <%--                        <th width="100px">SL No.</th>--%>
-                        <th width="210px">Product</th>
-                        <th width="200px">Quality</th>
-                        <th width="200px">Product Name</th>
+                        <th width="210px">Mẫu Sản Phẩm</th>
+                        <th width="200px">Số Lượng</th>
+                        <th width="200px">Tên Sản Phẩm</th>
 
-                        <th>Price</th>
-                        <th width="80px">Remove</th>
+                        <th>Thành Tiền</th>
+                        <th width="80px">Xoá</th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:set var="slNo" value="0"/>
+                    <c:set var="total" value="0"/>
                     <c:forEach items="${listAddToCart}" var="product">
                         <c:set var="slNo" value="${slNo+1}"/><!--set order -->
+                        <c:set var="total"
+                               value="${total+product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"/><!--set order -->
                         <tr class="rem${slNo}">
                             <td class="invert-image">
                                 <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt=" " class="img-responsive">
                                 </a>
                             </td>
-<%--                            <input type="text" id="amount${product.getProductName()}"--%>
-<%--                                   value="${product.getAmountProduct()}" class="hidden">--%>
+                                <%--                            <input type="text" id="amount${product.getProductName()}"--%>
+                                <%--                                   value="${product.getAmountProduct()}" class="hidden">--%>
                             <td>
                                 <div align="center" style="padding-left: 10px">
                                     <div class="entry value-minus" style="float: left"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','-')">
+                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','amount${slNo}','${slNo}','-')">
                                         <p>-</p>
                                     </div>
                                     <div style="float: left">
-                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','input')"  style="width: 85px;height: 40px; text-align: center" type="number" max="20" min="1" id="amount${product.getProductName()}"
-                                               value="${product.getAmountProduct()}">
+                                        <input  type="number"
+                                               max="20" min="1" id="amount${product.getProductName()}"
+                                               value="${product.getAmountProduct()}"/><!--get amount of product-->
                                     </div>
                                     <div class="entry value-plus active" style="float: right"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','+')">
+                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','amount${slNo}','${slNo}','+')">
                                         <p>+</p>
                                     </div>
                                 </div>
@@ -807,8 +811,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <input id="price${product.getProductName()}"
                                    value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
                                    class="hidden"/> <!-- get price-->
+                            <input id="amount${slNo}"
+                                   value="${product.getAmountProduct()}"
+                                   class="hidden"/>
+                            <input id="total${slNo}"
+                                   value="${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                                   class="hidden"/> <!-- get total of product-->
+                            <input id="total"
+                                   value="${total}"
+                                   class="hidden"/> <!-- get total of bill-->
                             <td class="invert"
-                                id="${product.getProductName()}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}
+                                id="${slNo}">${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}
                                 VND
                             </td>
                             <td class="invert">
@@ -818,12 +831,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                         </tr>
                     </c:forEach>
-
                     </tbody>
-
-
-
                 </table>
+                <div id="totalBill" align="right">Tạm Tính: ${total} VND</div> <!-- total bill-->
             </div>
         </div>
         <div class="checkout-left">
