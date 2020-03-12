@@ -19,7 +19,7 @@ function setMoney(idPrice, idAmount, idTotal, action,idTotalProductFirst) {
     }
     if (amount > 20) {
         amount = 20;
-        document.getElementById(idAmount).value = amount;
+        // document.getElementById(idAmount).value = amount;
     }
     document.getElementById(idAmount).value = amount;
     let totalNewProduct = amount * price;
