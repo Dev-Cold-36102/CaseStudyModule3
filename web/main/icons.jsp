@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h1>
 					<a href="../main/index.jsp">
 
-						<img style="height: 700px;width: 1000px" src="../imagesp/logo.png" alt=" ">
+						<img style="height: 210px;width: 350px" src="../imagesp/logo.png" alt=" ">
 					</a>
 				</h1>
 			</div>

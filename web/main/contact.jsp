@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-4 logo_agile">
 				<h1>
 					<a href="../main/index.jsp">
-						<img style="height: 700px;width: 1000px" src="../imagesp/logo.png" alt=" ">
+						<img style="height: 210px;width: 350px" src="../imagesp/logo.png" alt=" ">
 					</a>
 				</h1>
 			</div>
@@ -488,7 +488,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //shop locator (popup) -->
 	<!-- signin Model -->
 	<!-- Modal1 -->
-	div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 		<!-- Modal content-->
 		<div class="modal-content">

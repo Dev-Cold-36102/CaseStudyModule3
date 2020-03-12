@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-4 logo_agile">
             <h1>
                 <a href="/home">
-                    <img style="height: 700px;width: 1000px" src="../imagesp/logo.png" alt=" ">
+                    <img style="height: 210px;width: 350px" src="../imagesp/logo.png" alt=" ">
                 </a>
             </h1>
         </div>
@@ -743,6 +743,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //page -->
 <!-- checkout page -->
+<div id="warningmaxamount"></div>
 <div class="privacy">
     <div class="container">
         <!-- tittle heading -->
@@ -754,6 +755,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</span>
         </h3>
         <!-- //tittle heading -->
+
         <div class="checkout-right">
             <h4>Your shopping cart contains:
                 <span id="amountProduct">${listAddToCart.size()} Products</span>
@@ -788,15 +790,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>
                                 <div align="center" style="padding-left: 10px">
                                     <div class="entry value-minus" style="float: left"
-                                         onclick="reductionMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">
+                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','-')">
                                         <p>-</p>
                                     </div>
                                     <div style="float: left">
-                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')"  style="width: 85px;height: 40px; text-align: center" type="number" max="20" id="amount${product.getProductName()}"
+                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','input')"  style="width: 85px;height: 40px; text-align: center" type="number" max="20" min="1" id="amount${product.getProductName()}"
                                                value="${product.getAmountProduct()}">
                                     </div>
                                     <div class="entry value-plus active" style="float: right"
-                                         onclick="raiseMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}')">
+                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','+')">
                                         <p>+</p>
                                     </div>
                                 </div>
@@ -816,7 +818,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                         </tr>
                     </c:forEach>
+
                     </tbody>
+
+
+
                 </table>
             </div>
         </div>
