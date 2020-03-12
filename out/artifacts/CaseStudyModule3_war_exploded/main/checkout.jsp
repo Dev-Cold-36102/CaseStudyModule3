@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- top-header -->
 <div class="header-most-top">
-    <p style="color: red" > -_- WELCOME TO BẰNG ỚT SHOP <3</p>
+    <p style="color: red"> -_- WELCOME TO BẰNG ỚT SHOP <3</p>
 </div>
 <!-- //top-header -->
 <!-- header-bot-->
@@ -736,7 +736,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="/home">Home</a>
                     <i>|</i>
                 </li>
-                <li>Checkout</li>
+                <li>Giỏ Hàng</li>
             </ul>
         </div>
     </div>
@@ -747,7 +747,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="privacy">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Checkout
+        <h3 class="tittle-w3l">Giỏ Hàng
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -757,8 +757,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- //tittle heading -->
 
         <div class="checkout-right">
-            <h4>Your shopping cart contains:
-                <span id="amountProduct">${listAddToCart.size()} Products</span>
+            <h4>Giỏ Hàng chứa:
+                <span id="amountProduct">${listAddToCart.size()} Sản Phẩm</span>
                 <input id="listAddToCart.size" class="hidden" value="${listAddToCart.size()}"/>
                 <%--                <span id="amountProduct"></span>--%>
             </h4>
@@ -767,38 +767,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <thead>
                     <tr>
                         <%--                        <th width="100px">SL No.</th>--%>
-                        <th width="210px">Product</th>
-                        <th width="200px">Quality</th>
-                        <th width="200px">Product Name</th>
+                        <th width="210px">Mẫu Sản Phẩm</th>
+                        <th width="200px">Số Lượng</th>
+                        <th width="200px">Tên Sản Phẩm</th>
 
-                        <th>Price</th>
-                        <th width="80px">Remove</th>
+                        <th>Thành Tiền</th>
+                        <th width="80px">Xoá</th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:set var="slNo" value="0"/>
+                    <c:set var="total" value="0"/>
                     <c:forEach items="${listAddToCart}" var="product">
                         <c:set var="slNo" value="${slNo+1}"/><!--set order -->
+                        <c:set var="total" value="${total+product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}"/>
                         <tr class="rem${slNo}">
                             <td class="invert-image">
                                 <a href="/viewsingle?name=${product.getProductName()}">
                                     <img src="${product.getImage()}" alt=" " class="img-responsive">
                                 </a>
                             </td>
-<%--                            <input type="text" id="amount${product.getProductName()}"--%>
-<%--                                   value="${product.getAmountProduct()}" class="hidden">--%>
+                                <%--                            <input type="text" id="amount${product.getProductName()}"--%>
+                                <%--                                   value="${product.getAmountProduct()}" class="hidden">--%>
                             <td>
                                 <div align="center" style="padding-left: 10px">
                                     <div class="entry value-minus" style="float: left"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','-')">
+                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${slNo}','-','total${product.getProductName()}')">
                                         <p>-</p>
                                     </div>
                                     <div style="float: left">
-                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','input')"  style="width: 85px;height: 40px; text-align: center" type="number" max="20" min="1" id="amount${product.getProductName()}"
+                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${slNo}','input','total${product.getProductName()}')"
+                                               style="width: 85px;height: 40px; text-align: center" type="number"
+                                               max="20" min="1" id="amount${product.getProductName()}"
                                                value="${product.getAmountProduct()}">
                                     </div>
                                     <div class="entry value-plus active" style="float: right"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${product.getProductName()}','+')">
+                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${slNo}','+','total${product.getProductName()}')">
                                         <p>+</p>
                                     </div>
                                 </div>
@@ -807,8 +811,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <input id="price${product.getProductName()}"
                                    value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
                                    class="hidden"/> <!-- get price-->
+                            <input id="totalFirst" value="${total}" class="hidden" />
+                            <input id="total${product.getProductName()}"
+                                   value="${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}" class="hidden"/>
                             <td class="invert"
-                                id="${product.getProductName()}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}
+                                id="${slNo}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}
                                 VND
                             </td>
                             <td class="invert">
@@ -818,60 +825,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                         </tr>
                     </c:forEach>
-
                     </tbody>
-
-
-
                 </table>
+                <div id="total" align="right">Tạm Tính : ${total} VND</div>
             </div>
         </div>
         <div class="checkout-left">
             <div class="address_form_agile">
-                <h4>Add a new Details</h4>
-                <form action="payment.jsp" method="post" class="creditly-card-form agileinfo_form">
+                <h4>Thông Tin Đặt Hàng</h4>
+                <form action="/checkout?action=payment" method="post">
                     <div class="creditly-wrapper wthree, w3_agileits_wrapper">
                         <div class="information-wrapper">
                             <div class="first-row">
                                 <div class="controls">
-                                    <input class="billing-address-name" type="text" name="name" placeholder="Full Name"
+                                    <input class="billing-address-name" type="text" name="name"
+                                           placeholder="Tên Khách Hàng"
                                            required="">
                                 </div>
                                 <div class="w3_agileits_card_number_grids">
                                     <div class="w3_agileits_card_number_grid_left">
                                         <div class="controls">
-                                            <input type="text" placeholder="Mobile Number" name="number" required="">
+                                            <input type="text" placeholder="Số Điện Thoại" name="phone" required="">
                                         </div>
                                     </div>
                                     <div class="w3_agileits_card_number_grid_right">
                                         <div class="controls">
-                                            <input type="text" placeholder="Landmark" name="landmark" required="">
+                                            <input type="text" placeholder="Địa Chỉ" name="address" required="">
                                         </div>
                                     </div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="controls">
-                                    <input type="text" placeholder="Town/City" name="city" required="">
-                                </div>
-                                <div class="controls">
-                                    <select class="option-w3ls">
-                                        <option>Select Address type</option>
-                                        <option>Office</option>
-                                        <option>Home</option>
-                                        <option>Commercial</option>
-
-                                    </select>
+                                    <input type="text"
+                                           placeholder="Ghi Chú(Giao trước mấy giờ, Người nhận thay,...)nếu có"
+                                           name="note">
                                 </div>
                             </div>
-                            <button class="submit check_out">Delivery to this Address</button>
+                            <div class="checkout-right-basket">
+                                <button type="submit"
+                                        style="border-radius: 10px;background-color: #1adeed;width: 200px;height: 50px;color: gray;align-content: center">
+                                    Đặt Hàng
+                                    <span class="fa fa-hand-o-right" aria-hidden="true"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
-                <div class="checkout-right-basket">
-                    <a href="payment.jsp">Make a Payment
-                        <span class="fa fa-hand-o-right" aria-hidden="true"></span>
-                    </a>
-                </div>
+
             </div>
             <div class="clearfix"></div>
         </div>

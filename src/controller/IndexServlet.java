@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet(name = "IndexServlet", urlPatterns = "/home")
 public class IndexServlet extends HttpServlet {
     private ProductService productService;
-    protected static List<Product> listAddToCart = new ArrayList<>();
+    public static List<Product> listAddToCart = new ArrayList<>();
 
     public void init() {
         productService = new ProductService();
@@ -86,6 +86,14 @@ public class IndexServlet extends HttpServlet {
             case "douong":
                 String productType10 = "đồ uống";
                 action1(request, response, productType10);
+                break;
+            case "signin":
+                RequestDispatcher dispatcherSignin = request.getRequestDispatcher("main/login.jsp");
+                dispatcherSignin.forward(request, response);
+                break;
+            case "signup" :
+                RequestDispatcher dispatcherSignup = request.getRequestDispatcher("main/signup.jsp");
+                dispatcherSignup.forward(request, response);
                 break;
             default:
                 String productType = "đồ cho trẻ";

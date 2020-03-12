@@ -12,9 +12,6 @@
           <element id="file-copy" path="$PROJECT_DIR$/../MySQL/mysql-connector-java-8.0.19.jar" />
         </element>
       </element>
-      <element id="file-copy" path="$USER_HOME$/Downloads/mysql-connector-java-8.0.19/mysql-connector-java-8.0.19.jar" />
-      <element id="file-copy" path="C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" />
-      <element id="file-copy" path="C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" />
     </root>
   </artifact>
 </component>
