@@ -35,21 +35,10 @@ public class SignUpServlet extends HttpServlet {
                 dispatcher=request.getRequestDispatcher("main/signup.jsp");
                 dispatcher.forward(request,response);
             } else {
-            String productType3 = "đồ dùng cá nhân";
-            List<Product> hotProduct = productService.productListHot(productType3);
-            request.setAttribute("hotProduct", hotProduct);
-            String productType = "đồ cho trẻ";
-            List<Product> productList = productService.productList(productType);
-            request.setAttribute("productList", productList);
-            String productType1 = "đồ dùng cá nhân";
-            List<Product> personalCare = productService.productList(productType1);
-            request.setAttribute("personalCare", personalCare);
-            String productType2 = "đồ ăn";
-            List<Product> foodList = productService.productList(productType2);
-            request.setAttribute("foodList", foodList);
+                request.setAttribute("message","Đăng ký Thành Công, Hãy Đăng Nhập!");
             User user=new User(userName,password,email);
             productService.insertUser(user);
-            dispatcher=request.getRequestDispatcher("main/index.jsp");
+            dispatcher=request.getRequestDispatcher("main/login.jsp");
             dispatcher.forward(request,response);
         }
     }
