@@ -136,7 +136,7 @@ public class IndexServlet extends HttpServlet {
         String productType3 = "đồ dùng cá nhân";
         List<Product> hotProduct = productService.productListHot(productType3);
         request.setAttribute("hotProduct", hotProduct);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("searchTab/gd1.jsp");
+        RequestDispatcher dispatcher=request.getRequestDispatcher("searchTab/displayUser.jsp");
         dispatcher.forward(request,response);
     }
 

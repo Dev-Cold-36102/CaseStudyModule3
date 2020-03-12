@@ -47,6 +47,22 @@ public class Product {
         this.expirydate = expirydate;
         this.motasp=motasp;
         this.discount=discount;
+    }
+    public Product(String productName,String productType,String manufacturer,String placeOfProduct,int amountProduct,
+                   int priceProductIn,int priceProductOut,String describes,String image,String expirydate,String motasp,
+                   int discount){
+        this.productName = productName;
+        this.productType = productType;
+        this.manufacturer = manufacturer;
+        this.placeOfProduct = placeOfProduct;
+        this.amountProduct = amountProduct;
+        this.priceProductIn = priceProductIn;
+        this.priceProductOut = priceProductOut;
+        this.describes = describes;
+        this.image = image;
+        this.expirydate = expirydate;
+        this.motasp=motasp;
+        this.discount=discount;
 
     }
 

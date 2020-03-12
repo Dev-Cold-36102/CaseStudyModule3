@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- header-bot-->
         <div class="col-md-4 logo_agile">
             <h1>
-                <a href="/home">
+                <a href="/admin">
                     <span>G</span>rocery
                     <span>S</span>hoppy
                     <img src="../images/logo2.png" alt=" ">
@@ -75,38 +75,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="../main/login.jsp">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng Nhập </a>
+                    <a href="/admin">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span>Xin Chào Admin ^__^</a>
                 </li>
                 <li>
-                    <a href="../main/signup.jsp">
-                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Ký </a>
+                    <a href="/home">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span>Đăng Xuất</a>
                 </li>
             </ul>
-            <!-- //header lists -->
-            <!-- search -->
             <div class="agileits_search">
-                <form action="/search" method="post">
-                    <input name="Search" type="search" placeholder="How can we help you today?" required="">
-                    <button type="submit" class="btn btn-default" aria-label="Left Align">
-                        <span class="fa fa-search" aria-hidden="true"> </span>
-                    </button>
-                </form>
+                <h3>Xin Chào Admin Hoàng Linh ^_^ !!!</h3>
             </div>
-            <!-- //search -->
-            <!-- cart details -->
-            <div class="top_nav_right">
-                <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="/checkout" method="post" class="last">
-                        <input type="hidden" name="cmd" value="_cart">
-                        <input type="hidden" name="display" value="1">
-                        <button class="w3view-cart" type="submit" name="submit" value="">
-                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <!-- //cart details -->
+
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>
@@ -603,7 +583,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav menu__list">
                             <li class="active">
-                                <a class="nav-stylehead" href="/home">Home
+                                <a class="nav-stylehead" href="/admin">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -616,18 +596,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
 
-                                                <ul class="multi-column-dropdown">
-                                                    <li name="">
-                                                        <a href="/home?action=donoithat">Đồ Nội Thất</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/home?action=docanhan">Đồ Dùng Cá Nhân</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/home?action=quatang">Quà Tặng</a>
-                                                    </li>
-                                                </ul>
-                                                </select>
+                                            <ul class="multi-column-dropdown">
+                                                <li name="">
+                                                    <a href="/admin?action=donoithat">Đồ Nội Thất</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/admin?action=docanhan">Đồ Dùng Cá Nhân</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/admin?action=quatang">Quà Tặng</a>
+                                                </li>
+                                            </ul>
+                                            </select>
 
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
@@ -648,16 +628,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <form action="/home" method="post">
+                                            <form action="/admin" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
-                                                        <a href="/home?action=banhkeo">Bánh,Kẹo</a>
+                                                        <a href="/admin?action=banhkeo">Bánh,Kẹo</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/home?action=doan">Đồ ăn</a>
+                                                        <a href="/admin?action=doan">Đồ ăn</a>
                                                     </li>
                                                     <li>
-                                                        <a href="/home?action=douong">Đồ Uống</a>
+                                                        <a href="/admin?action=douong">Đồ Uống</a>
                                                     </li>
                                                 </ul>
                                                 </select>
@@ -681,10 +661,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-6 multi-gd-img">
-                                            <form action="/home" method="post">
+                                            <form action="/admin" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li>
-                                                        <a href="/home?action=bim">Bỉm Và Sữa</a>
+                                                        <a href="/admin?action=bim">Bỉm Và Sữa</a>
                                                     </li>
                                                 </ul>
 
@@ -816,32 +796,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <input type="submit" value=" ">
                 </form>
             </div>
-            <!-- price range -->
-            <div class="range">
-                <h3 class="agileits-sear-head">Price range</h3>
-                <ul class="dropdown-menu6">
+            <div class="left-side">
+                <h3 class="agileits-sear-head">Thao Tác Admin!</h3>
+                <ul>
                     <li>
-
-                        <div id="slider-range"></div>
-                        <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;"/>
+                        <a href="/admin?action=addProduct">Thêm Sản Phẩm</a>
+                    </li>
+                    <li>
+                        <a href="/admin?action=repairProduct">Sửa Sản Phẩm</a>
+                    </li>
+                    <li>
+                        <a href="/admin?action=deleteProduct">Xóa Sản Phẩm</a>
                     </li>
                 </ul>
             </div>
-            <!-- //price range -->
-            <!-- food preference -->
-            <div class="left-side">
-            <h3 class="agileits-sear-head">Thực Phẩm</h3>
-            <ul>
-                <li>
-                    <input type="checkbox" class="checked">
-                    <span class="span">Ăn Chay</span>
-                </li>
-                <li>
-                    <input type="checkbox" class="checked">
-                    <span class="span">Không Ăn Chay</span>
-                </li>
-            </ul>
-        </div>
             <div class="left-side" href="/home">
                 <h3 class="agileits-sear-head">Đang Giảm Giá</h3>
                 <ul>
