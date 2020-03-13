@@ -101,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="#" method="post" class="last">
+                    <form action="/checkout?action=viewcart" method="post" class="last">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="display" value="1">
                         <button class="w3view-cart" type="submit" name="submit" value="">
@@ -730,9 +730,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div><!-- kets thuc thanh nav-->
 <!-- //navigation -->
 <!-- banner-2 -->
-<div class="page-head_agile_info_w3l">
+<%--<div class="page-head_agile_info_w3l">--%>
 
-</div>
+<%--</div>--%>
 <!-- //banner-2 -->
 <!-- page -->
 <div class="services-breadcrumb">

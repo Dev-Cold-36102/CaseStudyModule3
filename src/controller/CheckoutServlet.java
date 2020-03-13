@@ -10,12 +10,26 @@ import java.io.IOException;
 
 import static controller.IndexServlet.listAddToCart;
 
-@WebServlet(name = "CheckoutServlet",urlPatterns = "/checkout")
+@WebServlet(name = "CheckoutServlet", urlPatterns = "/checkout")
 public class CheckoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("listAddToCart",listAddToCart);
+        String action = request.getParameter("action");
+        switch (action) {
+            case "remove":
+                String nameProductRemove = request.getParameter("remove");
+                System.out.println(nameProductRemove);
+                for (int i = 0; i < listAddToCart.size(); i++) {
+                    if (listAddToCart.get(i).getProductName().equals(nameProductRemove)) {
+                        listAddToCart.remove(i);
+                    }
+                }
+                break;
+            case "viewcart":
+                break;
+        }
+        request.setAttribute("listAddToCart", listAddToCart);
         RequestDispatcher dispatcher = request.getRequestDispatcher("main/checkout.jsp");
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -15,8 +15,6 @@ function setMoney(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProdu
     switch (action) {
         case "+":
             amountProduct += 1;
-            if (amountProduct > 20)
-                amountProduct = 20;
             break;
         case "-":
             amountProduct -= 1;
@@ -28,6 +26,8 @@ function setMoney(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProdu
             amountProduct = amountProductInput;
             break;
     }
+    if (amountProduct > 20)
+        amountProduct = 20;
     totalProductAfter=priceProduct*amountProduct;
     totalProductAfter=Number(parseInt(totalProductAfter).toFixed(0));
     totalBillAfter=totalBillBefore+totalProductAfter;

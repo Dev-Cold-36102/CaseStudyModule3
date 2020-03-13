@@ -107,7 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="/checkout" method="post" class="last">
+                    <form action="/checkout?action=viewcart" method="post" class="last">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="display" value="1">
                         <button class="w3view-cart" type="submit" name="submit" value="">
@@ -737,9 +737,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //navigation -->
 <!-- banner-2 -->
-<div class="page-head_agile_info_w3l">
 
-</div>
 <!-- //banner-2 -->
 <!-- page -->
 <div class="services-breadcrumb">
@@ -757,7 +755,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //page -->
 <!-- checkout page -->
-<div id="warningmaxamount"></div>
+<%--<div id="warningmaxamount"></div>--%>
 <div class="privacy">
     <div class="container">
         <!-- tittle heading -->
@@ -829,7 +827,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                             <td class="invert">
                                 <div class="rem">
-                                    <div class="close${slNo}" onclick="setAmountProducts('totalProduct${slNo}')"></div>
+                                    <form action="/checkout?action=remove" method="post">
+                                    <input type="submit" class="close${slNo}"  name="remove" value="${product.getProductName()}">
+                                    </form>
                                 </div>
                             </td>
                             <input id="priceProduct${slNo}"
@@ -863,12 +863,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="w3_agileits_card_number_grids">
                                     <div class="w3_agileits_card_number_grid_left">
                                         <div class="controls">
-                                            <input type="text" placeholder="Số Điện Thoại" name="number" required="">
+                                            <input type="text" placeholder="Số Điện Thoại" name="phone" required="">
                                         </div>
                                     </div>
                                     <div class="w3_agileits_card_number_grid_right">
                                         <div class="controls">
-                                            <input type="text" placeholder="Địa chỉ nhận " name="landmark" required="">
+                                            <input type="text" placeholder="Địa chỉ nhận " name="address" required="">
                                         </div>
                                     </div>
                                     <div class="clear"></div>
@@ -876,12 +876,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="controls">
                                     <input type="text"
                                            placeholder="Ghi chú(Giao hàng trước mấy giờ, người nhận thay,...) nếu có"
-                                           name="note" required="">
+                                           name="note">
                                 </div>
-
                             </div>
                             <span class="fa fa-hand-o-right" aria-hidden="true" style="color: #ac2925"></span>
-                            <button type="submit" class="buttonpayment" >Thanh toán</button>
+                            <button type="submit" class="buttonpayment">Thanh toán</button>
                         </div>
                     </div>
                 </form>
@@ -1262,7 +1261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="copy-right">
     <div class="container">
         <p>© 2017 Grocery Shoppy. All rights reserved | Design by
-            <a href="http://w3layouts.com"> W3layouts.</a>
+            <a href="http://w3layouts.com"> 5ae</a>
         </p>
     </div>
 </div>
@@ -1390,6 +1389,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('.close7').on('click', function (c) {
             $('.rem7').fadeOut('slow', function (c) {
                 $('.rem7').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close8').on('click', function (c) {
+            $('.rem8').fadeOut('slow', function (c) {
+                $('.rem8').remove();
             });
         });
     });
