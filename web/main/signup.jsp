@@ -53,7 +53,7 @@
     </div>
     <!-- copyright -->
     <div class="colorlibcopy-agile">
-        <p>© 2020 from SignUP | Design by <a href="../main/index.jsp" target="_blank">5 Anh Em</a></p>
+        <p>© 2020 from SignUP | Design by <a href="/home" target="_blank">5 Anh Em</a></p>
     </div>
     <!-- //copyright -->
     <ul class="colorlib-bubbles">
