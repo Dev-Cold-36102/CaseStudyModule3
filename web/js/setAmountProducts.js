@@ -11,6 +11,7 @@ function setAmountProducts(idTotalProduct) {
     amountProduct -= 1;
     document.getElementById("listAddToCart.size").value=amountProduct;
     document.getElementById("totalCache").value=totalBill;
+    document.getElementById(idTotalProduct).value=0;
     // document.getElementById("amountProduct").value = amountProduct;
     document.getElementById("amountProduct").innerHTML = amountProduct + " Products";
     document.getElementById("totalBill").innerHTML = "Tạm Tính: "+totalBill +" VND";

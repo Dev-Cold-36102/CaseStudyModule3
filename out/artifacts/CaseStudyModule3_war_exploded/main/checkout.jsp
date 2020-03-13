@@ -14,6 +14,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         .hidden {
             display: none;
         }
+
+        .buttonpayment {
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+            color: gray;
+            background-color: #00ACEE;
+            align-content: center;
+        }
     </style>
     <title>hoàng ăn cứt | Checkout :: w3layouts</title>
     <!--/tags -->
@@ -823,7 +832,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="close${slNo}" onclick="setAmountProducts('totalProduct${slNo}')"></div>
                                 </div>
                             </td>
-                            <input id="priceProduct${slNo}" value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                            <input id="priceProduct${slNo}"
+                                   value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
                                    class="hidden"> <!--get price of product-->
                             <input id="amountProduct${slNo}" value="${product.getAmountProduct()}"
                                    class="hidden"> <!--get amount of product-->
@@ -840,50 +850,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="checkout-left">
             <div class="address_form_agile">
-                <h4>Add a new Details</h4>
+                <h4>Thông Tin Thanh Toán</h4>
                 <form action="payment.jsp" method="post" class="creditly-card-form agileinfo_form">
                     <div class="creditly-wrapper wthree, w3_agileits_wrapper">
                         <div class="information-wrapper">
                             <div class="first-row">
                                 <div class="controls">
-                                    <input class="billing-address-name" type="text" name="name" placeholder="Full Name"
+                                    <input class="billing-address-name" type="text" name="name"
+                                           placeholder="Tên khách hàng"
                                            required="">
                                 </div>
                                 <div class="w3_agileits_card_number_grids">
                                     <div class="w3_agileits_card_number_grid_left">
                                         <div class="controls">
-                                            <input type="text" placeholder="Mobile Number" name="number" required="">
+                                            <input type="text" placeholder="Số Điện Thoại" name="number" required="">
                                         </div>
                                     </div>
                                     <div class="w3_agileits_card_number_grid_right">
                                         <div class="controls">
-                                            <input type="text" placeholder="Landmark" name="landmark" required="">
+                                            <input type="text" placeholder="Địa chỉ nhận " name="landmark" required="">
                                         </div>
                                     </div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="controls">
-                                    <input type="text" placeholder="Town/City" name="city" required="">
+                                    <input type="text"
+                                           placeholder="Ghi chú(Giao hàng trước mấy giờ, người nhận thay,...) nếu có"
+                                           name="note" required="">
                                 </div>
-                                <div class="controls">
-                                    <select class="option-w3ls">
-                                        <option>Select Address type</option>
-                                        <option>Office</option>
-                                        <option>Home</option>
-                                        <option>Commercial</option>
 
-                                    </select>
-                                </div>
                             </div>
-                            <button class="submit check_out">Delivery to this Address</button>
+                            <span class="fa fa-hand-o-right" aria-hidden="true" style="color: #ac2925"></span>
+                            <button type="submit" class="buttonpayment" >Thanh toán</button>
                         </div>
                     </div>
                 </form>
-                <div class="checkout-right-basket">
-                    <a href="payment.jsp">Make a Payment
-                        <span class="fa fa-hand-o-right" aria-hidden="true"></span>
-                    </a>
-                </div>
+
             </div>
             <div class="clearfix"></div>
         </div>
@@ -1352,6 +1354,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('.close3').on('click', function (c) {
             $('.rem3').fadeOut('slow', function (c) {
                 $('.rem3').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close4').on('click', function (c) {
+            $('.rem4').fadeOut('slow', function (c) {
+                $('.rem4').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close5').on('click', function (c) {
+            $('.rem5').fadeOut('slow', function (c) {
+                $('.rem5').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close6').on('click', function (c) {
+            $('.rem6').fadeOut('slow', function (c) {
+                $('.rem6').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close7').on('click', function (c) {
+            $('.rem7').fadeOut('slow', function (c) {
+                $('.rem7').remove();
             });
         });
     });
