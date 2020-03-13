@@ -820,17 +820,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                             <td class="invert">
                                 <div class="rem">
-                                    <div class="close${slNo}" onclick="setAmountProduct()"></div>
+                                    <div class="close${slNo}" onclick="setAmountProducts('totalProduct${slNo}')"></div>
                                 </div>
                             </td>
+                            <input id="priceProduct${slNo}" value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                                   class="hidden"> <!--get price of product-->
+                            <input id="amountProduct${slNo}" value="${product.getAmountProduct()}"
+                                   class="hidden"> <!--get amount of product-->
+                            <input id="totalProduct${slNo}"
+                                   value="${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                                   class="hidden"> <!--get total of product-->
                         </tr>
-                        <input id="priceProduct${slNo}" value="${product.getPriceProductOut()}"
-                               class="hidden"> <!--get price of product-->
-                        <input id="amountProduct${slNo}" value="${product.getAmountProduct()}"
-                               class="hidden"> <!--get amount of product-->
-                        <input id="totalProduct${slNo}"
-                               value="${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"
-                               class="hidden"> <!--get total of product-->
                     </c:forEach>
                     </tbody>
                 </table>
@@ -1419,7 +1419,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 <script src="../js/setMoney.js"></script>
-<script src="../js/setAmountProduct.js"></script>
+<script src="../js/setAmountProducts.js"></script>
 <script src="../js/AddToCart.js"></script>
 
 

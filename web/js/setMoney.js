@@ -1,15 +1,15 @@
 function setMoney(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProductInput,idDisplayTotalProduct, action) {
-    let priceProduct = document.getElementById(idPriceProduct).value;
+    let priceProduct = Number(document.getElementById(idPriceProduct).value);
     console.log(priceProduct+1);
-    priceProduct = Number(priceProduct.toFixed(0));
+    priceProduct = Number(parseInt(priceProduct).toFixed(0));
 
-    let amountProduct = document.getElementById(idAmountProduct).value;
+    let amountProduct = Number(document.getElementById(idAmountProduct).value);
     // let amountProductBefore = amountProduct;
-    let totalProductBefore = document.getElementById(idTotalProduct).value;
-    totalProductBefore =Number( totalProduct.toFixed(0));
+    let totalProductBefore = Number(document.getElementById(idTotalProduct).value);
+    totalProductBefore =Number( parseInt(totalProductBefore).toFixed(0));
     let totalProductAfter=0;
-    let totalBillBefore = document.getElementById("totalCache").value;
-    totalBillBefore = Number(totalBillBefore.toFixed(0));
+    let totalBillBefore = Number(document.getElementById("totalCache").value);
+    totalBillBefore = Number(parseInt(totalBillBefore).toFixed(0));
     totalBillBefore -= totalProductBefore;
     let totalBillAfter=0;
     switch (action) {
@@ -24,12 +24,12 @@ function setMoney(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProdu
                 amountProduct = 1;
             break;
         case "input":
-            let amountProductInput = document.getElementById(idAmountProductInput).value;
+            let amountProductInput = Number(document.getElementById(idAmountProductInput).value);
             amountProduct = amountProductInput;
             break;
     }
     totalProductAfter=priceProduct*amountProduct;
-    totalProductAfter=Number(totalProductAfter.toFixed(0));
+    totalProductAfter=Number(parseInt(totalProductAfter).toFixed(0));
     totalBillAfter=totalBillBefore+totalProductAfter;
 
     document.getElementById(idAmountProductInput).value=amountProduct;
