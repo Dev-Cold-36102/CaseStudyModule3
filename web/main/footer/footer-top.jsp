@@ -13,8 +13,8 @@
 <body>
 <div class="container-fluid">
     <div class="col-xs-8 agile-leftmk">
-        <h2>Get your Groceries delivered from local stores</h2>
-        <p>Free Delivery on your first order!</p>
+        <h2>Nhận hàng tạp hóa của bạn được giao từ các cửa hàng địa phương</h2>
+        <p>Giao hàng miễn phí cho đơn hàng đầu tiên của bạn!</p>
         <form action="#" method="post">
             <input type="email" placeholder="E-mail" name="email" required="">
             <input type="submit" value="Subscribe">

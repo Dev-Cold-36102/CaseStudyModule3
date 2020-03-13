@@ -14,10 +14,8 @@
 <div class="container">
     <!-- footer first section -->
     <p class="footer-main">
-        <span>"Grocery Shoppy"</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-        magni dolores eos qui ratione voluptatem sequi nesciunt.Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-        beatae vitae dicta sunt explicabo.</p>
+        <span>"CodeGym"</span> “Hiền tài là nguyên khí của quốc gia, nguyên khí thịnh thì thế nước mạnh, rồi lên cao, nguyên khí suy thì thế nước yếu, rồi xuống thấp”. Quả thật, sự trường tồn của một quốc gia nằm ở chính tài năng của mỗi người trong quốc gia đó.
+    </p>
     <!-- //footer first section -->
     <!-- footer second section -->
     <div class="w3l-grids-footer">
@@ -26,7 +24,7 @@
                 <span class="fa fa-map-marker" aria-hidden="true"></span>
             </div>
             <div class="col-xs-8 text-form-footer">
-                <h3>Track Your Order</h3>
+                <h3>Theo dõi đơn hàng của bạn</h3>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -35,7 +33,7 @@
                 <span class="fa fa-refresh" aria-hidden="true"></span>
             </div>
             <div class="col-xs-8 text-form-footer">
-                <h3>Free & Easy Returns</h3>
+                <h3>Trả lại miễn phí và dễ dàng</h3>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -44,7 +42,7 @@
                 <span class="fa fa-times" aria-hidden="true"></span>
             </div>
             <div class="col-xs-8 text-form-footer">
-                <h3>Online cancellation </h3>
+                <h3>Hủy trực tuyến </h3>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -59,44 +57,44 @@
                 <h3>Categories</h3>
                 <ul>
                     <li>
-                        <a href="product.jsp">Grocery</a>
+                        <a href="main/product.jsp">Grocery</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Fruits</a>
+                        <a href="main/product.jsp">Fruits</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Soft Drinks</a>
+                        <a href="main/product.jsp">Soft Drinks</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Dishwashers</a>
+                        <a href="main/product2.jsp">Dishwashers</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Biscuits & Cookies</a>
+                        <a href="main/product.jsp">Biscuits & Cookies</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Baby Diapers</a>
+                        <a href="main/product2.jsp">Baby Diapers</a>
                     </li>
                 </ul>
             </div>
             <div class="col-xs-6 footer-grids agile-secomk">
                 <ul>
                     <li>
-                        <a href="product.jsp">Snacks & Beverages</a>
+                        <a href="main/product.jsp">Snacks & Beverages</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Bread & Bakery</a>
+                        <a href="main/product.jsp">Bread & Bakery</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Sweets</a>
+                        <a href="main/product.jsp">Sweets</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Chocolates & Biscuits</a>
+                        <a href="main/product.jsp">Chocolates & Biscuits</a>
                     </li>
                     <li>
-                        <a href="product2.jsp">Personal Care</a>
+                        <a href="main/product2.jsp">Personal Care</a>
                     </li>
                     <li>
-                        <a href="product.jsp">Dried Fruits & Nuts</a>
+                        <a href="main/product.jsp">Dried Fruits & Nuts</a>
                     </li>
                 </ul>
             </div>
@@ -132,11 +130,11 @@
                 <h3>Get in Touch</h3>
                 <ul>
                     <li>
-                        <i class="fa fa-map-marker"></i> 123 Sebastian, USA.</li>
+                        <i class="fa fa-map-marker"></i> 23 Hàm Nghi CodeGym , VN.</li>
                     <li>
-                        <i class="fa fa-mobile"></i> 333 222 3333 </li>
+                        <i class="fa fa-mobile"></i> 096 6807 709  </li>
                     <li>
-                        <i class="fa fa-phone"></i> +222 11 4444 </li>
+                        <i class="fa fa-phone"></i> 097 9337 789 </li>
                     <li>
                         <i class="fa fa-envelope-o"></i>
                         <a href="mailto:example@mail.com"> mail@example.com</a>
@@ -185,121 +183,127 @@
     <!-- footer fourth section (text) -->
     <div class="agile-sometext">
         <div class="sub-some">
-            <h5>Online Grocery Shopping</h5>
-            <p>Order online. All your favourite products from the low price online supermarket for grocery home delivery in Delhi,
-                Gurgaon, Bengaluru, Mumbai and other cities in India. Lowest prices guaranteed on Patanjali, Aashirvaad, Pampers, Maggi,
-                Saffola, Huggies, Fortune, Nestle, Amul, MamyPoko Pants, Surf Excel, Ariel, Vim, Haldiram's and others.</p>
+            <h5>Mua sắm tạp hóa trực tuyến</h5>
+            <p>Ta thường tới bữa quên ăn, nửa đêm vỗ gối, ruột đau như
+                cắt, nước mắt đầm đìa; chỉ giận chưa thể xả thịt, lột da, ăn
+                gan, uống máu quân thù; dẫu cho trăm thân ta phơi ngoài
+                nội cỏ, nghìn thây ta bọc trong da ngựa, cũng nguyện xin
+                làm.
+            </p>
         </div>
         <div class="sub-some">
-            <h5>Shop online with the best deals & offers</h5>
-            <p>Now Get Upto 40% Off On Everyday Essential Products Shown On The Offer Page. The range includes Grocery, Personal Care,
-                Baby Care, Pet Supplies, Healthcare and Other Daily Need Products. Discount May Vary From Product To Product.</p>
+            <h5>Mua sắm trực tuyến với các ưu đãi và ưu đãi tốt nhất</h5>
+            <p>Ta thường nghe: Kỷ Tín đem mình chết thay, cứu thoát cho
+                Cao Đế; Do Vu chìa lưng chịu giáo, che chở cho Chiêu
+                Vương; Dự Nhượng nuốt than, báo thù cho chủ; Thân
+                Khoái chặt tay để cứu nạn cho nước.
+            </p>
         </div>
         <!-- brands -->
         <div class="sub-some">
             <h5>Popular Brands</h5>
             <ul>
                 <li>
-                    <a href="product.jsp">Aashirvaad</a>
+                    <a href="main/product.jsp">Aashirvaad</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Amul</a>
+                    <a href="main/product.jsp">Amul</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Bingo</a>
+                    <a href="main/product.jsp">Bingo</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Boost</a>
+                    <a href="main/product.jsp">Boost</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Durex</a>
+                    <a href="main/product.jsp">Durex</a>
                 </li>
                 <li>
-                    <a href="product.jsp"> Maggi</a>
+                    <a href="main/product.jsp"> Maggi</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Glucon-D</a>
+                    <a href="main/product.jsp">Glucon-D</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Horlicks</a>
+                    <a href="main/product.jsp">Horlicks</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Head & Shoulders</a>
+                    <a href="main/product2.jsp">Head & Shoulders</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Dove</a>
+                    <a href="main/product2.jsp">Dove</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Dettol</a>
+                    <a href="main/product2.jsp">Dettol</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Dabur</a>
+                    <a href="main/product2.jsp">Dabur</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Colgate</a>
+                    <a href="main/product2.jsp">Colgate</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Coca-Cola</a>
+                    <a href="main/product.jsp">Coca-Cola</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Closeup</a>
+                    <a href="main/product2.jsp">Closeup</a>
                 </li>
                 <li>
-                    <a href="product2.jsp"> Cinthol</a>
+                    <a href="main/product2.jsp"> Cinthol</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Cadbury</a>
+                    <a href="main/product.jsp">Cadbury</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Bru</a>
+                    <a href="main/product.jsp">Bru</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Bournvita</a>
+                    <a href="main/product.jsp">Bournvita</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Tang</a>
+                    <a href="main/product.jsp">Tang</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Pears</a>
+                    <a href="main/product.jsp">Pears</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Oreo</a>
+                    <a href="main/product.jsp">Oreo</a>
                 </li>
                 <li>
-                    <a href="product.jsp"> Taj Mahal</a>
+                    <a href="main/product.jsp"> Taj Mahal</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Sprite</a>
+                    <a href="main/product.jsp">Sprite</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Thums Up</a>
+                    <a href="main/product.jsp">Thums Up</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Fair & Lovely</a>
+                    <a href="main/product2.jsp">Fair & Lovely</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Lakme</a>
+                    <a href="main/product2.jsp">Lakme</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Tata</a>
+                    <a href="main/product.jsp">Tata</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Sunfeast</a>
+                    <a href="main/product2.jsp">Sunfeast</a>
                 </li>
                 <li>
-                    <a href="product2.jsp">Sunsilk</a>
+                    <a href="main/product2.jsp">Sunsilk</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Patanjali</a>
+                    <a href="main/product.jsp">Patanjali</a>
                 </li>
                 <li>
-                    <a href="product.jsp">MTR</a>
+                    <a href="main/product.jsp">MTR</a>
                 </li>
                 <li>
-                    <a href="product.jsp">Kissan</a>
+                    <a href="main/product.jsp">Kissan</a>
                 </li>
                 <li>
-                    <a href="product2.jsp"> Lipton</a>
+                    <a href="main/product2.jsp"> Lipton</a>
                 </li>
             </ul>
         </div>
