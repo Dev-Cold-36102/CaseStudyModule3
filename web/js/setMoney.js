@@ -1,33 +1,42 @@
-function setMoney(idPrice, idAmountReal, idAmountHidden, idTotal, action) {
-    let price = Number(document.getElementById(idPrice).value);
-    let amount = Number(document.getElementById(idAmountHidden).value);
-    let amountBefore = amount;
-    let totalBefore = Number(document.getElementById("total").value);
+function setMoney(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProductInput,idDisplayTotalProduct, action) {
+    let priceProduct = document.getElementById(idPriceProduct).value;
+    console.log(priceProduct+1);
+    priceProduct = Number(priceProduct.toFixed(0));
+
+    let amountProduct = document.getElementById(idAmountProduct).value;
+    // let amountProductBefore = amountProduct;
+    let totalProductBefore = document.getElementById(idTotalProduct).value;
+    totalProductBefore =Number( totalProduct.toFixed(0));
+    let totalProductAfter=0;
+    let totalBillBefore = document.getElementById("totalCache").value;
+    totalBillBefore = Number(totalBillBefore.toFixed(0));
+    totalBillBefore -= totalProductBefore;
+    let totalBillAfter=0;
     switch (action) {
         case "+":
-            amount += 1;
+            amountProduct += 1;
+            if (amountProduct > 20)
+                amountProduct = 20;
             break;
         case "-":
-            amount -= 1;
-            if (amount == 0) {
-                amount = 1;
-            }
+            amountProduct -= 1;
+            if (amountProduct < 1)
+                amountProduct = 1;
             break;
         case "input":
-            let amountAfter = Number(document.getElementById(idAmountReal).value);
-            amount = amountAfter;
+            let amountProductInput = document.getElementById(idAmountProductInput).value;
+            amountProduct = amountProductInput;
             break;
     }
-    if (amount > 20) {
-        amount = 20;
-        // document.getElementById(idAmount).value = amount;
-    }
-    let amountChange = amount - amountBefore;
-    totalBefore += price * amountChange;
-    document.getElementById(idAmountReal).value = amount;
-    document.getElementById(idAmountHidden).value = amount;
-    document.getElementById("total").value = totalBefore;
-    let total = amount * price;
-    document.getElementById(idTotal).innerHTML = total + " VND";
-    document.getElementById("totalBill").innerHTML = "Tạm Tính: " + totalBefore + " VND";
+    totalProductAfter=priceProduct*amountProduct;
+    totalProductAfter=Number(totalProductAfter.toFixed(0));
+    totalBillAfter=totalBillBefore+totalProductAfter;
+
+    document.getElementById(idAmountProductInput).value=amountProduct;
+    document.getElementById(idTotalProduct).value=totalProductAfter;
+    document.getElementById(idAmountProduct).value=amountProduct;
+    document.getElementById("totalCache").value=totalBillAfter;
+    document.getElementById(idDisplayTotalProduct).innerHTML= totalProductAfter +" VND";
+    document.getElementById("totalBill").innerHTML= "Tạm Tính: "+totalBillAfter +" VND";
+
 }

@@ -10,6 +10,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
     <title>hoàng ăn cứt | Checkout :: w3layouts</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
+
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
@@ -792,34 +798,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>
                                 <div align="center" style="padding-left: 10px">
                                     <div class="entry value-minus" style="float: left"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','amount${slNo}','${slNo}','-')">
+                                         onclick="setMoney('priceProduct${slNo}','amountProduct${slNo}','totalProduct${slNo}','amountProductInput${slNo}','${slNo}','-')">
                                         <p>-</p>
                                     </div>
                                     <div style="float: left">
-                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','amount${slNo}','${slNo}','input')"
+                                        <input oninput="setMoney('priceProduct${slNo}','amountProduct${slNo}','totalProduct${slNo}','amountProductInput${slNo}','${slNo}','input')"
                                                style="width: 85px;height: 40px; text-align: center" type="number"
-                                               max="20" min="1" id="amount${product.getProductName()}"
+                                               max="20" min="1" id="amountProductInput${slNo}"
                                                value="${product.getAmountProduct()}"/><!--get amount of product-->
                                     </div>
                                     <div class="entry value-plus active" style="float: right"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','amount${slNo}','${slNo}','+')">
+                                         onclick="setMoney('priceProduct${slNo}','amountProduct${slNo}','totalProduct${slNo}','amountProductInput${slNo}','${slNo}','+')">
                                         <p>+</p>
                                     </div>
                                 </div>
                             </td>
                             <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
-                            <input id="price${product.getProductName()}"
-                                   value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
-                                   class="hidden"/> <!-- get price-->
-                            <input id="amount${slNo}"
-                                   value="${product.getAmountProduct()}"
-                                   class="hidden"/>
-                            <input id="total${slNo}"
-                                   value="${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"
-                                   class="hidden"/> <!-- get total of product-->
-                            <input id="total"
-                                   value="${total}"
-                                   class="hidden"/> <!-- get total of bill-->
                             <td class="invert"
                                 id="${slNo}">${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}
                                 VND
@@ -830,10 +824,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </td>
                         </tr>
+                        <input id="priceProduct${slNo}" value="${product.getPriceProductOut()}"
+                               class="hidden"> <!--get price of product-->
+                        <input id="amountProduct${slNo}" value="${product.getAmountProduct()}"
+                               class="hidden"> <!--get amount of product-->
+                        <input id="totalProduct${slNo}"
+                               value="${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                               class="hidden"> <!--get total of product-->
                     </c:forEach>
                     </tbody>
                 </table>
                 <div id="totalBill" align="right">Tạm Tính: ${total} VND</div> <!-- total bill-->
+                <input id="totalCache" value="${total}" class="hidden"> <!--get totol before changing -->
             </div>
         </div>
         <div class="checkout-left">
@@ -1362,6 +1364,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         document.getElementById("password1").onchange = validatePassword;
         document.getElementById("password2").onchange = validatePassword;
     }
+
     function validatePassword() {
         var pass2 = document.getElementById("password2").value;
         var pass1 = document.getElementById("password1").value;
