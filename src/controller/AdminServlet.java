@@ -29,6 +29,12 @@ public class AdminServlet extends HttpServlet {
              case "addProduct":
                  addProduct(request,response);
                  break;
+             case "repairProduct":repairProduct(response,request);
+                 break;
+             case "deleteProduct":
+                 break;
+             case "searchProduct": showValueOfSearch(request,response);
+                 break;
          }
         }
 
@@ -69,10 +75,11 @@ public class AdminServlet extends HttpServlet {
                     break;
                 case "addProduct":showFormAddProduct(request,response);
                     break;
-                case "repairProduct":
+                case "repairProduct":showFormEdit(request,response);
                     break;
                 case "deleteProduct":
                     break;
+                case "searchProduct":showFormSearch(request,response);
                 default:
                     String productType = "đồ cho trẻ";
                     List<Product> productList = productService.productList(productType);
@@ -94,8 +101,6 @@ public class AdminServlet extends HttpServlet {
         private void action1(HttpServletRequest request,HttpServletResponse response,String productType) throws ServletException, IOException {
             List<Product> list=productService.list1(productType);
             request.setAttribute("productType",productType);
-            System.out.println(productType);
-            System.out.println(list.size());
             request.setAttribute("list",list);
             String productType3 = "đồ dùng cá nhân";
             List<Product> hotProduct = productService.productListHot(productType3);
@@ -120,17 +125,58 @@ public class AdminServlet extends HttpServlet {
           int sale=Integer.parseInt(request.getParameter("sale"));
           String hansudung=request.getParameter("hansudung");
           String image=request.getParameter("image");
-          Product newProduct=new Product(productName,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale);
-          if (productService.checkNameProduct(newProduct)){
-              productService.additionProduct(newProduct);
+          String productCode=request.getParameter("productCode");
+          Product newProduct=new Product(productName,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale,productCode);
+          if (productService.checkDuplicateProductCode(productCode)){
+              request.setAttribute("message","Mã Sản Phẩm bị trùng. Vui lòng kiểm tra lại!!!! ");
               RequestDispatcher dispatcher=request.getRequestDispatcher("admin/addProduct.jsp");
               dispatcher.forward(request,response);
           }else {
           productService.addNewProduct(newProduct);
+          request.setAttribute("message","Sản Phẩm Đã Thêm Thành Công!!!");
           RequestDispatcher dispatcher=request.getRequestDispatcher("admin/addProduct.jsp");
           dispatcher.forward(request,response);
           }
 
+        }
+        private void showFormSearch(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/searchProduct.jsp");
+            dispatcher.forward(request,response);
+        }
+        private void showValueOfSearch(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+            String productCode=request.getParameter("productCode");
+            String newProductCode="%"+productCode+"%";
+            List<Product> listSearch=productService.FindByCode(newProductCode);
+            request.setAttribute("listSearch",listSearch);
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/showListSearch.jsp");
+            dispatcher.forward(request,response);
+
+        }
+        private void showFormEdit(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+           String productCode=request.getParameter("productCode");
+            Product product= productService.findByProductCode(productCode);
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
+            request.setAttribute("product",product);
+            dispatcher.forward(request,response);
+        }
+        private void repairProduct(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
+            String productName=request.getParameter("name");
+            String productType=request.getParameter("productType");
+            String hangsx=request.getParameter("hangsx");
+            String xuatxu=request.getParameter("xuatxu");
+            int amount=Integer.parseInt(request.getParameter("amount"));
+            int priceIn=Integer.parseInt(request.getParameter("priceIn"));
+            int priceOut=Integer.parseInt(request.getParameter("priceOut"));
+            String mota=request.getParameter("motasp");
+            String describes=request.getParameter("describes");
+            int sale=Integer.parseInt(request.getParameter("sale"));
+            String hansudung=request.getParameter("hansudung");
+            String image=request.getParameter("image");
+            String productCode=request.getParameter("productCode");
+            Product newProduct=new Product(productName,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale,productCode);
+            productService.updateProduct(newProduct);
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
+            dispatcher.forward(request,response);
         }
 
 

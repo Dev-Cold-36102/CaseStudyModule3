@@ -14,6 +14,8 @@ public class Product {
     private String expirydate;
     private String motasp;
     private int discount;
+    private String productCode;
+
 
     public Product() {
     }
@@ -28,6 +30,43 @@ public class Product {
         this.amountProduct=amountProduct;
         this.discount=discount;
         this.motasp=describe;
+    }
+    public Product( String productName, String productType,
+                   String manufacturer, String placeOfProduct, int amountProduct,
+                   int priceProductIn, int priceProductOut, String describes,
+                   String image, String expirydate, String motasp, int discount,String productCode){
+        this.productName = productName;
+        this.productType = productType;
+        this.manufacturer = manufacturer;
+        this.placeOfProduct = placeOfProduct;
+        this.amountProduct = amountProduct;
+        this.priceProductIn = priceProductIn;
+        this.priceProductOut = priceProductOut;
+        this.describes = describes;
+        this.image = image;
+        this.expirydate = expirydate;
+        this.motasp=motasp;
+        this.discount=discount;
+        this.productCode=productCode;
+    }
+    public Product(int id, String productName, String productType,
+                    String manufacturer, String placeOfProduct, int amountProduct,
+                    int priceProductIn, int priceProductOut, String describes,
+                    String image, String expirydate, String motasp, int discount,String productCode){
+        this.productName = productName;
+        this.productType = productType;
+        this.manufacturer = manufacturer;
+        this.placeOfProduct = placeOfProduct;
+        this.amountProduct = amountProduct;
+        this.priceProductIn = priceProductIn;
+        this.priceProductOut = priceProductOut;
+        this.describes = describes;
+        this.image = image;
+        this.expirydate = expirydate;
+        this.motasp=motasp;
+        this.discount=discount;
+        this.productCode=productCode;
+        this.id=id;
     }
 
     public Product(int id, String productName, String productType,
@@ -178,5 +217,13 @@ public class Product {
 
     public void setExpirydate(String expirydate) {
         this.expirydate = expirydate;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 }

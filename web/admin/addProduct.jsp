@@ -795,7 +795,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="side-bar col-md-3">
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Tìm Kiếm..</h3>
-                <form action="/search" method="post">
+                <form action="/admin?action=search" method="post">
                     <input type="search" placeholder="Tên Sản Phẩm..." name="search" required="">
                     <input type="submit" value=" ">
                 </form>
@@ -871,6 +871,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         <div class="agileinfo-ads-display col-md-9">
+            <p>
+
+                <c:if test='${requestScope["message"] != null}'>
+                    <span style="color: red" class="message">${requestScope["message"]}</span>
+                </c:if>
+            </p>
             <form action="/admin?action=addProduct" method="post">
             <div>
                 <table style="border: 1px solid red">
@@ -917,8 +923,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <td><input type="text" name="image" placeholder="image"></td>
 
 
-                        <td style="background: #d8dcff">mô tả</td>
-                        <td><textarea name="describes" rows="7" placeholder="mo ta"></textarea></td>
+                        <td style="background: #d8dcff">Mã SP</td>
+                        <td><input name="productCode"  placeholder="productCode"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #d8dcff">Mô Tả</td>
+                        <td colspan="5"><textarea  name="motasp" placeholder="mô tả"></textarea></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -926,85 +936,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <td></td>
 
                         <td style="text-align: center"><input  type="submit" value="SAVE"></td>
-                        <td></td>
-                        <td></td>
-
                     </tr>
-
-
                 </table>
             </div>
             </form>
-
-<%--            <form action="/admin?action=addProduct" method="post">--%>
-<%--                <table style="text-align: center">--%>
-<%--                            <th>Hình Ảnh</th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="image" size="30"/>--%>
-<%--                            </td>--%>
-<%--                            <th>Tên </th>--%>
-<%--                            <td>--%>
-<%--                            <input type="text" name="name"  size="30"/>--%>
-<%--                            </td>--%>
-
-<%--                            <th>Nhóm </th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="productType"  size="30"/>--%>
-<%--                            </td>--%>
-<%--                </table>--%>
-<%--                <table style="text-align: center">--%>
-<%--                            <th>Hãng </th>--%>
-<%--                            <td >--%>
-<%--                            <input type="text" name="hangsx"  size="30"/>--%>
-<%--                            </td>--%>
-
-<%--                            <th>Xuất xứ</th>--%>
-<%--                            <td >--%>
-<%--                                <input type="text" name="xuatxu"  size="45"/>--%>
-<%--                            </td>--%>
-<%--                </table>--%>
-<%--                <table style="text-align: center">--%>
-<%--                            <th>Số Lượng</th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="amount" size="15"/>--%>
-<%--                            </td>--%>
-
-<%--                            <th>Giá Nhập</th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="priceIn" size="15"/>--%>
-<%--                            </td>--%>
-<%--                            <th>Giá Bán</th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="priceOut" size="15"/>--%>
-<%--                            </td>--%>
-<%--                            <th> Size</th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="motasp"  size="15"/>--%>
-<%--                            </td>--%>
-<%--                </table>--%>
-<%--                <table style="text-align: center">--%>
-<%--                            <th>Mô Tả </th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="describes" size="75">--%>
-<%--                            </td>--%>
-<%--                </table>--%>
-<%--                <table style="text-align: center">--%>
-<%--                            <th>Giảm Giá</th>--%>
-<%--                            <td >--%>
-<%--                                <input type="text" name="sale"  size="30"/>--%>
-<%--                            </td>--%>
-<%--                            <th>Hạn Sử Dụng</th>--%>
-<%--                            <td>--%>
-<%--                                <input type="text" name="hansudung" id="country" size="30"/>--%>
-<%--                            </td>--%>
-<%--                </table>--%>
-
-<%--                            <td align="center">--%>
-<%--                                <input type="submit" value="Save"/>--%>
-<%--                            </td>--%>
-
-<%--                </table>--%>
-<%--            </form>--%>
         </div>
     </div>
     </div>

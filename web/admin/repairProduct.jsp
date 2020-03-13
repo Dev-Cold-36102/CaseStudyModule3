@@ -39,7 +39,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- fonts -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 </head>
-
+<style>
+    table {
+        background: #fff6f4;
+        border-collapse: collapse;
+    }
+    td,tr {
+        border: 5px solid white;
+    }
+</style>
 <body>
 <!-- top-header -->
 <div class="header-most-top">
@@ -775,7 +783,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="ads-grid">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Thêm Sản Phẩm Mới !!!
+        <h3 class="tittle-w3l">Sửa Sản Phẩm !!!
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -787,7 +795,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="side-bar col-md-3">
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Tìm Kiếm..</h3>
-                <form action="/search" method="post">
+                <form action="/admin?action=search" method="post">
                     <input type="search" placeholder="Tên Sản Phẩm..." name="search" required="">
                     <input type="submit" value=" ">
                 </form>
@@ -862,90 +870,79 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </div>
         </div>
-        <table>
-            <form action="/admin?action=addProduct" method="post">
-                <ul>
-                    <li><tr>
-                        <th>Hình Ảnh Sản Phẩm</th>
-                        <td>
-                            <input type="text" name="image" size="35"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th><a>Tên Sản Phẩm</a></th>
-                        <td>
-                            <input type="text" name="name"  size="35"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Nhóm Sản Phẩm</th>
-                        <td>
-                            <input type="text" name="productType"  size="35"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Hãng Sản Xuất</th>
-                        <td>
-                            <input type="text" name="hangsx"  size="35"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Địa chỉ Sản Xuất</th>
-                        <td>
-                            <input type="text" name="xuatxu"  size="50"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Số Lượng Sản Phẩm</th>
-                        <td>
-                            <input type="text" name="amount" size="15"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Giá Nhập</th>
-                        <td>
-                            <input type="text" name="priceIn" size="15"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Giá Bán</th>
-                        <td>
-                            <input type="text" name="priceOut" size="15"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Ghi Chú Size Sản Phẩm</th>
-                        <td>
-                            <input type="text" name="motasp"  size="25"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Mô Tả </th>
-                        <td>
-                            <input type="text" name="describes" size="50" width="70%" height="250px"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Giảm Giá</th>
-                        <td>
-                            <input type="text" name="sale"  size="10"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <th>Hạn Sử Dụng</th>
-                        <td>
-                            <input type="text" name="hansudung" id="country" size="15"/>
-                        </td>
-                    </tr></li>
-                    <li><tr>
-                        <td colspan="4" align="center">
-                            <input type="submit" value="Save"/>
-                        </td>
-                    </tr></li>
-                </ul>
+        <div class="agileinfo-ads-display col-md-9">
+            <p>
+
+                <c:if test='${requestScope["message"] != null}'>
+                    <span style="color: red" class="message">${requestScope["message"]}</span>
+                </c:if>
+            </p>
+            <form action="/admin?action=repairProduct" method="post">
+                <div>
+                    <table style="border: 1px solid red">
+                        <tr>
+                            <td style="background: #d8dcff">Tên:</td>
+                            <td><input type="text" name="name" placeholder="productName"></td>
+
+                            <td style="background: #d8dcff">Nhóm:</td>
+                            <td><input type="text" name="productType" placeholder="productType"></td>
+
+                            <td style="background: #d8dcff">hãng:</td>
+                            <td><input type="text" name="hangsx" placeholder="hangsx"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="background: #d8dcff">Xuất xứ:</td>
+                            <td><input type="text" name="xuatxu" placeholder="địa chỉ sản xuất"></td>
+
+                            <td style="background: #d8dcff">số lượng:</td>
+                            <td><input type="number" name="amount" placeholder="amount"></td>
+
+                            <td style="background: #d8dcff">sale:</td>
+                            <td><input type="number" name="sale" placeholder="sale"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="background: #d8dcff">giá nhập:</td>
+                            <td><input type="number" name="priceIn" placeholder="priceIn"></td>
+
+                            <td style="background: #d8dcff">giá bán:</td>
+                            <td><input type="number" name="priceOut" placeholder="priceOut"></td>
+
+                            <td style="background: #d8dcff">Size:</td>
+                            <td><input type="text" name="motasp" placeholder=""></td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td style="background: #d8dcff">Hạn SD:</td>
+                            <td><input type="text" name="hansudung" placeholder="yyyy/mm/dd"></td>
+
+                            <td style="background: #d8dcff">Hình ảnh:</td>
+                            <td><input type="text" name="image" placeholder="image"></td>
+
+
+                            <td style="background: #d8dcff">Mã SP</td>
+                            <td><input name="productCode"  placeholder="productCode"></td>
+                        </tr>
+                        <tr>
+                            <td style="background: #d8dcff">Mô Tả</td>
+                            <td colspan="5"><textarea  name="motasp" placeholder="mô tả"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                            <td style="text-align: center"><input  type="submit" value="SAVE"></td>
+                        </tr>
+                    </table>
+                </div>
             </form>
-        </table>
+        </div>
     </div>
+</div>
 </div>
 
 <div class="footer-top">

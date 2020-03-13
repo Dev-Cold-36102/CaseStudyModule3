@@ -24,9 +24,12 @@ public class ProductService implements IproductService {
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
     private static final String check_userName_pass="select id,userName,pass,email from accounts where userName=?;";
     private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
-    private static final String ADD_NEW_PRODUCT="insert into products(productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung) values(?,?,?,?,?,?,?,?,?,?,?,?);";
+    private static final String ADD_NEW_PRODUCT="insert into products(productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung,productCode) values(?,?,?,?,?,?,?,?,?,?,?,?,?);";
     private static final String SELECT_AMOUNT_PRODUCT_BY_NAME="select amount from products where productName=?;";
-    private static final String Update_Amount_Product="update products set amount=? where productName=?;";
+    private static final String Update_Product="update products set productType=?,hangsx=?,xuatxu=?,amount=?,sale=?,priceIn=?,productName=?,mota=?,image=?,priceOut=?,describes=?,hansudung=?,productCode=? where productCode=?;";
+    private static final String SELECT_PRODUCT_BY_CODE="select * from products where productCode=?;";
+    private static final String Find_product_by_code="select * from products where productCode like ?;";
+    private static final String Find_product="select * from products where productCode=?;";
     Connection getConnection() {
         Connection connection = null;
         try {
@@ -223,66 +226,104 @@ public class ProductService implements IproductService {
         }
         return list;
    }
-   public boolean checkNameProduct(Product product){
-        boolean isCheckProduct=false;
-        Product product1;
-       try (Connection connection=getConnection();
-          PreparedStatement ps=connection.prepareStatement(SELECT_ALLINFO_PRODUCT)){
-           ps.setString(1,product.getProductName());
-           ResultSet rs=ps.executeQuery();
-           while (rs.next()){
-               String productType=rs.getString("productType");
-               String name=rs.getString("productName");
-               String image=rs.getString("image");
-               String hangsx=rs.getString("hangsx");
-               String xuatxu=rs.getString("xuatxu");
-               String mota=rs.getString("mota");
-               String describes=rs.getString("describes");
-               String hansudung=rs.getString("hansudung");
-               int amount=rs.getInt("amount");
-               int priceIn=rs.getInt("priceIn");
-               int priceOut=rs.getInt("priceOut");
-               int sale=rs.getInt("sale");
-               product1=new Product(name,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale);
-               if (product.getPriceProductIn()!=product1.getPriceProductIn()||product.getPriceProductOut()!=product1.getPriceProductOut()||
-                       product.getDiscount()!=product1.getDiscount()||!product.getManufacturer().equals(product1.getManufacturer())||
-                       !product.getPlaceOfProduct().equals(product1.getPlaceOfProduct())){
-                   isCheckProduct =false;
-               }
-               else {
-
-                   isCheckProduct=true;}
-           }
-
-       } catch (SQLException e) {
-           e.printStackTrace();
-       }
-       return isCheckProduct;
-   }
-   public void additionProduct(Product product){
-       int amount=0;
+   public boolean checkDuplicateProductCode(String productCode){
+        boolean isCheck=false;
         try (Connection connection=getConnection();
-        PreparedStatement ps=connection.prepareStatement(SELECT_AMOUNT_PRODUCT_BY_NAME)){
-            ps.setString(1,product.getProductName());
+        PreparedStatement ps=connection.prepareStatement(SELECT_PRODUCT_BY_CODE)){
+            ps.setString(1,productCode);
             ResultSet rs=ps.executeQuery();
             while (rs.next()){
-               amount= rs.getInt("amount");
-            }
-           int soluong= amount+product.getAmountProduct();
-            try (Connection connection1=getConnection();
-                 PreparedStatement ps1=connection1.prepareStatement(Update_Amount_Product)){
-                ps1.setInt(1,soluong);
-                ps1.setString(2,product.getProductName());
-                ps1.executeQuery();
-            }catch (SQLException e){
-                e.printStackTrace();
+                isCheck=true;
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+       return isCheck;
    }
+   public List<Product> FindByCode(String productCode){
+        List<Product> listProductByCode=new ArrayList<>();
+        try(Connection connection=getConnection();
+           PreparedStatement ps=connection.prepareStatement(Find_product_by_code);) {
+            ps.setString(1,productCode);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                String name = rs.getString("productName");
+                String image = rs.getString("image");
+                String manufacturer = rs.getString("hangsx");
+                String placeOfProduct = rs.getString("xuatxu");
+                int amountProduct =rs.getInt("amount");
+                int priceProductIn =rs.getInt("priceIn") ;
+                int priceProductOut =rs.getInt("priceOut") ;
+                String describes = rs.getString("describes");
+                String expirydate = rs.getString("hansudung");
+                String motasp = rs.getString("mota");
+                int discount =rs.getInt("sale");
+                String productType=rs.getString("productType");
+                listProductByCode.add(new Product(name,productType,manufacturer,placeOfProduct,amountProduct,priceProductIn,
+                        priceProductOut,describes,image,expirydate,motasp,discount,productCode));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listProductByCode;
+   }
+   public Product findByProductCode(String productCode) {
+       Product product = null;
+       try (Connection connection = getConnection();
+            PreparedStatement ps = connection.prepareStatement(Find_product);
+       ) {
+           ps.setString(1, productCode);
+           ResultSet rs = ps.executeQuery();
+           while (rs.next()) {
+               String name = rs.getString("productName");
+               String image = rs.getString("image");
+               String manufacturer = rs.getString("hangsx");
+               String placeOfProduct = rs.getString("xuatxu");
+               int amountProduct = rs.getInt("amount");
+               int priceProductIn = rs.getInt("priceIn");
+               int priceProductOut = rs.getInt("priceOut");
+               String describes = rs.getString("describes");
+               String expirydate = rs.getString("hansudung");
+               String motasp = rs.getString("mota");
+               int discount = rs.getInt("sale");
+               int id=rs.getInt("id");
+               String productType = rs.getString("productType");
+               product = new Product(id,name, productType, manufacturer, placeOfProduct, amountProduct, priceProductIn,
+                       priceProductOut, describes, image, expirydate, motasp, discount, productCode);
+           }
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+       return product;
+   }
+       public boolean updateProduct(Product product){
+        boolean rowUpdate=false;
+        try(Connection connection=getConnection();
+        PreparedStatement ps=connection.prepareStatement(Update_Product)) {
+            ps.setString(1,product.getProductType());
+            ps.setString(2,product.getManufacturer());
+            ps.setString(3,product.getPlaceOfProduct());
+            ps.setInt(4,product.getAmountProduct());
+            ps.setInt(5,product.getDiscount());
+            ps.setInt(6,product.getPriceProductIn());
+            ps.setString(7,product.getProductName());
+            ps.setString(8,product.getMotasp());
+            ps.setString(9,product.getImage());
+            ps.setInt(10,product.getPriceProductOut());
+            ps.setString(11,product.getDescribes());
+            ps.setString(12,product.getExpirydate());
+            ps.setString(13,product.getProductCode());
+            ps.setInt(14,product.getId());
+             rowUpdate=ps.executeUpdate()>0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowUpdate;
+   }
+
+
    public void addNewProduct(Product product){
         try(Connection connection=getConnection();
             PreparedStatement ps=connection.prepareStatement(ADD_NEW_PRODUCT);
@@ -299,6 +340,7 @@ public class ProductService implements IproductService {
             ps.setInt(10,product.getPriceProductOut());
             ps.setString(11,product.getDescribes());
             ps.setString(12,product.getExpirydate());
+            ps.setString(13,product.getProductCode());
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();

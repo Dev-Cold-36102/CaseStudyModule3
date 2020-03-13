@@ -800,7 +800,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="side-bar col-md-3">
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Tìm Kiếm..</h3>
-                <form action="/search" method="post">
+                <form action="/admin?action=searchProduct" method="post">
                     <input type="search" placeholder="Tên Sản Phẩm..." name="search" required="">
                     <input type="submit" value=" ">
                 </form>
@@ -812,10 +812,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="/admin?action=addProduct">Thêm Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href="/admin?action=repairProduct">Sửa Sản Phẩm</a>
+                        <a href="/admin?action=searchProduct">Sửa Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href="/admin?action=deleteProduct">Xóa Sản Phẩm</a>
+                        <a href="/admin?action=searchProduct">Xóa Sản Phẩm</a>
                     </li>
                 </ul>
             </div>
