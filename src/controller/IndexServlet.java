@@ -13,19 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @WebServlet(name = "IndexServlet", urlPatterns = "/home")
 public class IndexServlet extends HttpServlet {
     private ProductService productService;
-    protected static List<Product> listAddToCart = new ArrayList<>();
-
     public void init() {
         productService = new ProductService();
     }
+    protected static List<Product> listAddToCart = new ArrayList<>();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
-
         String productType = "đồ cho trẻ";
         List<Product> productList = productService.productList(productType);
         request.setAttribute("productList", productList);
@@ -38,29 +37,28 @@ public class IndexServlet extends HttpServlet {
         String productType3 = "đồ dùng cá nhân";
         List<Product> hotProduct = productService.productListHot(productType3);
         request.setAttribute("hotProduct", hotProduct);
-
+        RequestDispatcher dispatcher = request.getRequestDispatcher("main/index.jsp");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
         }
         switch (action) {
             case "search":
-                String nameProductSearch = request.getParameter("Search");
                 break;
             case "signup":
-                System.out.println("sign up");
-                String userName = request.getParameter("name");
-                String password = request.getParameter("password");
-                String email = request.getParameter("email");
-                System.out.println(userName + " " + password + " " + email);
-                if (productService.checkUserName(userName)) {
-                    System.out.println("tai khoan da ton tai");
-                    request.setAttribute("message", "Tai khoan da ton tai");
-                } else {
-                    User userNew = new User(userName, password, email);
-                    productService.insertUser(userNew);
-                    request.setAttribute("message", "Dang ky thanh cong");
-                }
+//                System.out.println("sign up");
+//                String userName = request.getParameter("name");
+//                String password = request.getParameter("password");
+//                String email = request.getParameter("email");
+//                System.out.println(userName + " " + password + " " + email);
+//                if (productService.checkUserName(userName)) {
+//                    System.out.println("tai khoan da ton tai");
+//                    request.setAttribute("message", "Tai khoan da ton tai");
+//                } else {
+//                    User userNew = new User(userName, password, email);
+//                    productService.insertUser(userNew);
+//                    request.setAttribute("message", "Dang ky thanh cong");
+//                }
 
                 break;
             case "checkout":
@@ -90,31 +88,38 @@ public class IndexServlet extends HttpServlet {
         switch (action) {
             case "docanhan":
                 String productType4="Đồ Dùng Cá Nhân";
-                action1(request, response,productType4);
+                List<Product> list=productService.list1(productType4);
+                action1(request, response,productType4,list);
                 break;
             case "donoithat":
                 String productType5="Đồ Nội Thất";
-                action1(request,response,productType5);
+                List<Product> list1=productService.list1(productType5);
+                action1(request,response,productType5,list1);
                 break;
             case "quatang":
                 String productType6="Quà Tặng";
-                action1(request,response,productType6);
+                List<Product> list2=productService.list1(productType6);
+                action1(request,response,productType6,list2);
                 break;
             case "bim":
                 String productType7="đồ cho trẻ";
-                action1(request,response,productType7);
+                List<Product> list3=productService.list1(productType7);
+                action1(request,response,productType7,list3);
                 break;
             case "banhkeo":
                 String productType8="bánh kẹo";
-                action1(request,response,productType8);
+                List<Product> list4=productService.list1(productType8);
+                action1(request,response,productType8,list4);
                 break;
             case "doan":
                 String productType9="đồ ăn";
-                action1(request,response,productType9);
+                List<Product> list5=productService.list1(productType9);
+                action1(request,response,productType9,list5);
                 break;
             case "douong":
                 String productType10="đồ uống";
-                action1(request,response,productType10);
+                List<Product> list6=productService.list1(productType10);
+                action1(request,response,productType10,list6);
                 break;
             default:
                 String productType = "đồ cho trẻ";
@@ -138,8 +143,7 @@ public class IndexServlet extends HttpServlet {
     private void search(HttpServletRequest request, HttpServletResponse response) {
 //        String productSearch
     }
-    private void action1(HttpServletRequest request,HttpServletResponse response,String productType) throws ServletException, IOException {
-        List<Product> list=productService.list1(productType);
+    private void action1(HttpServletRequest request,HttpServletResponse response,String productType, List<Product> list) throws ServletException, IOException {
         request.setAttribute("productType",productType);
         System.out.println(productType);
         System.out.println(list.size());
@@ -147,7 +151,7 @@ public class IndexServlet extends HttpServlet {
         String productType3 = "đồ dùng cá nhân";
         List<Product> hotProduct = productService.productListHot(productType3);
         request.setAttribute("hotProduct", hotProduct);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("searchTab/gd1.jsp");
+        RequestDispatcher dispatcher=request.getRequestDispatcher("searchTab/displayProduct.jsp");
         dispatcher.forward(request,response);
     }
 

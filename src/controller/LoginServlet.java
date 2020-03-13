@@ -17,18 +17,21 @@ import java.util.List;
 @WebServlet(name = "LoginServlet",urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     private ProductService productService;
+
     public void init() {
         productService = new ProductService();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
         String name=request.getParameter("userName");
         String password=request.getParameter("password");
-        RequestDispatcher dispatcher;
         System.out.println(name + " " + password );
         User user=productService.getUserName_Pass(name);
         String userName=user.getUserName();
         String pass=user.getPassword();
         System.out.println(userName+" "+pass);
+        RequestDispatcher dispatcher;
+
         if (name.equals(userName) && password.equals(pass)){
 //            request.setAttribute("user",user);
             HttpSession session = request.getSession();
@@ -45,6 +48,7 @@ public class LoginServlet extends HttpServlet {
             String productType2 = "đồ ăn";
             List<Product> foodList = productService.productList(productType2);
             request.setAttribute("foodList", foodList);
+
             dispatcher=request.getRequestDispatcher("user/indexuser.jsp");
             dispatcher.forward(request,response);
         }else {
