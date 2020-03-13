@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </p>
                     <form action="/login" method="post">
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="User Name" name="name" required="">
+                            <input type="text" placeholder="User Name" name="userName" required="">
                         </div>
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" required="">
