@@ -828,7 +828,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td class="invert">
                                 <div class="rem">
                                     <form action="/checkout?action=remove" method="post">
-                                    <input type="submit" class="close${slNo}"  name="remove" value="${product.getProductName()}">
+                                    <input type="submit" class="close${slNo}"  name="remove" value="${product.getProductName()}" >
                                     </form>
                                 </div>
                             </td>
@@ -1296,7 +1296,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //popup modal (for signin & signup)-->
 
 <!-- cart-js -->
-<script src="../js/minicart.js"></script>
+<%--<script src="../js/minicart.js"></script>--%>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
     paypalm.minicartk.cart.on('checkout', function (evt) {

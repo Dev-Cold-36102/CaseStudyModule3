@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
                 <li>
 <%--                    <a href="#" data-toggle="modal" data-target="#myModal1">--%>
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span>${} </a>
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> </a>
                 </li>
                 <li>
                     <a href="/home" data-toggle="modal" data-target="#myModal2">
