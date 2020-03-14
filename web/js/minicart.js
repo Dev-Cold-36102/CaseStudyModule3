@@ -11,7 +11,7 @@
 // ;(function e(t, n, r) {
 //     function s(o, u) {
 //         if (!n[o]) {
-//             if (!t[o]) {
+//             if (!t[o])
 //                 var a = typeof require == "function" && require;
 //                 if (!u && a) return a(o, !0);
 //                 if (i) return i(o, !0);
@@ -1817,10 +1817,10 @@
 //          * @return {number|string}
 //          */
 //         Cart.prototype.discount = function discount(config) {
-//             var result = parseInt(this.settings('discount_amount_cart')) || 0;
+//             var result = parseFloat(this.settings('discount_amount_cart')) || 0;
 //
 //             if (!result) {
-//                 result = (parseInt(this.settings('discount_rate_cart')) || 0) * this.subtotal() / 100;
+//                 result = (parseFloat(this.settings('discount_rate_cart')) || 0) * this.subtotal() / 100;
 //             }
 //
 //             config = config || {};
@@ -1959,7 +1959,7 @@
 //
 //             parent: (typeof document !== 'undefined') ? document.body : null,
 //
-//             action: '/home?action=checkout',
+//             action: '/checkout',
 //
 //             target: '',
 //

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IproductService {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/databaseweb?characterEncoding=UTF-8";
     private String jdbcUsername = "root";
     private String jdbcPassword = "12345@Abc";
     private static final String SELECT_USER_BY_ID = "select id,uname,email,country from users where id =?";
@@ -24,6 +24,9 @@ public class ProductService implements IproductService {
     private static final String SELECT_PRODUCT_BY_TYPE = "select id,productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung from products where productType=?;";
     private static final String check_userName_pass="select id,userName,pass,email from accounts where userName=?;";
     private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
+    private  static final String getProductName="select * from products where productName like ?;";
+    private static final String select_all_product="select * from products;";
+    private static final String SELECT_ALLINFO_PRODUCT="select productName,describes,image,priceIn,priceOut,sale from products where productName=?";
     Connection getConnection() {
         Connection connection = null;
         try {
@@ -38,6 +41,55 @@ public class ProductService implements IproductService {
             e.printStackTrace();
         }
         return connection;
+    }
+    public List<Product> getAllProductByName(String productName ){
+        List<Product> listProduct=new ArrayList<>();
+        try(Connection connection=getConnection();
+            PreparedStatement ps=connection.prepareStatement(getProductName);
+
+        ){
+            ps.setString(1, productName);
+            System.out.println(getProductName);
+            ResultSet resultSet=ps.executeQuery();
+            while (resultSet.next()){
+                int id =Integer.parseInt(String.valueOf(resultSet.getInt("id"))) ;
+                String name = resultSet.getString("productName");
+                String productType = resultSet.getString("productType");
+                String image = resultSet.getString("image");
+                String manufacturer = resultSet.getString("hangsx");
+                String placeOfProduct = resultSet.getString("xuatxu");
+                int amountProduct =Integer.parseInt(String.valueOf(resultSet.getInt("amount"))) ;
+                int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn"))) ;
+                int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut"))) ;
+                String describes = resultSet.getString("describes");
+                String expirydate = resultSet.getString("hansudung");
+                String motasp = resultSet.getString("mota");
+                System.out.println(expirydate);
+                int discount =Integer.parseInt(String.valueOf(resultSet.getInt("sale"))) ;
+                System.out.println(name+image);
+                listProduct.add(new Product(id, name, productType, manufacturer
+                        , placeOfProduct, amountProduct, priceProductIn, priceProductOut,
+                        describes, image, expirydate, motasp, discount));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listProduct;
+    }
+    public List<String>getlistProductName() {
+        List<String> listProDuctName = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(getProductName)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String productName = resultSet.getString("productName");
+                listProDuctName.add(productName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listProDuctName;
     }
 
     public List<Product> productList(String productType) {
@@ -219,4 +271,24 @@ public class ProductService implements IproductService {
         }
         return list;
    }
+    public Product selectProduct( String productName) {
+        Product product=null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALLINFO_PRODUCT)) {
+            preparedStatement.setString(1, productName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("productName");
+                String image = resultSet.getString("image");
+                int priceProductIn =Integer.parseInt(String.valueOf(resultSet.getInt("priceIn")));
+                int priceProductOut =Integer.parseInt(String.valueOf(resultSet.getInt("priceOut")));
+                int discount =resultSet.getInt("sale");
+                String describe=resultSet.getString("describes");
+                product=new Product(name,priceProductIn,priceProductOut,image,1,discount,describe);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
 }
