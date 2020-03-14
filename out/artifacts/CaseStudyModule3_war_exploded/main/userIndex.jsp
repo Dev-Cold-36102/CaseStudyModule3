@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
                 <li>
 <%--                    <a href="#" data-toggle="modal" data-target="#myModal1">--%>
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span>${} </a>
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> </a>
                 </li>
                 <li>
                     <a href="/home" data-toggle="modal" data-target="#myModal2">
@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="/checkout" method="post" class="last">
+                    <form action="/checkout?action=viewcart" method="post" class="last">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="display" value="1">
                         <button class="w3view-cart" type="submit" name="submit" value="">

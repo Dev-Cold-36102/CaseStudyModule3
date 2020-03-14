@@ -10,6 +10,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .buttonpayment {
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+            color: gray;
+            background-color: #00ACEE;
+            align-content: center;
+        }
+    </style>
     <title>hoàng ăn cứt | Checkout :: w3layouts</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,12 +85,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal1">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+                    <a href="../main/login.jsp">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng Nhập </a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal2">
-                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                    <a href="../main/signup.jsp">
+                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Ký </a>
                 </li>
             </ul>
             <!-- //header lists -->
@@ -93,7 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="/checkout" method="post" class="last">
+                    <form action="/checkout?action=viewcart" method="post" class="last">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="display" value="1">
                         <button class="w3view-cart" type="submit" name="submit" value="">
@@ -723,9 +737,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //navigation -->
 <!-- banner-2 -->
-<div class="page-head_agile_info_w3l">
 
-</div>
 <!-- //banner-2 -->
 <!-- page -->
 <div class="services-breadcrumb">
@@ -736,18 +748,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="/home">Home</a>
                     <i>|</i>
                 </li>
-                <li>Giỏ Hàng</li>
+                <li>Checkout</li>
             </ul>
         </div>
     </div>
 </div>
 <!-- //page -->
 <!-- checkout page -->
-<div id="warningmaxamount"></div>
+<%--<div id="warningmaxamount"></div>--%>
 <div class="privacy">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Giỏ Hàng
+        <h3 class="tittle-w3l">Checkout
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -757,7 +769,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- //tittle heading -->
 
         <div class="checkout-right">
-            <h4>Giỏ Hàng chứa:
+            <h4>Giỏ Hàng Có:
                 <span id="amountProduct">${listAddToCart.size()} Sản Phẩm</span>
                 <input id="listAddToCart.size" class="hidden" value="${listAddToCart.size()}"/>
                 <%--                <span id="amountProduct"></span>--%>
@@ -780,7 +792,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <c:set var="total" value="0"/>
                     <c:forEach items="${listAddToCart}" var="product">
                         <c:set var="slNo" value="${slNo+1}"/><!--set order -->
-                        <c:set var="total" value="${total+product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}"/>
+                        <c:set var="total"
+                               value="${total+product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"/><!--set order -->
                         <tr class="rem${slNo}">
                             <td class="invert-image">
                                 <a href="/viewsingle?name=${product.getProductName()}">
@@ -792,54 +805,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>
                                 <div align="center" style="padding-left: 10px">
                                     <div class="entry value-minus" style="float: left"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${slNo}','-','total${product.getProductName()}')">
+                                         onclick="setMoney('priceProduct${slNo}','amountProduct${slNo}','totalProduct${slNo}','amountProductInput${slNo}','${slNo}','-')">
                                         <p>-</p>
                                     </div>
                                     <div style="float: left">
-                                        <input oninput="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${slNo}','input','total${product.getProductName()}')"
+                                        <input oninput="setMoney('priceProduct${slNo}','amountProduct${slNo}','totalProduct${slNo}','amountProductInput${slNo}','${slNo}','input')"
                                                style="width: 85px;height: 40px; text-align: center" type="number"
-                                               max="20" min="1" id="amount${product.getProductName()}"
-                                               value="${product.getAmountProduct()}">
+                                               max="20" min="1" id="amountProductInput${slNo}"
+                                               value="${product.getAmountProduct()}"/><!--get amount of product-->
                                     </div>
                                     <div class="entry value-plus active" style="float: right"
-                                         onclick="setMoney('price${product.getProductName()}','amount${product.getProductName()}','${slNo}','+','total${product.getProductName()}')">
+                                         onclick="setMoney('priceProduct${slNo}','amountProduct${slNo}','totalProduct${slNo}','amountProductInput${slNo}','${slNo}','+')">
                                         <p>+</p>
                                     </div>
                                 </div>
                             </td>
                             <td class="invert" style="font-size: 12px">${product.getProductName()}</td>
-                            <input id="price${product.getProductName()}"
-                                   value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
-                                   class="hidden"/> <!-- get price-->
-                            <input id="totalFirst" value="${total}" class="hidden" />
-                            <input id="total${product.getProductName()}"
-                                   value="${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}" class="hidden"/>
                             <td class="invert"
-                                id="${slNo}">${product.getAmountProduct()*(product.getPriceProductOut()*(1-product.getDiscount()/100))}
+                                id="${slNo}">${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}
                                 VND
                             </td>
                             <td class="invert">
                                 <div class="rem">
-                                    <div class="close${slNo}" onclick="setAmountProduct()"></div>
+                                    <form action="/checkout?action=remove" method="post">
+                                    <input type="submit" class="close${slNo}"  name="remove" value="${product.getProductName()}" >
+                                    </form>
                                 </div>
                             </td>
+                            <input id="priceProduct${slNo}"
+                                   value="${product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                                   class="hidden"> <!--get price of product-->
+                            <input id="amountProduct${slNo}" value="${product.getAmountProduct()}"
+                                   class="hidden"> <!--get amount of product-->
+                            <input id="totalProduct${slNo}"
+                                   value="${product.getAmountProduct()*product.getPriceProductOut()*(1-product.getDiscount()/100)}"
+                                   class="hidden"> <!--get total of product-->
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
-                <div id="total" align="right">Tạm Tính : ${total} VND</div>
+                <div id="totalBill" align="right">Tạm Tính: ${total} VND</div> <!-- total bill-->
+                <input id="totalCache" value="${total}" class="hidden"> <!--get totol before changing -->
             </div>
         </div>
         <div class="checkout-left">
             <div class="address_form_agile">
-                <h4>Thông Tin Đặt Hàng</h4>
-                <form action="/checkout?action=payment" method="post">
+                <h4>Thông Tin Thanh Toán</h4>
+                <form action="payment.jsp" method="post" class="creditly-card-form agileinfo_form">
                     <div class="creditly-wrapper wthree, w3_agileits_wrapper">
                         <div class="information-wrapper">
                             <div class="first-row">
                                 <div class="controls">
                                     <input class="billing-address-name" type="text" name="name"
-                                           placeholder="Tên Khách Hàng"
+                                           placeholder="Tên khách hàng"
                                            required="">
                                 </div>
                                 <div class="w3_agileits_card_number_grids">
@@ -850,24 +868,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="w3_agileits_card_number_grid_right">
                                         <div class="controls">
-                                            <input type="text" placeholder="Địa Chỉ" name="address" required="">
+                                            <input type="text" placeholder="Địa chỉ nhận " name="address" required="">
                                         </div>
                                     </div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="controls">
                                     <input type="text"
-                                           placeholder="Ghi Chú(Giao trước mấy giờ, Người nhận thay,...)nếu có"
+                                           placeholder="Ghi chú(Giao hàng trước mấy giờ, người nhận thay,...) nếu có"
                                            name="note">
                                 </div>
                             </div>
-                            <div class="checkout-right-basket">
-                                <button type="submit"
-                                        style="border-radius: 10px;background-color: #1adeed;width: 200px;height: 50px;color: gray;align-content: center">
-                                    Đặt Hàng
-                                    <span class="fa fa-hand-o-right" aria-hidden="true"></span>
-                                </button>
-                            </div>
+                            <span class="fa fa-hand-o-right" aria-hidden="true" style="color: #ac2925"></span>
+                            <button type="submit" class="buttonpayment">Thanh toán</button>
                         </div>
                     </div>
                 </form>
@@ -1248,7 +1261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="copy-right">
     <div class="container">
         <p>© 2017 Grocery Shoppy. All rights reserved | Design by
-            <a href="http://w3layouts.com"> W3layouts.</a>
+            <a href="http://w3layouts.com"> 5ae</a>
         </p>
     </div>
 </div>
@@ -1283,7 +1296,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //popup modal (for signin & signup)-->
 
 <!-- cart-js -->
-<script src="../js/minicart.js"></script>
+<%--<script src="../js/minicart.js"></script>--%>
 <script>
     paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
     paypalm.minicartk.cart.on('checkout', function (evt) {
@@ -1340,6 +1353,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $('.close3').on('click', function (c) {
             $('.rem3').fadeOut('slow', function (c) {
                 $('.rem3').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close4').on('click', function (c) {
+            $('.rem4').fadeOut('slow', function (c) {
+                $('.rem4').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close5').on('click', function (c) {
+            $('.rem5').fadeOut('slow', function (c) {
+                $('.rem5').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close6').on('click', function (c) {
+            $('.rem6').fadeOut('slow', function (c) {
+                $('.rem6').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close7').on('click', function (c) {
+            $('.rem7').fadeOut('slow', function (c) {
+                $('.rem7').remove();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function (c) {
+        $('.close8').on('click', function (c) {
+            $('.rem8').fadeOut('slow', function (c) {
+                $('.rem8').remove();
             });
         });
     });
@@ -1407,7 +1465,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 <script src="../js/setMoney.js"></script>
-<script src="../js/setAmountProduct.js"></script>
+<script src="../js/setAmountProducts.js"></script>
 <script src="../js/AddToCart.js"></script>
 
 

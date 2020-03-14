@@ -807,7 +807,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="grid images_3_of_2">
                 <div class="flexslider">
                     <div class="thumb-image">
-                        <img style="height: " src="../images/se1.jpg" data-imagezoom="true" class="img-responsive"
+                        <img style="height:75px" src="../images/se1.jpg" data-imagezoom="true" class="img-responsive"
                              alt=""></div>
                     <div class="clearfix"></div>
                 </div>
