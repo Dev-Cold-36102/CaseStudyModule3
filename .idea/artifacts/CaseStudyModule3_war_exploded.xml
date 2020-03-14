@@ -8,8 +8,9 @@
           <element id="module-output" name="CaseStudyModule3" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="taglibs-standard-impl-1.2.5" />
           <element id="file-copy" path="$PROJECT_DIR$/../MySQL/mysql-connector-java-8.0.19.jar" />
+          <element id="file-copy" path="D:/taglibs-standard-impl-1.2.5.jar" />
+          <element id="file-copy" path="D:/taglibs-standard-spec-1.2.5.jar" />
         </element>
       </element>
     </root>
