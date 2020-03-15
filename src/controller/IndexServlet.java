@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,6 @@ public class IndexServlet extends HttpServlet {
     private ProductService productService;
     public void init() {
         productService = new ProductService();
-
     }
     protected static List<Product> listAddToCart = new ArrayList<>();
 
@@ -46,22 +44,21 @@ public class IndexServlet extends HttpServlet {
         }
         switch (action) {
             case "search":
-
                 break;
             case "signup":
-                System.out.println("sign up");
-                String userName = request.getParameter("name");
-                String password = request.getParameter("password");
-                String email = request.getParameter("email");
-                System.out.println(userName + " " + password + " " + email);
-                if (productService.checkUserName(userName)) {
-                    System.out.println("tai khoan da ton tai");
-                    request.setAttribute("message", "Tai khoan da ton tai");
-                } else {
-                    User userNew = new User(userName, password, email);
-                    productService.insertUser(userNew);
-                    request.setAttribute("message", "Dang ky thanh cong");
-                }
+//                System.out.println("sign up");
+//                String userName = request.getParameter("name");
+//                String password = request.getParameter("password");
+//                String email = request.getParameter("email");
+//                System.out.println(userName + " " + password + " " + email);
+//                if (productService.checkUserName(userName)) {
+//                    System.out.println("tai khoan da ton tai");
+//                    request.setAttribute("message", "Tai khoan da ton tai");
+//                } else {
+//                    User userNew = new User(userName, password, email);
+//                    productService.insertUser(userNew);
+//                    request.setAttribute("message", "Dang ky thanh cong");
+//                }
 
                 break;
             case "checkout":

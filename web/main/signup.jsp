@@ -38,7 +38,7 @@
                 <input class="text" type="text" name="userName" placeholder="Username" required="">
                 <input class="text email" type="email" name="email" placeholder="Email" required="">
                 <input class="text" type="password" name="password" placeholder="Password" required="">
-                <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+                <input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirm Password" required="">
                 <div class="wthree-text">
                     <label class="anim">
                         <input type="checkbox" class="checkbox" required="">

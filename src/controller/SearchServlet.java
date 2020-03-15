@@ -1,7 +1,6 @@
 package controller;
 
 import model.product.Product;
-import model.user.User;
 import service.ProductService;
 
 import javax.servlet.RequestDispatcher;
@@ -25,32 +24,48 @@ public class SearchServlet extends HttpServlet {
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String nameProductSearch = "%" + request.getParameter("Search") +"%";
-        List<Product> listProductBySearch = productService.getAllProductByName(nameProductSearch);
+        String nameProductSearch = request.getParameter("Search");
+        String VIETNAMESE_DIACRITIC_CHARACTERS
+                = "^[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹA-Za-z]+$";
+        System.out.println(nameProductSearch);
+        String regex = nameProductSearch + "(.*?)";
+        Pattern patternProductName = Pattern.compile(regex);
+        Matcher matcherProductName;
+        List<Product> listProductName = productService.getAllProductByName();
+        System.out.println(listProductName.size());
+        System.out.println(listProductName.get(3).getProductName());
+        System.out.println(listProductName.get(1).getProductName());
+        System.out.println(listProductName.get(33).getProductName());
         String resultToJsp="searchTab/displayProduct.jsp";
         String resultUserToJsp="user/displayProductUser.jsp";
-        System.out.println(listProductBySearch.size());
-
-        if (session.getAttribute("userName")!= null) {
-            if (listProductBySearch.size() == 0) {
+        List<Product> productListSearch = new ArrayList<>();
+        for (int i = 0; i < listProductName.size(); i++) {
+            matcherProductName = patternProductName.matcher(listProductName.get(i).getProductName());
+            if (matcherProductName.matches()) {
+                productListSearch.add(listProductName.get(i));
+                System.out.println(listProductName.get(i).getProductName());
+            }
+        }
+        System.out.println(productListSearch.size());
+        if (session!= null) {
+            if (productListSearch.size() == 0) {
                 request.setAttribute("message", "không tìm thấy mặt hàng phù hợp với từ khóa bạn tìm kiếm.");
-                session.getAttribute("userName");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/trangchu");
                 dispatcher.forward(request, response);
             } else {
-                request.setAttribute("productListSearch", listProductBySearch);
+                request.setAttribute("productListSearch", productListSearch);
                 String showProDuct = "Các Sản Phẩm";
-                action1(request, response, showProDuct, listProductBySearch,resultUserToJsp);
+                action1(request, response, showProDuct, productListSearch,resultUserToJsp);
             }
         }else {
-            if (listProductBySearch.size() == 0) {
+            if (productListSearch.size() == 0) {
                 request.setAttribute("message", "không tìm thấy mặt hàng phù hợp với từ khóa bạn tìm kiếm.");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/home");
                 dispatcher.forward(request, response);
             } else {
-                request.setAttribute("productListSearch", listProductBySearch);
+                request.setAttribute("productListSearch", productListSearch);
                 String showProDuct = "Các Sản Phẩm";
-                action1(request, response, showProDuct, listProductBySearch,resultToJsp);
+                action1(request, response, showProDuct, productListSearch,resultToJsp);
             }
         }
     }

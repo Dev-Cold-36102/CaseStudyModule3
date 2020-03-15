@@ -734,6 +734,7 @@ input.checkbox:checked:after {
     h1 {
         font-size: 1.7em;
         letter-spacing: 0px;
+        color: red;
     }
 
     .main-agileinfo {
