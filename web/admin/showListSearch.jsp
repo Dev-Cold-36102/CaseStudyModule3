@@ -800,7 +800,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="side-bar col-md-3">
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Tìm Kiếm..</h3>
-                <form action="/admin?action=search" method="post">
+                <form action="/admin?action=searchProduct" method="post">
                     <input type="search" placeholder="Tên Sản Phẩm..." name="search" required="">
                     <input type="submit" value=" ">
                 </form>
@@ -812,7 +812,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="/admin?action=addProduct">Thêm Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href="/admin?action=repairProduct">Sửa Sản Phẩm</a>
+                        <a href="/admin?action=searchProduct">Sửa Sản Phẩm</a>
                     </li>
                     <li>
                         <a href="/admin?action=deleteProduct">Xóa Sản Phẩm</a>
@@ -882,7 +882,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- first section (nuts) -->
                 <div class="product-sec1">
                     <h3 class="heading-tittle"></h3>
-                    <c:forEach items="${listSearch}" var="product">
+                    <c:forEach items='${requestScope["listSearch"]}' var="product">
                         <div class="col-md-6 product-men">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
@@ -898,14 +898,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <h5>
                                         <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h5>
+                                    <a name="id">${product.getId()}</a>
                                     <div class="info-product-price">
                                             <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
                                         <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>
                                         <del>${product.getPriceProductOut()}</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                        <form>
-                                            <fieldset>
+                                        <form action="/admin">
+                                                <fieldset>
                                                 <input type="hidden" name="cmd" value="_cart"/>
                                                 <input type="hidden" name="add" value="1"/>
                                                 <input type="hidden" name="business" value=" "/>
@@ -917,10 +918,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <input type="hidden" name="currency_code" value="USD"/>
                                                 <input type="hidden" name="return" value=" "/>
                                                 <input type="hidden" name="cancel_return" value=" "/>
-                                                <input type="hidden" name="item_name"
-                                                       value="${product.getProductCode()}"/>
-                                                <a href="/admin?action=repairProduct">Edit</a>
-                                                <a href="/admin?action=deleteProduct">Delete</a>
+                                                <a href="/admin?action=repairProduct&id=${product.id}">Edit</a>
+                                                <a href="/admin?action=deleteProduct&id=${product.id}">Delete</a>
                                             </fieldset>
                                         </form>
                                     </div>

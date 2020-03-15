@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class AdminServlet extends HttpServlet {
              case "addProduct":
                  addProduct(request,response);
                  break;
-             case "repairProduct":repairProduct(response,request);
+             case "repairProduct":repairProduct(request,response);
                  break;
              case "deleteProduct":
                  break;
@@ -75,7 +76,12 @@ public class AdminServlet extends HttpServlet {
                     break;
                 case "addProduct":showFormAddProduct(request,response);
                     break;
-                case "repairProduct":showFormEdit(request,response);
+                case "repairProduct":
+                    try {
+                        showFormEdit(request,response);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case "deleteProduct":
                     break;
@@ -152,14 +158,16 @@ public class AdminServlet extends HttpServlet {
             dispatcher.forward(request,response);
 
         }
-        private void showFormEdit(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-           String productCode=request.getParameter("productCode");
-            Product product= productService.findByProductCode(productCode);
-            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
+        private void showFormEdit(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException, SQLException {
+           int id=Integer.parseInt(request.getParameter("id"));
+            Product product= productService.findProductById(id);
+            System.out.println(product.getId());
             request.setAttribute("product",product);
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
             dispatcher.forward(request,response);
         }
-        private void repairProduct(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
+        private void repairProduct(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+            int id=Integer.parseInt(String.valueOf(request.getParameter("id")));
             String productName=request.getParameter("name");
             String productType=request.getParameter("productType");
             String hangsx=request.getParameter("hangsx");
@@ -173,7 +181,7 @@ public class AdminServlet extends HttpServlet {
             String hansudung=request.getParameter("hansudung");
             String image=request.getParameter("image");
             String productCode=request.getParameter("productCode");
-            Product newProduct=new Product(productName,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale,productCode);
+            Product newProduct=new Product(id,productName,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale,productCode);
             productService.updateProduct(newProduct);
             RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
             dispatcher.forward(request,response);

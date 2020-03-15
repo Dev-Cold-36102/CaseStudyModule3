@@ -86,6 +86,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="../main/login.jsp">
                         <span class="fa fa-unlock-alt" aria-hidden="true"></span>Xin Chào Admin ^__^</a>
                 </li>
+                <li>
+                    <a href="/home">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span>Đăng Xuất</a>
+                </li>
             </ul>
             <div class="agileits_search">
                 <h3>Xin Chào Admin Hoàng Linh ^_^ !!!</h3>
@@ -795,7 +799,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="side-bar col-md-3">
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Tìm Kiếm..</h3>
-                <form action="/admin?action=search" method="post">
+                <form action="/admin?action=searchProduct" method="post">
                     <input type="search" placeholder="Tên Sản Phẩm..." name="search" required="">
                     <input type="submit" value=" ">
                 </form>
@@ -807,7 +811,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="/admin?action=addProduct">Thêm Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href="/admin?action=repairProduct">Sửa Sản Phẩm</a>
+                        <a href="/admin?action=searchProduct">Sửa Sản Phẩm</a>
                     </li>
                     <li>
                         <a href="/admin?action=deleteProduct">Xóa Sản Phẩm</a>
@@ -877,9 +881,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span style="color: red" class="message">${requestScope["message"]}</span>
                 </c:if>
             </p>
-            <form action="/admin?action=repairProduct" method="post">
+            <form action="/admin?action=repairProduct&id=${product.getId()}" method="post">
                 <div>
                     <table style="border: 1px solid red">
+                        <c:if test="${product != null}">
+                            <input class="hidden" name="id"
+                             value='${product.id}' />
+                        </c:if>
                         <tr>
                             <td style="background: #d8dcff">Tên:</td>
                             <td><input type="text" name="name" placeholder="productName"></td>
@@ -911,8 +919,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <td style="background: #d8dcff">Size:</td>
                             <td><input type="text" name="motasp" placeholder=""></td>
-
-
                         </tr>
                         <tr>
 
@@ -928,7 +934,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </tr>
                         <tr>
                             <td style="background: #d8dcff">Mô Tả</td>
-                            <td colspan="5"><textarea  name="motasp" placeholder="mô tả"></textarea></td>
+                            <td colspan="5"><textarea  name="describes" placeholder="mô tả"></textarea></td>
                         </tr>
                         <tr>
                             <td></td>

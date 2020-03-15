@@ -86,6 +86,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="../main/login.jsp">
                         <span class="fa fa-unlock-alt" aria-hidden="true"></span>Xin Chào Admin ^__^</a>
                 </li>
+                <li>
+                    <a href="/home">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span>Đăng Xuất</a>
+                </li>
             </ul>
             <div class="agileits_search">
                 <h3>Xin Chào Admin Hoàng Linh ^_^ !!!</h3>

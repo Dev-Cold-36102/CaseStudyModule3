@@ -928,14 +928,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </tr>
                     <tr>
                         <td style="background: #d8dcff">Mô Tả</td>
-                        <td colspan="5"><textarea  name="motasp" placeholder="mô tả"></textarea></td>
+                        <td colspan="5"><textarea  name="describes" placeholder="mô tả"></textarea></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
                         <td></td>
 
-                        <td style="text-align: center"><input  type="submit" value="SAVE"></td>
+                        <td style="text-align: center"><input  type="submit" value="add new product"></td>
                     </tr>
                 </table>
             </div>

@@ -26,10 +26,11 @@ public class ProductService implements IproductService {
     private  static final String check_email="select id,userName,pass,email from accounts where email=?;";
     private static final String ADD_NEW_PRODUCT="insert into products(productType,hangsx,xuatxu,amount,sale,priceIn,productName,mota,image,priceOut,describes,hansudung,productCode) values(?,?,?,?,?,?,?,?,?,?,?,?,?);";
     private static final String SELECT_AMOUNT_PRODUCT_BY_NAME="select amount from products where productName=?;";
-    private static final String Update_Product="update products set productType=?,hangsx=?,xuatxu=?,amount=?,sale=?,priceIn=?,productName=?,mota=?,image=?,priceOut=?,describes=?,hansudung=?,productCode=? where productCode=?;";
+    private static final String Update_Product="update products set productType=?,hangsx=?,xuatxu=?,amount=?,sale=?,priceIn=?,productName=?,mota=?,image=?,priceOut=?,describes=?,hansudung=?,productCode=? where id=?;";
     private static final String SELECT_PRODUCT_BY_CODE="select * from products where productCode=?;";
     private static final String Find_product_by_code="select * from products where productCode like ?;";
     private static final String Find_product="select * from products where productCode=?;";
+    private static final String Find_product_byId="select * from products where id=?";
     Connection getConnection() {
         Connection connection = null;
         try {
@@ -248,6 +249,7 @@ public class ProductService implements IproductService {
             ps.setString(1,productCode);
             ResultSet rs=ps.executeQuery();
             while (rs.next()){
+                int id=rs.getInt("id");
                 String name = rs.getString("productName");
                 String image = rs.getString("image");
                 String manufacturer = rs.getString("hangsx");
@@ -260,7 +262,7 @@ public class ProductService implements IproductService {
                 String motasp = rs.getString("mota");
                 int discount =rs.getInt("sale");
                 String productType=rs.getString("productType");
-                listProductByCode.add(new Product(name,productType,manufacturer,placeOfProduct,amountProduct,priceProductIn,
+                listProductByCode.add(new Product(id,name,productType,manufacturer,placeOfProduct,amountProduct,priceProductIn,
                         priceProductOut,describes,image,expirydate,motasp,discount,productCode));
             }
         } catch (SQLException e) {
@@ -271,7 +273,7 @@ public class ProductService implements IproductService {
    public Product findByProductCode(String productCode) {
        Product product = null;
        try (Connection connection = getConnection();
-            PreparedStatement ps = connection.prepareStatement(Find_product);
+            PreparedStatement ps = connection.prepareStatement(Find_product_by_code);
        ) {
            ps.setString(1, productCode);
            ResultSet rs = ps.executeQuery();
@@ -297,8 +299,36 @@ public class ProductService implements IproductService {
        }
        return product;
    }
-       public boolean updateProduct(Product product){
-        boolean rowUpdate=false;
+   public Product findProductById(int id) throws SQLException {
+        Product product=null;
+      try (Connection connection=getConnection();
+       PreparedStatement ps=connection.prepareStatement(Find_product_byId)){
+          ps.setInt(1,id);
+          ResultSet rs= ps.executeQuery();
+          while (rs.next()){
+              String name = rs.getString("productName");
+              String image = rs.getString("image");
+              String manufacturer = rs.getString("hangsx");
+              String placeOfProduct = rs.getString("xuatxu");
+              int amountProduct = rs.getInt("amount");
+              int priceProductIn = rs.getInt("priceIn");
+              int priceProductOut = rs.getInt("priceOut");
+              String describes = rs.getString("describes");
+              String expirydate = rs.getString("hansudung");
+              String motasp = rs.getString("mota");
+              int discount = rs.getInt("sale");
+              String productCode=rs.getString("productCode");
+              String productType = rs.getString("productType");
+               product = new Product(id,name, productType, manufacturer, placeOfProduct, amountProduct, priceProductIn,
+                      priceProductOut, describes, image, expirydate, motasp, discount, productCode);
+          }
+
+      } catch (SQLException e){
+          e.printStackTrace();
+      }
+      return product;
+   }
+       public void updateProduct(Product product){
         try(Connection connection=getConnection();
         PreparedStatement ps=connection.prepareStatement(Update_Product)) {
             ps.setString(1,product.getProductType());
@@ -315,13 +345,12 @@ public class ProductService implements IproductService {
             ps.setString(12,product.getExpirydate());
             ps.setString(13,product.getProductCode());
             ps.setInt(14,product.getId());
-             rowUpdate=ps.executeUpdate()>0;
+            ps.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return rowUpdate;
-   }
+       }
 
 
    public void addNewProduct(Product product){
