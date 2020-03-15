@@ -17,7 +17,6 @@ public class CheckoutServlet extends HttpServlet {
         switch (action) {
             case "remove":
                 String nameProductRemove = request.getParameter("remove");
-                System.out.println(nameProductRemove);
                 for (int i = 0; i < listAddToCart.size(); i++) {
                     if (listAddToCart.get(i).getProductName().equals(nameProductRemove)) {
                         listAddToCart.remove(i);

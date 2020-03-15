@@ -1,4 +1,4 @@
-function setMoney(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProductInput, idDisplayTotalProduct, action) {
+function setMoneys(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProductInput, idDisplayTotalProduct, action, idAmountProductHidden) {
     let priceProduct = Number(document.getElementById(idPriceProduct).value);
     console.log(priceProduct + 1);
     priceProduct = Number(parseInt(priceProduct).toFixed(0));
@@ -36,6 +36,7 @@ function setMoney(idPriceProduct, idAmountProduct, idTotalProduct, idAmountProdu
     document.getElementById(idAmountProductInput).value = amountProduct;
     document.getElementById(idTotalProduct).value = totalProductAfter;
     document.getElementById(idAmountProduct).value = amountProduct;
+    document.getElementById(idAmountProductHidden).value = amountProduct;
     document.getElementById("totalCache").value = totalBillAfter;
     document.getElementById(idDisplayTotalProduct).innerHTML = totalProductAfter + " VND";
     document.getElementById("totalBill").innerHTML = "Tạm Tính: " + totalBillAfter + " VND";
