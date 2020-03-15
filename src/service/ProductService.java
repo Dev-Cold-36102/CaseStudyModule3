@@ -31,6 +31,7 @@ public class ProductService implements IproductService {
     private static final String Find_product_by_code="select * from products where productCode like ?;";
     private static final String Find_product="select * from products where productCode=?;";
     private static final String Find_product_byId="select * from products where id=?";
+    private static final String delete_product="delete from products where id=?";
     Connection getConnection() {
         Connection connection = null;
         try {
@@ -270,35 +271,35 @@ public class ProductService implements IproductService {
         }
         return listProductByCode;
    }
-   public Product findByProductCode(String productCode) {
-       Product product = null;
-       try (Connection connection = getConnection();
-            PreparedStatement ps = connection.prepareStatement(Find_product_by_code);
-       ) {
-           ps.setString(1, productCode);
-           ResultSet rs = ps.executeQuery();
-           while (rs.next()) {
-               String name = rs.getString("productName");
-               String image = rs.getString("image");
-               String manufacturer = rs.getString("hangsx");
-               String placeOfProduct = rs.getString("xuatxu");
-               int amountProduct = rs.getInt("amount");
-               int priceProductIn = rs.getInt("priceIn");
-               int priceProductOut = rs.getInt("priceOut");
-               String describes = rs.getString("describes");
-               String expirydate = rs.getString("hansudung");
-               String motasp = rs.getString("mota");
-               int discount = rs.getInt("sale");
-               int id=rs.getInt("id");
-               String productType = rs.getString("productType");
-               product = new Product(id,name, productType, manufacturer, placeOfProduct, amountProduct, priceProductIn,
-                       priceProductOut, describes, image, expirydate, motasp, discount, productCode);
-           }
-       } catch (SQLException e) {
-           e.printStackTrace();
-       }
-       return product;
-   }
+//   public Product findByProductCode(String productCode) {
+//       Product product = null;
+//       try (Connection connection = getConnection();
+//            PreparedStatement ps = connection.prepareStatement(Find_product_by_code);
+//       ) {
+//           ps.setString(1, productCode);
+//           ResultSet rs = ps.executeQuery();
+//           while (rs.next()) {
+//               String name = rs.getString("productName");
+//               String image = rs.getString("image");
+//               String manufacturer = rs.getString("hangsx");
+//               String placeOfProduct = rs.getString("xuatxu");
+//               int amountProduct = rs.getInt("amount");
+//               int priceProductIn = rs.getInt("priceIn");
+//               int priceProductOut = rs.getInt("priceOut");
+//               String describes = rs.getString("describes");
+//               String expirydate = rs.getString("hansudung");
+//               String motasp = rs.getString("mota");
+//               int discount = rs.getInt("sale");
+//               int id=rs.getInt("id");
+//               String productType = rs.getString("productType");
+//               product = new Product(id,name, productType, manufacturer, placeOfProduct, amountProduct, priceProductIn,
+//                       priceProductOut, describes, image, expirydate, motasp, discount, productCode);
+//           }
+//       } catch (SQLException e) {
+//           e.printStackTrace();
+//       }
+//       return product;
+
    public Product findProductById(int id) throws SQLException {
         Product product=null;
       try (Connection connection=getConnection();
@@ -349,6 +350,13 @@ public class ProductService implements IproductService {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+       }
+       public void deleteProduct(int id) throws SQLException {
+        try(Connection connection=getConnection();
+        PreparedStatement ps=connection.prepareStatement(delete_product);){
+            ps.setInt(1,id);
+            ps.executeUpdate();
         }
        }
 

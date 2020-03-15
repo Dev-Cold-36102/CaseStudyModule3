@@ -33,6 +33,11 @@ public class AdminServlet extends HttpServlet {
              case "repairProduct":repairProduct(request,response);
                  break;
              case "deleteProduct":
+                 try {
+                     deleteProduct(request,response);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
                  break;
              case "searchProduct": showValueOfSearch(request,response);
                  break;
@@ -84,6 +89,11 @@ public class AdminServlet extends HttpServlet {
                     }
                     break;
                 case "deleteProduct":
+                    try {
+                        showFormDelete(request,response);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case "searchProduct":showFormSearch(request,response);
                 default:
@@ -166,6 +176,22 @@ public class AdminServlet extends HttpServlet {
             RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
             dispatcher.forward(request,response);
         }
+        private void showFormDelete(HttpServletRequest request,HttpServletResponse response) throws SQLException, ServletException, IOException {
+            int id=Integer.parseInt(request.getParameter("id"));
+            Product product= productService.findProductById(id);
+            System.out.println(product.getId());
+            request.setAttribute("product",product);
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/deleteProduct.jsp");
+            dispatcher.forward(request,response);
+        }
+        private void deleteProduct(HttpServletRequest request,HttpServletResponse response) throws SQLException, ServletException, IOException {
+            int id=Integer.parseInt(request.getParameter("id"));
+            productService.deleteProduct(id);
+            request.setAttribute("message","Sản Phẩm Đã Xóa Thành Công!!!");
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/showListSearch.jsp");
+            dispatcher.forward(request,response);
+
+        }
         private void repairProduct(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
             int id=Integer.parseInt(String.valueOf(request.getParameter("id")));
             String productName=request.getParameter("name");
@@ -182,9 +208,15 @@ public class AdminServlet extends HttpServlet {
             String image=request.getParameter("image");
             String productCode=request.getParameter("productCode");
             Product newProduct=new Product(id,productName,productType,hangsx,xuatxu,amount,priceIn,priceOut,describes,image,hansudung,mota,sale,productCode);
+            if (productService.checkDuplicateProductCode(productCode)){
+                request.setAttribute("message","Mã Sản Phẩm bị trùng. Vui lòng kiểm tra lại!!!! ");
+                RequestDispatcher dispatcher=request.getRequestDispatcher("admin/showListSearch.jsp");
+                dispatcher.forward(request,response);}
+            else {
             productService.updateProduct(newProduct);
+                request.setAttribute("message","Sản Phẩm Đã sửa Thành Công!!!");
             RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
-            dispatcher.forward(request,response);
+            dispatcher.forward(request,response);}
         }
 
 
