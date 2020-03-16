@@ -10,6 +10,10 @@ html, body{
 	background: #fff;
 	font-family: 'Open Sans', sans-serif;
 }
+img{
+    max-height: 160px;
+    max-width: 160px;
+}
 body a {
 	text-decoration:none;
 	transition:0.5s all;

@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-	<title>Grocery Shoppy an Ecommerce Category Bootstrap Responsive Web Template | Single :: w3layouts</title>
+	<title>Grocery Shoppy an Ecommerce Category Bootstrap Responsive Web Template | Privacy Policy :: w3layouts</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,8 +34,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//pop-up-box-->
 	<!-- price range -->
 	<link rel="stylesheet" type="text/css" href="../css/jquery-ui1.css">
-	<!-- flexslider -->
-	<link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
 	<!-- fonts -->
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 </head>
@@ -52,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- header-bot-->
 			<div class="col-md-4 logo_agile">
 				<h1>
-					<a href="../main/index.jsp">
+					<a href="/home">
 						<span>G</span>rocery
 						<span>S</span>hoppy
 						<img src="../images/logo2.png" alt=" ">
@@ -612,7 +610,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav menu__list">
 								<li>
-									<a class="nav-stylehead" href="../main/index.jsp">Home
+									<a class="nav-stylehead" href="/home">Home
 										<span class="sr-only">(current)</span>
 									</a>
 								</li>
@@ -783,785 +781,99 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="/home">Home</a>
 						<i>|</i>
 					</li>
-					<li>Single Page</li>
+					<li>Privacy Policy</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- //page -->
-	<!-- Single Page -->
-	<div class="banner-bootom-w3-agileits">
-		<div class="container">
-			<!-- tittle heading -->
-			<h3 class="tittle-w3l">Single Page
-				<span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-			</h3>
-			<!-- //tittle heading -->
-			<div class="col-md-5 single-right-left ">
-				<div class="grid images_3_of_2">
-					<div class="flexslider">
-						<ul class="slides">
-							<li data-thumb="images/si.jpg">
-								<div class="thumb-image">
-									<img src="../images/si.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-							</li>
-							<li data-thumb="images/si2.jpg">
-								<div class="thumb-image">
-									<img src="../images/si2.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-							</li>
-							<li data-thumb="images/si3.jpg">
-								<div class="thumb-image">
-									<img src="../images/si3.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-							</li>
-						</ul>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-7 single-right-left simpleCart_shelfItem">
-				<h3>Zeeba Premium Basmati Rice - 5 KG</h3>
-				<div class="rating1">
-					<span class="starRating">
-						<input id="rating5" type="radio" name="rating" value="5">
-						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" checked="">
-						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
-						<label for="rating1">1</label>
+	<!-- Terms of use-section -->
+	<section class="terms-of-use">
+		<!-- terms -->
+		<div class="terms">
+			<div class="container">
+				<!-- tittle heading -->
+				<h3 class="tittle-w3l">Privacy Policy
+					<span class="heading-style">
+						<i></i>
+						<i></i>
+						<i></i>
 					</span>
-				</div>
-				<p>
-					<span class="item_price">$950.00</span>
-					<del>$1300.00</del>
-					<label>Free delivery</label>
+				</h3>
+				<!-- //tittle heading -->
+				<h6>Privacy Policy</h6>
+				<p>We value the trust you place in us. That's why we insist upon the highest standards for secure transactions and customer
+					information privacy. Please read the following statement to learn about our information gathering and dissemination
+					practices.
 				</p>
-				<div class="single-infoagile">
-					<ul>
-						<li>
-							Cash on Delivery Eligible.
-						</li>
-						<li>
-							Shipping Speed to Delivery.
-						</li>
-						<li>
-							Sold and fulfilled by Supple Tek (3.6 out of 5 | 8 ratings).
-						</li>
-						<li>
-							1 offer from
-							<span class="item_price">$950.00</span>
-						</li>
-					</ul>
-				</div>
-				<div class="product-single-w3l">
-					<p>
-						<i class="fa fa-hand-o-right" aria-hidden="true"></i>This is a
-						<label>Vegetarian</label> product.</p>
-					<ul>
-						<li>
-							Best for Biryani and Pulao.
-						</li>
-						<li>
-							After cooking, Zeeba Basmati rice grains attain an extra ordinary length of upto 2.4 cm/~1 inch.
-						</li>
-						<li>
-							Zeeba Basmati rice adheres to the highest food afety standards as your health is paramount to us.
-						</li>
-						<li>
-							Contains only the best and purest grade of basmati rice grain of Export quality.
-						</li>
-					</ul>
-					<p>
-						<i class="fa fa-refresh" aria-hidden="true"></i>All food products are
-						<label>non-returnable.</label>
-					</p>
-				</div>
-				<div class="occasion-cart">
-					<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-						<form action="#" method="post">
-							<fieldset>
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="Zeeba Premium Basmati Rice - 5 KG" />
-								<input type="hidden" name="amount" value="950.00" />
-								<input type="hidden" name="discount_amount" value="1.00" />
-								<input type="hidden" name="currency_code" value="USD" />
-								<input type="hidden" name="return" value=" " />
-								<input type="hidden" name="cancel_return" value=" " />
-								<input type="submit" name="submit" value="Add to cart" class="button" />
-							</fieldset>
-						</form>
-					</div>
+				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+					modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
 
-				</div>
+				<h6>Personally Identifiable Information and other Information</h6>
+				<p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+					middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
+				<p>first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
+					sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free
+					from repetition, injected humour</p>
 
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-	<!-- //Single Page -->
-	<!-- special offers -->
-	<div class="featured-section" id="projects">
-		<div class="container">
-			<!-- tittle heading -->
-			<h3 class="tittle-w3l">Add More
-				<span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-			</h3>
-			<!-- //tittle heading -->
-			<div class="content-bottom-in">
-				<ul id="flexiselDemo1">
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
-									<img src="../images/s1.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtrongshop.jsp">Aashirvaad, 5g</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$220.00</h6>
-									<p>Save $40.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Aashirvaad, 5g" />
-											<input type="hidden" name="amount" value="220.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
-									<img src="../images/s4.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtrongshop.jsp">Kissan Tomato Ketchup, 950g</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$99.00</h6>
-									<p>Save $20.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Kissan Tomato Ketchup, 950g" />
-											<input type="hidden" name="amount" value="99.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
-									<img src="../images/s2.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtrongshop.jsp">Madhur Pure Sugar, 1g</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$69.00</h6>
-									<p>Save $20.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Madhur Pure Sugar, 1g" />
-											<input type="hidden" name="amount" value="69.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtronggio.jsp">
-									<img src="../images/s3.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtronggio.jsp">Surf Excel Liquid, 1.02L</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$187.00</h6>
-									<p>Save $30.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Surf Excel Liquid, 1.02L" />
-											<input type="hidden" name="amount" value="187.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
-									<img src="../images/s8.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtrongshop.jsp">Cadbury Choclairs, 655.5g</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$160.00</h6>
-									<p>Save $60.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Cadbury Choclairs, 655.5g" />
-											<input type="hidden" name="amount" value="160.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtronggio.jsp">
-									<img src="../images/s6.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtronggio.jsp">Fair & Lovely, 80 g</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$121.60</h6>
-									<p>Save $30.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Fair & Lovely, 80 g" />
-											<input type="hidden" name="amount" value="121.60" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtrongshop.jsp">
-									<img src="../images/s5.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtrongshop.jsp">Sprite, 2.25L (Pack of 2)</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$180.00</h6>
-									<p>Save $30.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Sprite, 2.25L (Pack of 2)" />
-											<input type="hidden" name="amount" value="180.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="sanphamtronggio.jsp">
-									<img src="../images/s9.jpg" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="sanphamtronggio.jsp">Lakme Eyeconic Kajal, 0.35 g</a>
-								</h4>
-								<div class="w3l-pricehkj">
-									<h6>$153.00</h6>
-									<p>Save $40.00</p>
-								</div>
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Lakme Eyeconic Kajal, 0.35 g" />
-											<input type="hidden" name="amount" value="153.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
+				<h6>Security Precautions</h6>
+				<p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
+					by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The
+					first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+				<p>Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
+					a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+					Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum"</p>
+
+				<h6>What Information Can I Access?</h6>
+				<p> Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+					Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+				<p> Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The
+					generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+				<h6> Advertisements on Grocery Shoppy</h6>
+				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+					by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage
+					of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+					generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the
+					Internet.
+				</p>
+
+				<h6>Your Consent</h6>
+				<ol start="1">
+					<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.it has a more-or-less normal distribution
+						of letters, as opposed Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</li>
+					<li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+						eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+						voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores</li>
+					<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.it has a more-or-less normal distribution
+						of letters, as opposed Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</li>
+				</ol>
+				<h6>Policy updates</h6>
+				<p> you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on
+					the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It
+					uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures</p>
 			</div>
 		</div>
-	</div>
-	<!-- //special offers -->
+		<!-- /terms -->
+	</section>
+	<!-- //Terms of use-section -->
+
 
 	<!-- newsletter -->
 	<div class="footer-top">
-		<div class="container-fluid">
-			<div class="col-xs-8 agile-leftmk">
-				<h2>Get your Groceries delivered from local stores</h2>
-				<p>Free Delivery on your first order!</p>
-				<form action="#" method="post">
-					<input type="email" placeholder="E-mail" name="email" required="">
-					<input type="submit" value="Subscribe">
-				</form>
-				<div class="newsform-w3l">
-					<span class="fa fa-envelope-o" aria-hidden="true"></span>
-				</div>
-			</div>
-			<div class="col-xs-4 w3l-rightmk">
-				<img src="../images/tab3.png" alt=" ">
-			</div>
-			<div class="clearfix"></div>
-		</div>
+		<jsp:include page="../main/footer/footer-top.jsp"></jsp:include>
 	</div>
 	<!-- //newsletter -->
 	<!-- footer -->
 	<footer>
-		<div class="container">
-			<!-- footer first section -->
-			<p class="footer-main">
-				<span>"Grocery Shoppy"</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-				magni dolores eos qui ratione voluptatem sequi nesciunt.Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-				accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-				beatae vitae dicta sunt explicabo.</p>
-			<!-- //footer first section -->
-			<!-- footer second section -->
-			<div class="w3l-grids-footer">
-				<div class="col-xs-4 offer-footer">
-					<div class="col-xs-4 icon-fot">
-						<span class="fa fa-map-marker" aria-hidden="true"></span>
-					</div>
-					<div class="col-xs-8 text-form-footer">
-						<h3>Track Your Order</h3>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-xs-4 offer-footer">
-					<div class="col-xs-4 icon-fot">
-						<span class="fa fa-refresh" aria-hidden="true"></span>
-					</div>
-					<div class="col-xs-8 text-form-footer">
-						<h3>Free & Easy Returns</h3>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-xs-4 offer-footer">
-					<div class="col-xs-4 icon-fot">
-						<span class="fa fa-times" aria-hidden="true"></span>
-					</div>
-					<div class="col-xs-8 text-form-footer">
-						<h3>Online cancellation </h3>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<!-- //footer second section -->
-			<!-- footer third section -->
-			<div class="footer-info w3-agileits-info">
-				<!-- footer categories -->
-				<div class="col-sm-5 address-right">
-					<div class="col-xs-6 footer-grids">
-						<h3>Categories</h3>
-						<ul>
-							<li>
-								<a href="product.jsp">Grocery</a>
-							</li>
-							<li>
-								<a href="product.jsp">Fruits</a>
-							</li>
-							<li>
-								<a href="product.jsp">Soft Drinks</a>
-							</li>
-							<li>
-								<a href="product2.jsp">Dishwashers</a>
-							</li>
-							<li>
-								<a href="product.jsp">Biscuits & Cookies</a>
-							</li>
-							<li>
-								<a href="product2.jsp">Baby Diapers</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-6 footer-grids agile-secomk">
-						<ul>
-							<li>
-								<a href="product.jsp">Snacks & Beverages</a>
-							</li>
-							<li>
-								<a href="product.jsp">Bread & Bakery</a>
-							</li>
-							<li>
-								<a href="product.jsp">Sweets</a>
-							</li>
-							<li>
-								<a href="product.jsp">Chocolates & Biscuits</a>
-							</li>
-							<li>
-								<a href="product2.jsp">Personal Care</a>
-							</li>
-							<li>
-								<a href="product.jsp">Dried Fruits & Nuts</a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<!-- //footer categories -->
-				<!-- quick links -->
-				<div class="col-sm-5 address-right">
-					<div class="col-xs-6 footer-grids">
-						<h3>Quick Links</h3>
-						<ul>
-							<li>
-								<a href="about.jsp">About Us</a>
-							</li>
-							<li>
-								<a href="contact.jsp">Contact Us</a>
-							</li>
-							<li>
-								<a href="help.jsp">Help</a>
-							</li>
-							<li>
-								<a href="faqs.jsp">Faqs</a>
-							</li>
-							<li>
-								<a href="terms.jsp">Terms of use</a>
-							</li>
-							<li>
-								<a href="privacy.jsp">Privacy Policy</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-xs-6 footer-grids">
-						<h3>Get in Touch</h3>
-						<ul>
-							<li>
-								<i class="fa fa-map-marker"></i> 123 Sebastian, USA.</li>
-							<li>
-								<i class="fa fa-mobile"></i> 333 222 3333 </li>
-							<li>
-								<i class="fa fa-phone"></i> +222 11 4444 </li>
-							<li>
-								<i class="fa fa-envelope-o"></i>
-								<a href="mailto:example@mail.com"> mail@example.com</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- //quick links -->
-				<!-- social icons -->
-				<div class="col-sm-2 footer-grids  w3l-socialmk">
-					<h3>Follow Us on</h3>
-					<div class="social">
-						<ul>
-							<li>
-								<a class="icon fb" href="#">
-									<i class="fa fa-facebook"></i>
-								</a>
-							</li>
-							<li>
-								<a class="icon tw" href="#">
-									<i class="fa fa-twitter"></i>
-								</a>
-							</li>
-							<li>
-								<a class="icon gp" href="#">
-									<i class="fa fa-google-plus"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="agileits_app-devices">
-						<h5>Download the App</h5>
-						<a href="#">
-							<img src="../images/1.png" alt="">
-						</a>
-						<a href="#">
-							<img src="../images/2.png" alt="">
-						</a>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<!-- //social icons -->
-				<div class="clearfix"></div>
-			</div>
-			<!-- //footer third section -->
-			<!-- footer fourth section (text) -->
-			<div class="agile-sometext">
-				<div class="sub-some">
-					<h5>Online Grocery Shopping</h5>
-					<p>Order online. All your favourite products from the low price online supermarket for grocery home delivery in Delhi,
-						Gurgaon, Bengaluru, Mumbai and other cities in India. Lowest prices guaranteed on Patanjali, Aashirvaad, Pampers, Maggi,
-						Saffola, Huggies, Fortune, Nestle, Amul, MamyPoko Pants, Surf Excel, Ariel, Vim, Haldiram's and others.</p>
-				</div>
-				<div class="sub-some">
-					<h5>Shop online with the best deals & offers</h5>
-					<p>Now Get Upto 40% Off On Everyday Essential Products Shown On The Offer Page. The range includes Grocery, Personal Care,
-						Baby Care, Pet Supplies, Healthcare and Other Daily Need Products. Discount May Vary From Product To Product.</p>
-				</div>
-				<!-- brands -->
-				<div class="sub-some">
-					<h5>Popular Brands</h5>
-					<ul>
-						<li>
-							<a href="product.jsp">Aashirvaad</a>
-						</li>
-						<li>
-							<a href="product.jsp">Amul</a>
-						</li>
-						<li>
-							<a href="product.jsp">Bingo</a>
-						</li>
-						<li>
-							<a href="product.jsp">Boost</a>
-						</li>
-						<li>
-							<a href="product.jsp">Durex</a>
-						</li>
-						<li>
-							<a href="product.jsp"> Maggi</a>
-						</li>
-						<li>
-							<a href="product.jsp">Glucon-D</a>
-						</li>
-						<li>
-							<a href="product.jsp">Horlicks</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Head & Shoulders</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Dove</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Dettol</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Dabur</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Colgate</a>
-						</li>
-						<li>
-							<a href="product.jsp">Coca-Cola</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Closeup</a>
-						</li>
-						<li>
-							<a href="product2.jsp"> Cinthol</a>
-						</li>
-						<li>
-							<a href="product.jsp">Cadbury</a>
-						</li>
-						<li>
-							<a href="product.jsp">Bru</a>
-						</li>
-						<li>
-							<a href="product.jsp">Bournvita</a>
-						</li>
-						<li>
-							<a href="product.jsp">Tang</a>
-						</li>
-						<li>
-							<a href="product.jsp">Pears</a>
-						</li>
-						<li>
-							<a href="product.jsp">Oreo</a>
-						</li>
-						<li>
-							<a href="product.jsp"> Taj Mahal</a>
-						</li>
-						<li>
-							<a href="product.jsp">Sprite</a>
-						</li>
-						<li>
-							<a href="product.jsp">Thums Up</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Fair & Lovely</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Lakme</a>
-						</li>
-						<li>
-							<a href="product.jsp">Tata</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Sunfeast</a>
-						</li>
-						<li>
-							<a href="product2.jsp">Sunsilk</a>
-						</li>
-						<li>
-							<a href="product.jsp">Patanjali</a>
-						</li>
-						<li>
-							<a href="product.jsp">MTR</a>
-						</li>
-						<li>
-							<a href="product.jsp">Kissan</a>
-						</li>
-						<li>
-							<a href="product2.jsp"> Lipton</a>
-						</li>
-					</ul>
-				</div>
-				<!-- //brands -->
-				<!-- payment -->
-				<div class="sub-some child-momu">
-					<h5>Payment Method</h5>
-					<ul>
-						<li>
-							<img src="../images/pay2.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay5.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay1.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay4.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay6.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay3.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay7.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay8.png" alt="">
-						</li>
-						<li>
-							<img src="../images/pay9.png" alt="">
-						</li>
-					</ul>
-				</div>
-				<!-- //payment -->
-			</div>
-			<!-- //footer fourth section (text) -->
-		</div>
+
+		<jsp:include page="../main/footer/footer-bot.jsp"></jsp:include>
+
 	</footer>
 	<!-- //footer -->
 	<!-- copyright -->
 	<div class="copy-right">
-		<div class="container">
-			<p>© 2017 Grocery Shoppy. All rights reserved | Design by
-				<a href="http://w3layouts.com"> W3layouts.</a>
-			</p>
-		</div>
+		<jsp:include page="../main/footer/copy-right.jsp"></jsp:include>
 	</div>
 	<!-- //copyright -->
 
@@ -1675,54 +987,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
-
-	<!-- imagezoom -->
-	<script src="../js/imagezoom.js"></script>
-	<!-- //imagezoom -->
-
-	<!-- FlexSlider -->
-	<script src="../js/jquery.flexslider.js"></script>
-	<script>
-		// Can also be used with $(document).ready()
-		$(window).load(function () {
-			$('.flexslider').flexslider({
-				animation: "slide",
-				controlNav: "thumbnails"
-			});
-		});
-	</script>
-	<!-- //FlexSlider-->
-
-	<!-- flexisel (for special offers) -->
-	<script src="../js/jquery.flexisel.js"></script>
-	<script>
-		$(window).load(function () {
-			$("#flexiselDemo1").flexisel({
-				visibleItems: 3,
-				animationSpeed: 1000,
-				autoPlay: true,
-				autoPlaySpeed: 3000,
-				pauseOnHover: true,
-				enableResponsiveBreakpoints: true,
-				responsiveBreakpoints: {
-					portrait: {
-						changePoint: 480,
-						visibleItems: 1
-					},
-					landscape: {
-						changePoint: 640,
-						visibleItems: 2
-					},
-					tablet: {
-						changePoint: 768,
-						visibleItems: 2
-					}
-				}
-			});
-
-		});
-	</script>
-	<!-- //flexisel (for special offers) -->
 
 	<!-- for bootstrap working -->
 	<script src="../js/bootstrap.js"></script>

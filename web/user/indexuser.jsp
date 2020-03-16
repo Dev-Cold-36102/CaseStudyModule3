@@ -73,11 +73,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
                 <li>
-                    <a href="../user/indexuser.jsp">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Xin Chào ${user.getUserName()} </a>
+                    <a href="/home">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Xin Chào ${userName} </a>
                 </li>
                 <li>
-                    <a href="/home">
+                    <a href="/logout">
                         <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng Xuất </a>
                 </li>
             </ul>
