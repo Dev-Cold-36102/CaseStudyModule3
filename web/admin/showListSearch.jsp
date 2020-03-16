@@ -799,15 +799,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- product left -->
         <div class="side-bar col-md-3">
             <div class="search-hotel">
-                <h3 class="agileits-sear-head">Tìm Kiếm..</h3>
-                <form action="/admin?action=searchProduct" method="post">
-                    <input type="search" placeholder="Tên Sản Phẩm..." name="search" required="">
-                    <input type="submit" value=" ">
-                </form>
+
             </div>
             <div class="left-side">
                 <h3 class="agileits-sear-head">Thao Tác Admin!</h3>
                 <ul>
+                    <li>
+                        <a href="/admin?action=searchProduct">Tìm Kiếm Theo Mã SP</a>
+                    </li>
                     <li>
                         <a href="/admin?action=addProduct">Thêm Sản Phẩm</a>
                     </li>
@@ -816,6 +815,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     <li>
                         <a href="/admin?action=searchProduct">Xóa Sản Phẩm</a>
+                    </li>
+                    <li>
+                        <a href="/admin?action=manageProduct">Quản Lí Sản Phẩm</a>
+                    </li>
+                    <li>
+                        <a href="/admin?action=manageAccount">Quản Lí Tài Khoản</a>
                     </li>
                 </ul>
             </div>
@@ -896,9 +901,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="item-info-product ">
                                     <h5>
-                                        <a href="../main/single.jsp">${product.getProductName()}</a>
+                                        name: <a href="../main/single.jsp">${product.getProductName()}</a>
                                     </h5>
-                                    <a name="id">${product.getId()}</a>
+                                    <h5>
+                                        code: <a href="../main/single.jsp">${product.getProductCode()}</a>
+                                    </h5>
+                                    id: <a name="id">${product.getId()}</a>
                                     <div class="info-product-price">
                                             <%--                                            <span class="item_price">${product.getPriceProductOut()}*(1-${product.getDiscount()}%/100)</span>--%>
                                         <span class="item_price">${product.getPriceProductOut()*(1-product.getDiscount()/100)}</span>

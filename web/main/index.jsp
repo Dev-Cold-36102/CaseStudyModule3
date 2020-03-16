@@ -648,7 +648,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-4 multi-gd-img">
-                                            <form action="/home" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li name="">
                                                         <a href="/home?action=banhkeo">Bánh,Kẹo</a>
@@ -661,7 +660,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </li>
                                                 </ul>
                                                 </select>
-                                            </form>
                                         </div>
                                         <div class="col-sm-4 multi-gd-img">
 
@@ -681,14 +679,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <div class="agile_inner_drop_nav_info">
                                         <div class="col-sm-6 multi-gd-img">
-                                            <form action="/home" method="post">
                                                 <ul class="multi-column-dropdown">
                                                     <li>
                                                         <a href="/home?action=bim">Bỉm Và Sữa</a>
                                                     </li>
                                                 </ul>
 
-                                            </form>
                                         </div>
                                         <div class="col-sm-6 multi-gd-img">
 

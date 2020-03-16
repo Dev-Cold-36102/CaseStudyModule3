@@ -30,8 +30,10 @@ public class ProductService implements IproductService {
     private static final String SELECT_PRODUCT_BY_CODE="select * from products where productCode=?;";
     private static final String Find_product_by_code="select * from products where productCode like ?;";
     private static final String Find_product="select * from products where productCode=?;";
-    private static final String Find_product_byId="select * from products where id=?";
-    private static final String delete_product="delete from products where id=?";
+    private static final String Find_product_byId="select * from products where id=?;";
+    private static final String delete_product="delete from products where id=?;";
+    private static final String show_all_product="select * from products;";
+    private static final String show_all_user="select *from accounts;";
     Connection getConnection() {
         Connection connection = null;
         try {
@@ -263,8 +265,10 @@ public class ProductService implements IproductService {
                 String motasp = rs.getString("mota");
                 int discount =rs.getInt("sale");
                 String productType=rs.getString("productType");
+                String Code=rs.getString("productCode");
+
                 listProductByCode.add(new Product(id,name,productType,manufacturer,placeOfProduct,amountProduct,priceProductIn,
-                        priceProductOut,describes,image,expirydate,motasp,discount,productCode));
+                        priceProductOut,describes,image,expirydate,motasp,discount,Code));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -359,7 +363,51 @@ public class ProductService implements IproductService {
             ps.executeUpdate();
         }
        }
-
+       public List<User> showAllUser(){
+                List<User> userList=new ArrayList<>();
+                try (Connection connection=getConnection();
+                PreparedStatement ps=connection.prepareStatement(show_all_user)){
+                    ResultSet rs=ps.executeQuery();
+                    while (rs.next()){
+                        int id=rs.getInt("id");
+                        String userName=rs.getString("userName");
+                        String pass=rs.getString("pass");
+                        String email=rs.getString("email");
+                        userList.add(new User(id,userName,pass,email));
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+               return userList;
+       }
+       public List<Product> showAllProduct(){
+          List<Product> productList=new ArrayList<>();
+          try (Connection connection=getConnection();
+          PreparedStatement ps=connection.prepareStatement(show_all_product)){
+           ResultSet rs=ps.executeQuery();
+           while (rs.next()){
+             int id=rs.getInt("id");
+               String name = rs.getString("productName");
+               String image = rs.getString("image");
+               String manufacturer = rs.getString("hangsx");
+               String placeOfProduct = rs.getString("xuatxu");
+               int amountProduct = rs.getInt("amount");
+               int priceProductIn = rs.getInt("priceIn");
+               int priceProductOut = rs.getInt("priceOut");
+               String describes = rs.getString("describes");
+               String expirydate = rs.getString("hansudung");
+               String motasp = rs.getString("mota");
+               int discount = rs.getInt("sale");
+               String productCode=rs.getString("productCode");
+               String productType = rs.getString("productType");
+               productList.add(new Product(id,name, productType, manufacturer, placeOfProduct, amountProduct, priceProductIn,
+                       priceProductOut, describes, image, expirydate, motasp, discount, productCode));
+           }
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
+          return productList;
+       }
 
    public void addNewProduct(Product product){
         try(Connection connection=getConnection();
@@ -384,4 +432,5 @@ public class ProductService implements IproductService {
         }
 
    }
+
 }

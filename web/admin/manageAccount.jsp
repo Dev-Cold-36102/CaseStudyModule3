@@ -787,7 +787,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="ads-grid">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Sửa Sản Phẩm !!!
+        <h3 class="tittle-w3l">Các sản Phẩm Trong Kho!!!
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -886,68 +886,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span style="color: red" class="message">${requestScope["message"]}</span>
                 </c:if>
             </p>
-            <form action="/admin?action=repairProduct&id=${product.getId()}" method="post">
+            <form>
                 <div>
                     <table style="border: 1px solid red">
-                        <c:if test="${product != null}">
-                            <input class="hidden" name="id"
-                             value='${product.id}' />
-                        </c:if>
-                        <tr>
-                            <td style="background: #d8dcff">Tên:</td>
-                            <td><input type="text" name="name" placeholder="productName"></td>
-
-                            <td style="background: #d8dcff">Nhóm:</td>
-                            <td><input type="text" name="productType" placeholder="productType"></td>
-
-                            <td style="background: #d8dcff">hãng:</td>
-                            <td><input type="text" name="hangsx" placeholder="hangsx"></td>
-
-                        </tr>
-                        <tr>
-                            <td style="background: #d8dcff">Xuất xứ:</td>
-                            <td><input type="text" name="xuatxu" placeholder="địa chỉ sản xuất"></td>
-
-                            <td style="background: #d8dcff">số lượng:</td>
-                            <td><input type="number" name="amount" placeholder="amount"></td>
-
-                            <td style="background: #d8dcff">sale:</td>
-                            <td><input type="number" name="sale" placeholder="sale"></td>
-
-                        </tr>
-                        <tr>
-                            <td style="background: #d8dcff">giá nhập:</td>
-                            <td><input type="number" name="priceIn" placeholder="priceIn"></td>
-
-                            <td style="background: #d8dcff">giá bán:</td>
-                            <td><input type="number" name="priceOut" placeholder="priceOut"></td>
-
-                            <td style="background: #d8dcff">Size:</td>
-                            <td><input type="text" name="motasp" placeholder=""></td>
-                        </tr>
-                        <tr>
-
-                            <td style="background: #d8dcff">Hạn SD:</td>
-                            <td><input type="text" name="hansudung" placeholder="yyyy/mm/dd"></td>
-
-                            <td style="background: #d8dcff">Hình ảnh:</td>
-                            <td><input type="text" name="image" placeholder="image"></td>
-
-
-                            <td style="background: #d8dcff">Mã SP</td>
-                            <td><input name="productCode"  placeholder="productCode"></td>
-                        </tr>
-                        <tr>
-                            <td style="background: #d8dcff">Mô Tả</td>
-                            <td colspan="5"><textarea  name="describes" placeholder="mô tả"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-                            <td style="text-align: center"><input  type="submit" value="SAVE"></td>
-                        </tr>
+                        <c:forEach items="${userList}" var="user">
+                            <tr>
+                                <td style="background: #d8dcff">id:</td>
+                                <td>${user.getIdAccountType()}</td>
+                                <td style="background: #d8dcff">User:</td>
+                                <td>${user.getUserName()}</td>
+                                <td style="background: #d8dcff">Pass</td>
+                                <td>${user.getPassword()}</td>
+                                <td style="background: #d8dcff">Email:</td>
+                                <td>${user.getEmail()}</td>
+                            </tr>
+                        </c:forEach>
                     </table>
                 </div>
             </form>
@@ -1186,3 +1139,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
+

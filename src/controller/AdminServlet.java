@@ -1,6 +1,7 @@
 package controller;
 
 import model.product.Product;
+import model.user.User;
 import service.ProductService;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -96,19 +97,28 @@ public class AdminServlet extends HttpServlet {
                     }
                     break;
                 case "searchProduct":showFormSearch(request,response);
+                break;
+                case "manageProduct":manageProduct(request,response);
+                break;
+                case "manageAccount":manageAccount(request,response);
+                    break;
                 default:
                     String productType = "đồ cho trẻ";
                     List<Product> productList = productService.productList(productType);
                     request.setAttribute("productList", productList);
+
                     String productType1 = "đồ dùng cá nhân";
                     List<Product> personalCare = productService.productList(productType1);
                     request.setAttribute("personalCare", personalCare);
+
                     String productType2 = "đồ ăn";
                     List<Product> foodList = productService.productList(productType2);
                     request.setAttribute("foodList", foodList);
+
                     String productType3 = "đồ dùng cá nhân";
                     List<Product> hotProduct = productService.productListHot(productType3);
                     request.setAttribute("hotProduct", hotProduct);
+
                     RequestDispatcher dispatcher = request.getRequestDispatcher("admin/indexAdmin.jsp");
                     dispatcher.forward(request, response);
             }
@@ -217,6 +227,19 @@ public class AdminServlet extends HttpServlet {
                 request.setAttribute("message","Sản Phẩm Đã sửa Thành Công!!!");
             RequestDispatcher dispatcher=request.getRequestDispatcher("admin/repairProduct.jsp");
             dispatcher.forward(request,response);}
+        }
+        private void manageProduct(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+            List<Product> productList=productService.showAllProduct();
+            request.setAttribute("productList",productList);
+            System.out.println(productList.size());
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/manageProduct.jsp");
+            dispatcher.forward(request,response);
+        }
+        private void manageAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            List<User> userList=productService.showAllUser();
+            request.setAttribute("userList",userList);
+            RequestDispatcher dispatcher=request.getRequestDispatcher("admin/manageAccount.jsp");
+            dispatcher.forward(request,response);
         }
 
 

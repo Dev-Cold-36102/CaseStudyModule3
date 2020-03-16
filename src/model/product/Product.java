@@ -104,6 +104,12 @@ public class Product {
         this.discount=discount;
 
     }
+    public Product(int id,String productName,String productCode,int amountProduct){
+        this.id=id;
+        this.productName=productName;
+        this.amountProduct=amountProduct;
+        this.productCode=productCode;
+    }
 
     public Product(String productName, int priceProductIn, int priceProductOut, String image) {
         this.productName=productName;

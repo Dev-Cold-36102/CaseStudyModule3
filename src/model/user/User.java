@@ -28,6 +28,12 @@ public class User {
         this.password = password;
         this.email = email;
     }
+    public User(int idAccountType,String userName, String password, String email) {
+        this.idAccountType=idAccountType;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+    }
 
 
     public String getUserName() {

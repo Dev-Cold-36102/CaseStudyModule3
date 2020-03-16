@@ -30,10 +30,12 @@ public class ViewProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productName=request.getParameter("name");
         Product product = productService.selectProduct(productName);
+
         String productType3 = "đồ dùng cá nhân";
         List<Product> hotProduct = productService.productListHot(productType3);
         request.setAttribute("hotProduct", hotProduct);
         request.setAttribute("product",product);
+
         RequestDispatcher dispatcher=request.getRequestDispatcher("main/viewsingle.jsp");
         dispatcher.forward(request,response);
 
